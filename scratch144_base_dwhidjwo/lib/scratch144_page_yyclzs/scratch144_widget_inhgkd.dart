@@ -6,13 +6,13 @@ import 'package:get/get.dart';
 abstract class Scratch144WidgetInhgkd<T extends Scratch144ConSspacr>
     extends StatelessWidget {
   var _init = true;
-  late T scratch144wjbgnj;
+  late T scratch144Controllerwjbgnj;
   late BuildContext ctx;
 
   @override
   Widget build(BuildContext context) {
     if (_init) {
-      scratch144wjbgnj = Get.put(scratch144_init_con_djqgmr());
+      scratch144Controllerwjbgnj = Get.put(scratch144_init_con_djqgmr());
       _init = false;
     }
     ctx = context;
