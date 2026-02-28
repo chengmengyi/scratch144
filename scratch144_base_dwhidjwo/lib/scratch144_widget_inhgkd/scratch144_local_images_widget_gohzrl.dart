@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
-class Scratch144luxxan extends StatelessWidget {
-  String scratch144trrwib;
-  double? scratch144cpygxw;
-  double? scratch144vnnnnq;
+class Scratch144LocalImagesWidgetGohzrl extends StatelessWidget {
+  String scratch144Nametrrwib;
+  double? scratch144Widthcpygxw;
+  double? scratch144Heightvnnnnq;
   BoxFit? boxFit;
-  Scratch144luxxan({
-    required this.scratch144trrwib,
-    required this.scratch144cpygxw,
-    required this.scratch144vnnnnq,
+  Scratch144LocalImagesWidgetGohzrl({
+    required this.scratch144Nametrrwib,
+    required this.scratch144Widthcpygxw,
+    required this.scratch144Heightvnnnnq,
     this.boxFit,
   });
 
   Widget scratch144_build_local_image_akdhtx(BuildContext context) =>
       Image.asset(
-        "assets/scratch144bsbzmv/$scratch144trrwib.webp",
-        width: scratch144cpygxw,
-        height: scratch144vnnnnq,
+        "assets/scratch144bsbzmv/$scratch144Nametrrwib.webp",
+        width: scratch144Widthcpygxw,
+        height: scratch144Heightvnnnnq,
         fit: boxFit ?? BoxFit.fill,
       );
 

@@ -6,9 +6,16 @@ import 'package:scratch144_base_dwhidjwo/scratch144_scratch_card_rnqkxm/scratch1
 
 class Scratch144AaaHomePageDjhwijdowm
     extends Scratch144WidgetInhgkd<Scratch144AaaHomeControllerDjwidow> {
+  Scratch144AaaHomePageDjhwijdowm({
+    this.scratch144_aaa_reveal_threshold_jfudce = 0.84,
+  });
+
+  final double? scratch144_aaa_reveal_threshold_jfudce;
   final Scratch144ScratchCardControllerPwsltd
   scratch144_aaa_card_controller_wcxpzn =
       Scratch144ScratchCardControllerPwsltd();
+  final double scratch144_aaa_auto4_bottom_gap_pxjrhy = 70;
+  final int scratch144_aaa_auto4_tick_delay_ms_nxvrop = 5;
 
   Widget scratch144_aaa_build_button_ryzjvq({
     required String scratch144_aaa_title_pdqkjt,
@@ -46,6 +53,10 @@ class Scratch144AaaHomePageDjhwijdowm
                   scratch144_aaa_card_controller_wcxpzn,
               scratch144_width_qwntvi: 320,
               scratch144_height_eujpfh: 400,
+              scratch144_reveal_threshold_jfudce:
+                  (scratch144_aaa_reveal_threshold_jfudce ?? 0.84)
+                      .clamp(0.01, 0.99)
+                      .toDouble(),
               scratch144_border_radius_pxkzmr: BorderRadius.circular(16),
               scratch144_cover_image_vlywop: const NetworkImage(
                 'https://picsum.photos/640/400',
@@ -109,6 +120,10 @@ class Scratch144AaaHomePageDjhwijdowm
                     scratch144_aaa_card_controller_wcxpzn
                         .scratch144_start_auto_scratch_jdqzmx(
                           scratch144_pattern_mode_ystnqe: 4,
+                          scratch144_tick_delay_ms_nxvrop:
+                              3,
+                          scratch144_auto_four_bottom_gap_pmxhtw:
+                              10,
                         );
                   },
                 ),

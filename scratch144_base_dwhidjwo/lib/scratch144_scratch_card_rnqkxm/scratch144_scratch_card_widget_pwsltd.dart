@@ -3,12 +3,20 @@ import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 
+typedef Scratch144StartAutoDelegatePwsltd =
+    Future<void> Function({
+      required int scratch144_pattern_mode_ystnqe,
+      int? scratch144_tick_delay_ms_nxvrop,
+      double? scratch144_auto_four_bottom_gap_pmxhtw,
+    });
+
 class Scratch144ScratchCardControllerPwsltd {
-  Future<void> Function(int)? _scratch144_start_auto_delegate_hmjpof;
+  Object? _scratch144_start_auto_delegate_hmjpof;
   VoidCallback? _scratch144_reset_delegate_sgxqwu;
 
   void scratch144_bind_delegate_zfryvh({
-    required Future<void> Function(int) scratch144_start_auto_delegate_hmjpof,
+    required Scratch144StartAutoDelegatePwsltd
+    scratch144_start_auto_delegate_hmjpof,
     required VoidCallback scratch144_reset_delegate_sgxqwu,
   }) {
     _scratch144_start_auto_delegate_hmjpof =
@@ -23,10 +31,42 @@ class Scratch144ScratchCardControllerPwsltd {
 
   Future<void> scratch144_start_auto_scratch_jdqzmx({
     required int scratch144_pattern_mode_ystnqe,
+    int? scratch144_tick_delay_ms_nxvrop,
+    double? scratch144_auto_four_bottom_gap_pmxhtw,
   }) async {
-    await _scratch144_start_auto_delegate_hmjpof?.call(
-      scratch144_pattern_mode_ystnqe,
-    );
+    final Object? scratch144_delegate_dxmgui =
+        _scratch144_start_auto_delegate_hmjpof;
+    if (scratch144_delegate_dxmgui == null) {
+      return;
+    }
+    if (scratch144_delegate_dxmgui is Scratch144StartAutoDelegatePwsltd) {
+      await scratch144_delegate_dxmgui.call(
+        scratch144_pattern_mode_ystnqe: scratch144_pattern_mode_ystnqe,
+        scratch144_tick_delay_ms_nxvrop: scratch144_tick_delay_ms_nxvrop,
+        scratch144_auto_four_bottom_gap_pmxhtw:
+            scratch144_auto_four_bottom_gap_pmxhtw,
+      );
+      return;
+    }
+    if (scratch144_delegate_dxmgui is Future<void> Function(int)) {
+      await scratch144_delegate_dxmgui.call(scratch144_pattern_mode_ystnqe);
+      return;
+    }
+    if (scratch144_delegate_dxmgui is Function) {
+      final dynamic scratch144_result_kdlqxt = Function.apply(
+        scratch144_delegate_dxmgui,
+        const <dynamic>[],
+        <Symbol, dynamic>{
+          #scratch144_pattern_mode_ystnqe: scratch144_pattern_mode_ystnqe,
+          #scratch144_tick_delay_ms_nxvrop: scratch144_tick_delay_ms_nxvrop,
+          #scratch144_auto_four_bottom_gap_pmxhtw:
+              scratch144_auto_four_bottom_gap_pmxhtw,
+        },
+      );
+      if (scratch144_result_kdlqxt is Future<void>) {
+        await scratch144_result_kdlqxt;
+      }
+    }
   }
 
   void scratch144_reset_card_wnxkqo() {
@@ -118,6 +158,16 @@ class _Scratch144ScratchCardWidgetPwsltdState
     super.dispose();
   }
 
+  @override
+  void reassemble() {
+    super.reassemble();
+    widget.scratch144_controller_ptjlwm?.scratch144_bind_delegate_zfryvh(
+      scratch144_start_auto_delegate_hmjpof:
+          _scratch144_start_auto_scratch_vewrnm,
+      scratch144_reset_delegate_sgxqwu: _scratch144_reset_card_fqevyh,
+    );
+  }
+
   void _scratch144_remove_image_listener_jwdhns() {
     final ImageStream? scratch144_stream_iubqzn =
         _scratch144_image_stream_jofmwb;
@@ -164,24 +214,38 @@ class _Scratch144ScratchCardWidgetPwsltdState
     });
   }
 
-  Future<void> _scratch144_start_auto_scratch_vewrnm(
-    int scratch144_pattern_mode_ystnqe,
-  ) async {
+  Future<void> _scratch144_start_auto_scratch_vewrnm({
+    required int scratch144_pattern_mode_ystnqe,
+    int? scratch144_tick_delay_ms_nxvrop,
+    double? scratch144_auto_four_bottom_gap_pmxhtw,
+  }) async {
     if (_scratch144_view_size_nrcpmx == Size.zero) {
       return;
     }
     final List<Offset?> scratch144_path_iyqpnd =
-        _scratch144_build_pattern_path_lqvwca(scratch144_pattern_mode_ystnqe);
+        _scratch144_build_pattern_path_lqvwca(
+          scratch144_pattern_mode_ystnqe,
+          scratch144_auto_four_bottom_gap_pmxhtw:
+              scratch144_auto_four_bottom_gap_pmxhtw,
+        );
     if (scratch144_path_iyqpnd.isEmpty) {
       return;
     }
 
     _scratch144_auto_token_dvibyk++;
     final int scratch144_run_token_hxzfqc = _scratch144_auto_token_dvibyk;
-    final Duration scratch144_tick_delay_jeqkmu =
-        scratch144_pattern_mode_ystnqe == 3
-        ? const Duration(milliseconds: 6)
-        : const Duration(milliseconds: 12);
+    final int scratch144_tick_delay_ms_jdkfye =
+        (scratch144_tick_delay_ms_nxvrop ??
+                (scratch144_pattern_mode_ystnqe == 3
+                    ? 6
+                    : scratch144_pattern_mode_ystnqe == 4
+                    ? 8
+                    : 12))
+            .clamp(1, 4000)
+            .toInt();
+    final Duration scratch144_tick_delay_jeqkmu = Duration(
+      milliseconds: scratch144_tick_delay_ms_jdkfye,
+    );
     for (final Offset? scratch144_point_jlgtnk in scratch144_path_iyqpnd) {
       if (!mounted ||
           scratch144_run_token_hxzfqc != _scratch144_auto_token_dvibyk) {
@@ -201,8 +265,9 @@ class _Scratch144ScratchCardWidgetPwsltdState
   }
 
   List<Offset?> _scratch144_build_pattern_path_lqvwca(
-    int scratch144_pattern_mode_ystnqe,
-  ) {
+    int scratch144_pattern_mode_ystnqe, {
+    double? scratch144_auto_four_bottom_gap_pmxhtw,
+  }) {
     switch (scratch144_pattern_mode_ystnqe) {
       case 1:
         return _scratch144_pattern_row_zigzag_udgkfp();
@@ -211,7 +276,10 @@ class _Scratch144ScratchCardWidgetPwsltdState
       case 3:
         return _scratch144_pattern_spiral_vdfmru();
       case 4:
-        return _scratch144_pattern_cross_hatch_dgzqeu();
+        return _scratch144_pattern_cross_hatch_dgzqeu(
+          scratch144_auto_four_bottom_gap_pmxhtw:
+              scratch144_auto_four_bottom_gap_pmxhtw,
+        );
       default:
         return <Offset?>[];
     }
@@ -371,54 +439,109 @@ class _Scratch144ScratchCardWidgetPwsltdState
     );
   }
 
-  List<Offset?> _scratch144_pattern_cross_hatch_dgzqeu() {
+  List<Offset?> _scratch144_pattern_cross_hatch_dgzqeu({
+    double? scratch144_auto_four_bottom_gap_pmxhtw,
+  }) {
     final double scratch144_step_kjrsuz = math.max(
       widget.scratch144_brush_radius_wzctmk * 0.54,
       6,
     );
-    final List<Offset> scratch144_base_waypoints_oxjnpf =
-        _scratch144_build_row_chain_waypoints_tqecnj(
-          scratch144_row_gap_scale_hpvkjn: 1.25,
-        );
-    final Offset scratch144_center_vrmzot = Offset(
-      _scratch144_view_size_nrcpmx.width / 2,
-      _scratch144_view_size_nrcpmx.height / 2,
-    );
-    final List<Offset> scratch144_rotate_z_nsfuqj =
-        _scratch144_rotate_waypoints_hmeqvu(
-          scratch144_base_waypoints_oxjnpf,
-          scratch144_center_vrmzot,
-          -65 * math.pi / 180,
-        );
-    final List<Offset> scratch144_expand_z_yhqtju =
-        _scratch144_scale_waypoints_qwztmd(
-          scratch144_rotate_z_nsfuqj,
-          scratch144_center_vrmzot,
-          1.24,
-        );
-    return _scratch144_build_polyline_stroke_xfjbqc(
-      scratch144_expand_z_yhqtju,
-      scratch144_step_kjrsuz,
+    return _scratch144_build_auto_four_path_points_zvpkjm(
+      scratch144_step_kjrsuz: scratch144_step_kjrsuz,
+      scratch144_bottom_gap_pmxhtw: scratch144_auto_four_bottom_gap_pmxhtw,
     );
   }
 
-  List<Offset> _scratch144_scale_waypoints_qwztmd(
-    List<Offset> scratch144_waypoints_wqfubv,
-    Offset scratch144_center_vrmzot,
-    double scratch144_scale_jtzmwp,
-  ) {
-    return scratch144_waypoints_wqfubv.map((Offset scratch144_point_jlgtnk) {
-      final Offset scratch144_delta_chopnb =
-          scratch144_point_jlgtnk - scratch144_center_vrmzot;
-      return _scratch144_clamp_offset_xovpkm(
-        Offset(
-          scratch144_center_vrmzot.dx +
-              (scratch144_delta_chopnb.dx * scratch144_scale_jtzmwp),
-          scratch144_center_vrmzot.dy +
-              (scratch144_delta_chopnb.dy * scratch144_scale_jtzmwp),
-        ),
+  List<Offset?> _scratch144_build_auto_four_path_points_zvpkjm({
+    required double scratch144_step_kjrsuz,
+    double? scratch144_bottom_gap_pmxhtw,
+  }) {
+    final List<Offset> scratch144_waypoints_wqfubv =
+        _scratch144_build_auto_four_waypoints_zvpkjm(
+          scratch144_bottom_gap_pmxhtw: scratch144_bottom_gap_pmxhtw,
+        );
+    if (scratch144_waypoints_wqfubv.length < 2) {
+      return <Offset?>[];
+    }
+
+    final List<Offset?> scratch144_points_dhztjg = <Offset?>[];
+    for (
+      int scratch144_index_snxlrd = 0;
+      scratch144_index_snxlrd < scratch144_waypoints_wqfubv.length - 1;
+      scratch144_index_snxlrd++
+    ) {
+      final List<Offset> scratch144_segment_wpnzva =
+          _scratch144_build_line_points_nrcyvk(
+            scratch144_waypoints_wqfubv[scratch144_index_snxlrd],
+            scratch144_waypoints_wqfubv[scratch144_index_snxlrd + 1],
+            scratch144_step_kjrsuz,
+          );
+      if (scratch144_segment_wpnzva.isEmpty) {
+        continue;
+      }
+      scratch144_points_dhztjg.addAll(scratch144_segment_wpnzva);
+      scratch144_points_dhztjg.add(null);
+    }
+    return scratch144_points_dhztjg;
+  }
+
+  List<Offset> _scratch144_build_auto_four_waypoints_zvpkjm({
+    double? scratch144_bottom_gap_pmxhtw,
+  }) {
+    final double scratch144_width_iurbkz = _scratch144_view_size_nrcpmx.width;
+    final double scratch144_height_hvotac = _scratch144_view_size_nrcpmx.height;
+    final double scratch144_top_y_vhzpqa = 0;
+    final double scratch144_bottom_y_jdkwxv = scratch144_height_hvotac;
+    double scratch144_top_x_mcvojg = 72;
+    double scratch144_bottom_x_hgkqzm = 10;
+    const double scratch144_x_step_vsyxum = 50;
+    final double scratch144_bottom_gap_pxjrhy =
+        (scratch144_bottom_gap_pmxhtw ?? 70).clamp(20, 280).toDouble();
+
+    final List<Offset> scratch144_waypoints_wqfubv = <Offset>[
+      Offset(0, scratch144_height_hvotac / 2),
+    ];
+    final Offset scratch144_first_top_point_vgrupm = Offset(
+      scratch144_top_x_mcvojg.clamp(0.0, scratch144_width_iurbkz).toDouble(),
+      scratch144_top_y_vhzpqa,
+    );
+    scratch144_waypoints_wqfubv.add(scratch144_first_top_point_vgrupm);
+    scratch144_bottom_x_hgkqzm =
+        scratch144_top_x_mcvojg - scratch144_bottom_gap_pxjrhy;
+    scratch144_waypoints_wqfubv.add(
+      Offset(
+        scratch144_bottom_x_hgkqzm
+            .clamp(0.0, scratch144_width_iurbkz)
+            .toDouble(),
+        scratch144_bottom_y_jdkwxv,
+      ),
+    );
+
+    for (
+      int scratch144_turn_index_lfqpvh = 0;
+      scratch144_turn_index_lfqpvh < 17;
+      scratch144_turn_index_lfqpvh++
+    ) {
+      scratch144_top_x_mcvojg += scratch144_x_step_vsyxum;
+      if (scratch144_top_x_mcvojg > scratch144_width_iurbkz + 30) {
+        break;
+      }
+      final Offset scratch144_top_point_pzcykl = Offset(
+        scratch144_top_x_mcvojg.clamp(0.0, scratch144_width_iurbkz).toDouble(),
+        scratch144_top_y_vhzpqa,
       );
-    }).toList();
+      scratch144_bottom_x_hgkqzm =
+          scratch144_top_x_mcvojg - scratch144_bottom_gap_pxjrhy;
+      final Offset scratch144_bottom_point_fvltxq = Offset(
+        scratch144_bottom_x_hgkqzm
+            .clamp(0.0, scratch144_width_iurbkz)
+            .toDouble(),
+        scratch144_bottom_y_jdkwxv,
+      );
+      scratch144_waypoints_wqfubv.add(scratch144_top_point_pzcykl);
+      scratch144_waypoints_wqfubv.add(scratch144_bottom_point_fvltxq);
+    }
+    return scratch144_waypoints_wqfubv;
   }
 
   List<Offset> _scratch144_build_horizontal_z_waypoints_yfqtvw(
@@ -624,11 +747,10 @@ class _Scratch144ScratchCardWidgetPwsltdState
   }
 
   void _scratch144_handle_pan_end_yrkcqm() {
-    if (_scratch144_revealed_uzdykl) {
-      return;
-    }
     setState(() {
-      _scratch144_points_qjoklt.add(null);
+      if (!_scratch144_revealed_uzdykl) {
+        _scratch144_points_qjoklt.add(null);
+      }
     });
   }
 
@@ -707,7 +829,7 @@ class _Scratch144ScratchCardWidgetPwsltdState
     final double scratch144_progress_qtwyco =
         _scratch144_cells_xgmuki.length / scratch144_total_cells_tkbymp;
     if (scratch144_progress_qtwyco >=
-        widget.scratch144_reveal_threshold_jfudce) {
+        _scratch144_get_reveal_threshold_zhqufx()) {
       _scratch144_revealed_uzdykl = true;
       _scratch144_points_qjoklt.clear();
       _scratch144_cover_opacity_mqzvhr = 1;
@@ -721,6 +843,12 @@ class _Scratch144ScratchCardWidgetPwsltdState
         });
       });
     }
+  }
+
+  double _scratch144_get_reveal_threshold_zhqufx() {
+    return widget.scratch144_reveal_threshold_jfudce
+        .clamp(0.01, 0.99)
+        .toDouble();
   }
 
   @override

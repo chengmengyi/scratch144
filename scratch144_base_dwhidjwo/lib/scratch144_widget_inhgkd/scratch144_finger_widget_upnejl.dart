@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_local_images_widget_gohzrl.dart';
 
-class Scratch144fmwqdb extends StatelessWidget {
-  double scratch144cpygxw;
-  double scratch144vnnnnq;
-  Scratch144fmwqdb({
-    required this.scratch144cpygxw,
-    required this.scratch144vnnnnq,
+class Scratch144FingerWidgetUpnejl extends StatelessWidget {
+  double scratch144Widthcpygxw;
+  double scratch144Heightvnnnnq;
+  Scratch144FingerWidgetUpnejl({
+    required this.scratch144Widthcpygxw,
+    required this.scratch144Heightvnnnnq,
   });
 
   Widget scratch144_build_finger_widget_shfula(BuildContext context) =>
-      Scratch144luxxan(
-        scratch144trrwib: "icon_finger",
-        scratch144cpygxw: scratch144cpygxw,
-        scratch144vnnnnq: scratch144vnnnnq,
+      Scratch144LocalImagesWidgetGohzrl(
+        scratch144Nametrrwib: "icon_finger",
+        scratch144Widthcpygxw: scratch144Widthcpygxw,
+        scratch144Heightvnnnnq: scratch144Heightvnnnnq,
       );
 
   @override

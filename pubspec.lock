@@ -449,14 +449,14 @@ packages:
     source: hosted
     version: "2.2.3"
   scratch144_aaa_dmwodkpw:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       path: scratch144_aaa_dmwodkpw
       relative: true
     source: path
     version: "0.0.1"
   scratch144_base_dwhidjwo:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       path: scratch144_base_dwhidjwo
       relative: true
