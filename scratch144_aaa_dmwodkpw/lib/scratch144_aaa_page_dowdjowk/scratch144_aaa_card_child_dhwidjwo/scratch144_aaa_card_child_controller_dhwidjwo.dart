@@ -1,7 +1,16 @@
 import 'package:scratch144_base_dwhidjwo/scratch144_enum_djwdjow/scratch144_card_type_enum_dwidjow.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_page_yyclzs/scratch144_con_sspacr.dart';
+import 'package:scratch144_base_dwhidjwo/scratch144_routers_nxtyun/scratch144_router_address_qvjthh.dart';
+import 'package:scratch144_base_dwhidjwo/scratch144_routers_nxtyun/scratch144_router_utils_dnwkdjow.dart';
 
 class Scratch144AaaCardChildControllerDhwidjwo extends Scratch144ConSspacr{
+
+  clickPlay(Scratch144CardTypeEnumDwidjow type){
+    Scratch144RouterUtilsDnwkdjow.instance.toNamedsjwidjow(
+      routerName: Scratch144RouterAddressQvjthh.aPlay,
+      params: {"type":type},
+    );
+  }
 
   String getBgImages(Scratch144CardTypeEnumDwidjow type){
     switch(type){

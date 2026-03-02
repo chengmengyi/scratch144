@@ -3,16 +3,23 @@ import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_aaa_level_view_fjeifjoejf.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_page_yyclzs/scratch144_stateful_widget_jmndjv.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_utils_zhnggc.dart';
+import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_click_widget_mplwfm.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_local_images_widget_gohzrl.dart';
 
 class Scratch144AaaTopViewFjeijfoe extends Scratch144StatefulWidgetJmndjv{
+  bool isPlayPage;
+  Function()? clickHome;
+  Scratch144AaaTopViewFjeijfoe({
+    this.isPlayPage=false,
+    this.clickHome,
+});
   @override
   State<StatefulWidget> createState() => _Scratch144AaaTopViewFjeijfoeState();
 }
 
 class _Scratch144AaaTopViewFjeijfoeState extends Scratch144Statemubfka<Scratch144AaaTopViewFjeijfoe>{
   @override
-  Widget build(BuildContext context) => Container(
+  Widget build(BuildContext context) => SizedBox(
     width: double.infinity,
     height: 108.h,
     child: Stack(
@@ -27,7 +34,27 @@ class _Scratch144AaaTopViewFjeijfoeState extends Scratch144Statemubfka<Scratch14
               Scratch144AaaCoinsViewFejifjoef(),
               Scratch144AaaLevelViewFjeifjoejf(),
               Spacer(),
-              Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "icon_set", scratch144Widthcpygxw: 36.w, scratch144Heightvnnnnq: 36.w),
+              Visibility(
+                visible: !widget.isPlayPage,
+                child: Scratch144LocalImagesWidgetGohzrl(
+                  scratch144Nametrrwib: "icon_set",
+                  scratch144Widthcpygxw: 36.w,
+                  scratch144Heightvnnnnq: 36.w,
+                ),
+              ),
+              Visibility(
+                visible: widget.isPlayPage,
+                child: Scratch144ClickWidgetMplwfm(
+                  onTap: (){
+                    widget.clickHome?.call();
+                  },
+                  child: Scratch144LocalImagesWidgetGohzrl(
+                    scratch144Nametrrwib: "icon_home",
+                    scratch144Widthcpygxw: 36.w,
+                    scratch144Heightvnnnnq: 36.w,
+                  ),
+                ),
+              ),
             ],
           ),
         )
