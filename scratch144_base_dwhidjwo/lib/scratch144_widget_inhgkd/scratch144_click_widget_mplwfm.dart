@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class Scratch144ihaltr extends StatelessWidget {
+class Scratch144ClickWidgetMplwfm extends StatelessWidget {
   Widget? child;
-  Function()? scratch144htlwns;
-  Scratch144ihaltr({this.child, this.scratch144htlwns});
+  Function()? onTap;
+  Scratch144ClickWidgetMplwfm({this.child, this.onTap});
 
   Widget scratch144_build_click_widget_xukdfh(BuildContext context) => InkWell(
     splashColor: Colors.transparent,
     highlightColor: Colors.transparent,
-    onTap: scratch144htlwns,
+    onTap: onTap,
     child: child,
   );
 

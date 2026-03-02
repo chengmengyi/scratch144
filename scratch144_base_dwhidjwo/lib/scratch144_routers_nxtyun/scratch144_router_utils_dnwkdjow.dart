@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../scratch144_utils_zhnggc/scratch144_utils_zhnggc.dart';
 
 class Scratch144RouterUtilsDnwkdjow{
-  static Scratch144RouterUtilsDnwkdjow _dnwkdjow=Scratch144RouterUtilsDnwkdjow();
+  static final Scratch144RouterUtilsDnwkdjow _dnwkdjow=Scratch144RouterUtilsDnwkdjow();
   static Scratch144RouterUtilsDnwkdjow get instance => _dnwkdjow;
 
   toNamedsjwidjow({

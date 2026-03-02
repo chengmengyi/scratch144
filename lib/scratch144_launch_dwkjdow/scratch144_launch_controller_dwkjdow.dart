@@ -10,7 +10,7 @@ class Scratch144LaunchControllerDwkjdow extends Scratch144ConSspacr with GetSing
   @override
   void onInit() {
     super.onInit();
-    controller=AnimationController(duration: const Duration(seconds: 3),vsync: this)
+    controller=AnimationController(duration: const Duration(seconds: 2),vsync: this)
       ..addListener(() {
         update(["progress"]);
       })

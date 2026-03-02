@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:event_bus/event_bus.dart';
 
-class Scratch144fdahfo {
-  static final Scratch144fdahfo scratch144jlkntn = Scratch144fdahfo();
-  static Scratch144fdahfo get scratch144_instance_poyhwd => scratch144jlkntn;
+class Scratch144EventUtilsDzijuo {
+  static final Scratch144EventUtilsDzijuo scratch144jlkntn = Scratch144EventUtilsDzijuo();
+  static Scratch144EventUtilsDzijuo get instance => scratch144jlkntn;
 
   final EventBus scratch144pyjyas = EventBus();
 

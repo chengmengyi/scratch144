@@ -21,8 +21,7 @@ abstract class Scratch144Statemubfka<T extends Scratch144StatefulWidgetJmndjv> e
   void initState() {
     super.initState();
     if (scratch144_init_event_huwxya()) {
-      _streamSubscription = Scratch144fdahfo.scratch144_instance_poyhwd
-          .scratch144_listen_xqmwzr(scratch144_handle_event_msg_fhngrw);
+      _streamSubscription = Scratch144EventUtilsDzijuo.instance.scratch144_listen_xqmwzr(scratch144_handle_event_msg_fhngrw);
     }
   }
 

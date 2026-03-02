@@ -26,8 +26,7 @@ abstract class Scratch144ConSspacr extends GetxController {
   void onInit() {
     super.onInit();
     if (scratch144_init_event_fobikq()) {
-      _streamSubscription = Scratch144fdahfo.scratch144_instance_poyhwd
-          .scratch144_listen_xqmwzr(scratch144_handle_event_msg_bvsgpz);
+      _streamSubscription = Scratch144EventUtilsDzijuo.instance.scratch144_listen_xqmwzr(scratch144_handle_event_msg_bvsgpz);
     }
   }
 

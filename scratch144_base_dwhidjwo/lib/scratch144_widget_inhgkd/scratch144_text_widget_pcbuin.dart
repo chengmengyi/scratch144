@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:outlined_text/outlined_text.dart';
 
+enum Scratch144FontFamilydwedowkd{
+  pattaya,patuaone,
+}
+
 class Scratch144TextWidgetPcbuin extends StatelessWidget {
   String scratch144Textannbiq;
   double scratch144Sizefbwmhh;
@@ -12,6 +16,7 @@ class Scratch144TextWidgetPcbuin extends StatelessWidget {
   TextAlign? scratch144TextAlignpmkovo;
   TextDecoration? scratch144TextDecorationxvntxl;
   Color? scratch144TextDecorationColorxygdxq;
+  Scratch144FontFamilydwedowkd? scratch144fontFamilydwedowkd;
 
   Scratch144TextWidgetPcbuin({
     required this.scratch144Textannbiq,
@@ -23,6 +28,7 @@ class Scratch144TextWidgetPcbuin extends StatelessWidget {
     this.scratch144TextAlignpmkovo,
     this.scratch144TextDecorationxvntxl,
     this.scratch144TextDecorationColorxygdxq,
+    this.scratch144fontFamilydwedowkd,
   });
 
   Widget scratch144_build_text_widget_nyrvhs(BuildContext context) =>
@@ -34,7 +40,7 @@ class Scratch144TextWidgetPcbuin extends StatelessWidget {
             color: scratch144TextColorrzkydb,
             height: scratch144Heightvnnnnq ?? 0,
             fontWeight: scratch144FontWeightvzszvv,
-            fontFamily: "woff",
+            fontFamily: scratch144fontFamilydwedowkd?.name,
             decoration: scratch144TextDecorationxvntxl,
             decorationColor: scratch144TextDecorationColorxygdxq,
           ),
