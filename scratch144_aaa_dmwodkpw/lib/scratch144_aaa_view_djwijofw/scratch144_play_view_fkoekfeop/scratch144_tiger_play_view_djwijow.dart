@@ -33,6 +33,7 @@ class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch
       scratch144_height_eujpfh: 347.h,
       scratch144_bottom_widget_fhpgka: _bottomWidget(),
       scratch144_cover_image_vlywop: AssetImage("assets/scratch144bsbzmv/tiger2.webp",),
+      scratch144_cover_fit_uqvmxp: BoxFit.fill,
     ),
   );
 

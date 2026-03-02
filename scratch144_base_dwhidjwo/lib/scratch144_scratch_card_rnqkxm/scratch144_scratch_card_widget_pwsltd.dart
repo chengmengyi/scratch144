@@ -99,6 +99,7 @@ class Scratch144ScratchCardWidgetPwsltd extends StatefulWidget {
     super.key,
     required this.scratch144_bottom_widget_fhpgka,
     required this.scratch144_cover_image_vlywop,
+    this.scratch144_cover_fit_uqvmxp = BoxFit.cover,
     this.scratch144_width_qwntvi,
     this.scratch144_height_eujpfh,
     this.scratch144_brush_radius_wzctmk = 22,
@@ -110,6 +111,7 @@ class Scratch144ScratchCardWidgetPwsltd extends StatefulWidget {
 
   final Widget scratch144_bottom_widget_fhpgka;
   final ImageProvider<Object> scratch144_cover_image_vlywop;
+  final BoxFit scratch144_cover_fit_uqvmxp;
   final double? scratch144_width_qwntvi;
   final double? scratch144_height_eujpfh;
   final double scratch144_brush_radius_wzctmk;
@@ -1170,6 +1172,8 @@ class _Scratch144ScratchCardWidgetPwsltdState
                           scratch144_points_xzreof: _scratch144_points_qjoklt,
                           scratch144_radius_krzquh:
                               _scratch144_get_active_brush_radius_djkqmf(),
+                          scratch144_cover_fit_uqvmxp:
+                              widget.scratch144_cover_fit_uqvmxp,
                         ),
                       ),
                     ),
@@ -1185,6 +1189,8 @@ class _Scratch144ScratchCardWidgetPwsltdState
                           scratch144_points_xzreof: const <Offset?>[],
                           scratch144_radius_krzquh:
                               _scratch144_get_active_brush_radius_djkqmf(),
+                          scratch144_cover_fit_uqvmxp:
+                              widget.scratch144_cover_fit_uqvmxp,
                         ),
                       ),
                     ),
@@ -1209,11 +1215,13 @@ class _Scratch144ScratchCoverPainterPwsltd extends CustomPainter {
     required this.scratch144_cover_image_dpkjhy,
     required this.scratch144_points_xzreof,
     required this.scratch144_radius_krzquh,
+    required this.scratch144_cover_fit_uqvmxp,
   });
 
   final ui.Image? scratch144_cover_image_dpkjhy;
   final List<Offset?> scratch144_points_xzreof;
   final double scratch144_radius_krzquh;
+  final BoxFit scratch144_cover_fit_uqvmxp;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -1230,7 +1238,7 @@ class _Scratch144ScratchCoverPainterPwsltd extends CustomPainter {
         canvas: canvas,
         rect: scratch144_layer_rect_ukyfxm,
         image: scratch144_cover_image_dpkjhy!,
-        fit: BoxFit.cover,
+        fit: scratch144_cover_fit_uqvmxp,
       );
     }
 
@@ -1257,6 +1265,8 @@ class _Scratch144ScratchCoverPainterPwsltd extends CustomPainter {
   ) {
     return oldDelegate.scratch144_cover_image_dpkjhy !=
             scratch144_cover_image_dpkjhy ||
+        oldDelegate.scratch144_cover_fit_uqvmxp !=
+            scratch144_cover_fit_uqvmxp ||
         oldDelegate.scratch144_radius_krzquh != scratch144_radius_krzquh ||
         oldDelegate.scratch144_points_xzreof.length !=
             scratch144_points_xzreof.length;
