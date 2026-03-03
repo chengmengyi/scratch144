@@ -46,29 +46,34 @@ class Scratch144AaaPlayFjkoekoe extends Scratch144WidgetInhgkd<Scratch144AaaPlay
       margin: EdgeInsets.only(bottom: 44.h,left: 20.w,right: 20.w),
       child: Row(
         children: [
-          Stack(
-            alignment: Alignment.bottomCenter,
-            children: [
-              Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "more_bg", scratch144Widthcpygxw: 98.w, scratch144Heightvnnnnq: 76.h),
-              Container(
-                padding: EdgeInsets.only(left: 6.w,right: 6.w,top: 2.h,bottom: 2.h),
-                decoration: BoxDecoration(
-                  color: Scratch144nwekyj.color1F1F1F.withOpacity(0.8),
-                  borderRadius: BorderRadius.circular(16.w),
-                  border: Border.all(
-                    width: 2.w,
-                    color: Scratch144nwekyj.colorF3E0A5,
+          Scratch144ClickWidgetMplwfm(
+            onTap: (){
+              scratch144Controllerwjbgnj.clickHome();
+            },
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "more_bg", scratch144Widthcpygxw: 98.w, scratch144Heightvnnnnq: 76.h),
+                Container(
+                  padding: EdgeInsets.only(left: 6.w,right: 6.w,top: 2.h,bottom: 2.h),
+                  decoration: BoxDecoration(
+                    color: Scratch144nwekyj.color1F1F1F.withOpacity(0.8),
+                    borderRadius: BorderRadius.circular(16.w),
+                    border: Border.all(
+                      width: 2.w,
+                      color: Scratch144nwekyj.colorF3E0A5,
+                    ),
                   ),
-                ),
-                child: Scratch144TextWidgetPcbuin(
-                  scratch144Textannbiq: "More Tickets",
-                  scratch144Sizefbwmhh: 17.sp,
-                  scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
-                  scratch144TextColorrzkydb: Scratch144nwekyj.colorFFFFFF,
-                  scratch144OutLineColorbzjwzh: Scratch144nwekyj.color000000,
-                ),
-              )
-            ],
+                  child: Scratch144TextWidgetPcbuin(
+                    scratch144Textannbiq: "More Tickets",
+                    scratch144Sizefbwmhh: 17.sp,
+                    scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+                    scratch144TextColorrzkydb: Scratch144nwekyj.colorFFFFFF,
+                    scratch144OutLineColorbzjwzh: Scratch144nwekyj.color000000,
+                  ),
+                )
+              ],
+            ),
           ),
           SizedBox(width: 16.w,),
           Expanded(
@@ -95,7 +100,9 @@ class Scratch144AaaPlayFjkoekoe extends Scratch144WidgetInhgkd<Scratch144AaaPlay
 
   _getPlayWidget(){
     switch(scratch144Controllerwjbgnj.type){
-      case Scratch144CardTypeEnumDwidjow.tiger: return Scratch144TigerPlayViewDjwijow();
+      case Scratch144CardTypeEnumDwidjow.tiger: return Scratch144TigerPlayViewDjwijow(
+        playListener: scratch144Controllerwjbgnj,
+      );
       default: return Container();
     }
   }

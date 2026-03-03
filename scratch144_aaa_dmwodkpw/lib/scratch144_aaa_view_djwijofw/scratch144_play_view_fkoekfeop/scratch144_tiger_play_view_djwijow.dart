@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_bean_djwjofepf/scratch144_aaa_reward_bean_feifjoe.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_game_config_utils_fjeofjoe.dart';
+import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_play_listener.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_aaa_win_up_view_fjweiofjoe.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_enum_djwdjow/scratch144_card_type_enum_dwidjow.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_page_yyclzs/scratch144_stateful_widget_jmndjv.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_scratch_card_rnqkxm/scratch144_scratch_card_widget_pwsltd.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_colors_tvffoz.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_utils_zhnggc.dart';
+import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_breath_widget_mknqtx.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_local_images_widget_gohzrl.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_text_widget_pcbuin.dart';
 
 class Scratch144TigerPlayViewDjwijow extends Scratch144StatefulWidgetJmndjv{
+  Scratch144AaaPlayListener playListener;
+  Scratch144TigerPlayViewDjwijow({
+    required this.playListener,
+});
   
   @override
   State<StatefulWidget> createState() => _Scratch144TigerPlayViewDjwijowState();
@@ -18,7 +24,7 @@ class Scratch144TigerPlayViewDjwijow extends Scratch144StatefulWidgetJmndjv{
 
 class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch144TigerPlayViewDjwijow>{
   final Scratch144ScratchCardControllerPwsltd controller = Scratch144ScratchCardControllerPwsltd();
-  var tigerNum=0;
+  var tigerNum=0,showResult=false;
   List<Scratch144AaaRewardBeanFeifjoe> rewardList=[];
   final List<String> _otherIconList=["tiger5","tiger6","tiger7"];
 
@@ -57,11 +63,17 @@ class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch
       scratch144_cover_image_vlywop: AssetImage("assets/scratch144bsbzmv/tiger2.webp",),
       scratch144_cover_fit_uqvmxp: BoxFit.fill,
       scratch144_controller_ptjlwm: controller,
-        scratch144_reveal_threshold_jfudce: 0.5,
+      scratch144_reveal_threshold_jfudce: 0.5,
+      scratch144_on_cover_hidden_mxqvte: (){
+        _onCoverHide();
+      },
+      scratch144_on_scratch_start_zqjpmr: (){
+        widget.playListener.startPlay(Scratch144CardTypeEnumDwidjow.tiger);
+      },
     ),
   );
 
-  _bottomWidget()=>Container(
+  _bottomWidget()=>SizedBox(
     width: double.infinity,
     height: 347.h,
     child: Stack(
@@ -113,34 +125,68 @@ class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch
         child: Stack(
           children: [
             Align(
-              alignment: Alignment.topCenter,
-              child: Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: bean.icon, scratch144Widthcpygxw: 48.w, scratch144Heightvnnnnq: 48.h,),
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Scratch144TextWidgetPcbuin(
-                scratch144Textannbiq: "${bean.rewardNum}",
-                scratch144Sizefbwmhh: 26.sp,
-                scratch144TextColorrzkydb: Scratch144nwekyj.colorFCDE39,
-                scratch144OutLineColorbzjwzh: Scratch144nwekyj.color000000,
-                scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+              child: Visibility(
+                visible: showResult,
+                child: Container(
+                  width: double.infinity,
+                  height: double.infinity,
+                  color: Scratch144nwekyj.color000000.withOpacity(0.3),
+                  child: Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "play_guang", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+                ),
               ),
-            )
+            ),
+            Scratch144BreathWidgetMknqtx(
+              scratch144_breath_enable_hztqwp: showResult,
+              child: Stack(
+                children: [
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: bean.icon, scratch144Widthcpygxw: 48.w, scratch144Heightvnnnnq: 48.h,),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Scratch144TextWidgetPcbuin(
+                      scratch144Textannbiq: "${bean.rewardNum}",
+                      scratch144Sizefbwmhh: 26.sp,
+                      scratch144TextColorrzkydb: Scratch144nwekyj.colorFCDE39,
+                      scratch144OutLineColorbzjwzh: Scratch144nwekyj.color000000,
+                      scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       );
     }
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 67.h,
-      alignment: Alignment.center,
-      child: Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: bean.icon, scratch144Widthcpygxw: 54.w, scratch144Heightvnnnnq: 54.h
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Scratch144LocalImagesWidgetGohzrl(
+            scratch144Nametrrwib: bean.icon,
+            scratch144Widthcpygxw: 54.w,
+            scratch144Heightvnnnnq: 54.h,
+          ),
+          Visibility(
+            visible: showResult,
+            child: Container(
+              width: double.infinity,
+              height: double.infinity,
+              color: Scratch144nwekyj.color000000.withOpacity(0.3),
+            ),
+          ),
+        ],
       ),
     );
   }
 
   _initRewardList(){
     rewardList.clear();
+    showResult=false;
     tigerNum = Scratch144AaaGameConfigUtilsFjeofjoe.instance.getTigerNum();
     var rewardNum = Scratch144AaaGameConfigUtilsFjeofjoe.instance.getRewardNum(Scratch144CardTypeEnumDwidjow.tiger);
     for(var index=0;index<tigerNum;index++){
@@ -149,6 +195,7 @@ class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch
     while(rewardList.length<12){
       rewardList.add(Scratch144AaaRewardBeanFeifjoe(icon: _otherIconList.random(), win: false, rewardNum: rewardNum));
     }
+    rewardList.shuffle();
     setState(() {});
   }
 
@@ -157,5 +204,18 @@ class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch
       return "find$tigerNum";
     }
     return "find0";
+  }
+
+  _onCoverHide()async{
+    setState(() {
+      showResult=true;
+    });
+    await Future.delayed(Duration(microseconds: 1000));
+    var list = rewardList.where((value)=>value.win).toList();
+    if(list.isEmpty){
+      widget.playListener.playResult(Scratch144CardTypeEnumDwidjow.tiger, 0);
+    }else{
+      widget.playListener.playResult(Scratch144CardTypeEnumDwidjow.tiger, list.first.rewardNum*list.length);
+    }
   }
 }

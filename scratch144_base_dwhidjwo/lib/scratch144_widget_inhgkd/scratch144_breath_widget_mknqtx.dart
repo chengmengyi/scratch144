@@ -4,12 +4,14 @@ class Scratch144BreathWidgetMknqtx extends StatefulWidget {
   final Widget child;
   final int scratch144_breath_speed_ms_vrqkxt;
   final double scratch144_breath_scale_extent_qhzxrw;
+  final bool scratch144_breath_enable_hztqwp;
 
   const Scratch144BreathWidgetMknqtx({
     super.key,
     required this.child,
-    this.scratch144_breath_speed_ms_vrqkxt = 1200,
+    this.scratch144_breath_speed_ms_vrqkxt = 600,
     this.scratch144_breath_scale_extent_qhzxrw = 0.06,
+    this.scratch144_breath_enable_hztqwp = true,
   });
 
   @override
@@ -33,7 +35,7 @@ class _Scratch144BreathWidgetMknqtxState
       ),
     );
     _scratch144_build_scale_animation_bgqtwi();
-    _scratch144_controller_qxunrp.repeat(reverse: true);
+    _scratch144_sync_animation_state_dmkqov();
   }
 
   @override
@@ -47,8 +49,21 @@ class _Scratch144BreathWidgetMknqtxState
         milliseconds: widget.scratch144_breath_speed_ms_vrqkxt.clamp(200, 5000),
       );
       _scratch144_build_scale_animation_bgqtwi();
-      _scratch144_controller_qxunrp.repeat(reverse: true);
+      _scratch144_sync_animation_state_dmkqov();
     }
+    if (oldWidget.scratch144_breath_enable_hztqwp !=
+        widget.scratch144_breath_enable_hztqwp) {
+      _scratch144_sync_animation_state_dmkqov();
+    }
+  }
+
+  void _scratch144_sync_animation_state_dmkqov() {
+    if (widget.scratch144_breath_enable_hztqwp) {
+      _scratch144_controller_qxunrp.repeat(reverse: true);
+      return;
+    }
+    _scratch144_controller_qxunrp.stop();
+    _scratch144_controller_qxunrp.value = 0.5;
   }
 
   void _scratch144_build_scale_animation_bgqtwi() {
@@ -79,8 +94,13 @@ class _Scratch144BreathWidgetMknqtxState
   }
 
   @override
-  Widget build(BuildContext context) => ScaleTransition(
-    scale: _scratch144_scale_animation_jmqvzi,
-    child: widget.child,
-  );
+  Widget build(BuildContext context) {
+    if (!widget.scratch144_breath_enable_hztqwp) {
+      return widget.child;
+    }
+    return ScaleTransition(
+      scale: _scratch144_scale_animation_jmqvzi,
+      child: widget.child,
+    );
+  }
 }

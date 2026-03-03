@@ -106,6 +106,8 @@ class Scratch144ScratchCardWidgetPwsltd extends StatefulWidget {
     this.scratch144_reveal_threshold_jfudce = 0.48,
     this.scratch144_border_radius_pxkzmr,
     this.scratch144_on_reveal_nivktr,
+    this.scratch144_on_cover_hidden_mxqvte,
+    this.scratch144_on_scratch_start_zqjpmr,
     this.scratch144_controller_ptjlwm,
   });
 
@@ -118,6 +120,8 @@ class Scratch144ScratchCardWidgetPwsltd extends StatefulWidget {
   final double scratch144_reveal_threshold_jfudce;
   final BorderRadius? scratch144_border_radius_pxkzmr;
   final VoidCallback? scratch144_on_reveal_nivktr;
+  final VoidCallback? scratch144_on_cover_hidden_mxqvte;
+  final VoidCallback? scratch144_on_scratch_start_zqjpmr;
   final Scratch144ScratchCardControllerPwsltd? scratch144_controller_ptjlwm;
 
   @override
@@ -143,6 +147,7 @@ class _Scratch144ScratchCardWidgetPwsltdState
   int _scratch144_paint_version_kmztqr = 0;
   double? _scratch144_runtime_brush_radius_ljuzhx;
   Offset? _scratch144_last_pan_point_jbyxqk;
+  bool _scratch144_cover_hidden_reported_xvqlpm = false;
 
   @override
   void initState() {
@@ -239,6 +244,7 @@ class _Scratch144ScratchCardWidgetPwsltdState
       _scratch144_paint_version_kmztqr++;
       _scratch144_runtime_brush_radius_ljuzhx = null;
       _scratch144_last_pan_point_jbyxqk = null;
+      _scratch144_cover_hidden_reported_xvqlpm = false;
     });
   }
 
@@ -265,6 +271,7 @@ class _Scratch144ScratchCardWidgetPwsltdState
     if (scratch144_path_iyqpnd.isEmpty) {
       return;
     }
+    widget.scratch144_on_scratch_start_zqjpmr?.call();
 
     _scratch144_auto_token_dvibyk++;
     final int scratch144_run_token_hxzfqc = _scratch144_auto_token_dvibyk;
@@ -1155,6 +1162,7 @@ class _Scratch144ScratchCardWidgetPwsltdState
             _scratch144_get_reveal_threshold_zhqufx()) {
       _scratch144_revealed_uzdykl = true;
       _scratch144_cover_opacity_mqzvhr = 1;
+      _scratch144_cover_hidden_reported_xvqlpm = false;
       _scratch144_paint_version_kmztqr++;
       if (mounted) {
         setState(() {});
@@ -1182,6 +1190,16 @@ class _Scratch144ScratchCardWidgetPwsltdState
             widget.scratch144_brush_radius_wzctmk)
         .clamp(1.0, 120.0)
         .toDouble();
+  }
+
+  void _scratch144_handle_cover_hidden_done_kxpmre() {
+    if (!_scratch144_revealed_uzdykl ||
+        _scratch144_cover_opacity_mqzvhr > 0.001 ||
+        _scratch144_cover_hidden_reported_xvqlpm) {
+      return;
+    }
+    _scratch144_cover_hidden_reported_xvqlpm = true;
+    widget.scratch144_on_cover_hidden_mxqvte?.call();
   }
 
   @override
@@ -1234,6 +1252,7 @@ class _Scratch144ScratchCardWidgetPwsltdState
                         _scratch144_auto_token_dvibyk++;
                         _scratch144_runtime_brush_radius_ljuzhx = null;
                         _scratch144_last_pan_point_jbyxqk = null;
+                        widget.scratch144_on_scratch_start_zqjpmr?.call();
                         _scratch144_handle_pan_update_yhprwu(
                           scratch144_details_xtqzew.localPosition,
                         );
@@ -1266,6 +1285,7 @@ class _Scratch144ScratchCardWidgetPwsltdState
                       opacity: _scratch144_cover_opacity_mqzvhr,
                       duration: const Duration(milliseconds: 420),
                       curve: Curves.easeOutCubic,
+                      onEnd: _scratch144_handle_cover_hidden_done_kxpmre,
                       child: CustomPaint(
                         painter: _Scratch144ScratchCoverPainterPwsltd(
                           scratch144_cover_image_dpkjhy:
