@@ -9,9 +9,11 @@ import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_loc
 class Scratch144AaaTopViewFjeijfoe extends Scratch144StatefulWidgetJmndjv{
   bool isPlayPage;
   Function()? clickHome;
+  Function()? testCall;
   Scratch144AaaTopViewFjeijfoe({
     this.isPlayPage=false,
     this.clickHome,
+    this.testCall,
 });
   @override
   State<StatefulWidget> createState() => _Scratch144AaaTopViewFjeijfoeState();
@@ -33,7 +35,17 @@ class _Scratch144AaaTopViewFjeijfoeState extends Scratch144Statemubfka<Scratch14
             children: [
               Scratch144AaaCoinsViewFejifjoef(),
               Scratch144AaaLevelViewFjeifjoejf(),
-              Spacer(),
+              Expanded(
+                child: Scratch144ClickWidgetMplwfm(
+                  onTap: (){
+                    widget.testCall?.call();
+                  },
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 36.w,
+                  ),
+                ),
+              ),
               Visibility(
                 visible: !widget.isPlayPage,
                 child: Scratch144LocalImagesWidgetGohzrl(

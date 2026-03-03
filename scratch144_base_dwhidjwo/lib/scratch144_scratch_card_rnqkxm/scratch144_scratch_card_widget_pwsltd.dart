@@ -140,7 +140,9 @@ class _Scratch144ScratchCardWidgetPwsltdState
   bool _scratch144_revealed_uzdykl = false;
   double _scratch144_cover_opacity_mqzvhr = 1;
   int _scratch144_auto_token_dvibyk = 0;
+  int _scratch144_paint_version_kmztqr = 0;
   double? _scratch144_runtime_brush_radius_ljuzhx;
+  Offset? _scratch144_last_pan_point_jbyxqk;
 
   @override
   void initState() {
@@ -234,7 +236,9 @@ class _Scratch144ScratchCardWidgetPwsltdState
       _scratch144_cells_xgmuki.clear();
       _scratch144_revealed_uzdykl = false;
       _scratch144_cover_opacity_mqzvhr = 1;
+      _scratch144_paint_version_kmztqr++;
       _scratch144_runtime_brush_radius_ljuzhx = null;
+      _scratch144_last_pan_point_jbyxqk = null;
     });
   }
 
@@ -251,6 +255,7 @@ class _Scratch144ScratchCardWidgetPwsltdState
         scratch144_auto_track_width_ljuzhx?.clamp(1.0, 120.0).toDouble();
     _scratch144_runtime_brush_radius_ljuzhx =
         scratch144_auto_brush_radius_krjtxv;
+    _scratch144_last_pan_point_jbyxqk = null;
     final List<Offset?> scratch144_path_iyqpnd =
         _scratch144_build_pattern_path_lqvwca(
           scratch144_pattern_mode_ystnqe,
@@ -995,18 +1000,78 @@ class _Scratch144ScratchCardWidgetPwsltdState
       return;
     }
 
+    final List<Offset> scratch144_points_vknuyr =
+        _scratch144_build_manual_track_points_bmwpkj(scratch144_offset_wcfuaz);
+    if (scratch144_points_vknuyr.isEmpty) {
+      return;
+    }
     setState(() {
-      _scratch144_points_qjoklt.add(scratch144_offset_wcfuaz);
-      _scratch144_mark_cells_juncmr(scratch144_offset_wcfuaz);
+      _scratch144_points_qjoklt.addAll(scratch144_points_vknuyr);
+      _scratch144_paint_version_kmztqr++;
     });
+    for (final Offset scratch144_point_wnxulv in scratch144_points_vknuyr) {
+      _scratch144_mark_cells_juncmr(scratch144_point_wnxulv);
+      if (_scratch144_revealed_uzdykl) {
+        break;
+      }
+    }
   }
 
   void _scratch144_handle_pan_end_yrkcqm() {
+    _scratch144_last_pan_point_jbyxqk = null;
     setState(() {
       if (!_scratch144_revealed_uzdykl) {
         _scratch144_points_qjoklt.add(null);
+        _scratch144_paint_version_kmztqr++;
       }
     });
+  }
+
+  List<Offset> _scratch144_build_manual_track_points_bmwpkj(
+    Offset scratch144_target_vlqmuj,
+  ) {
+    final Offset? scratch144_last_point_tjvqmd =
+        _scratch144_last_pan_point_jbyxqk;
+    _scratch144_last_pan_point_jbyxqk = scratch144_target_vlqmuj;
+    if (scratch144_last_point_tjvqmd == null) {
+      return <Offset>[scratch144_target_vlqmuj];
+    }
+    final double scratch144_distance_nluqgj =
+        (scratch144_target_vlqmuj - scratch144_last_point_tjvqmd).distance;
+    final double scratch144_step_jeuyvp =
+        (_scratch144_get_active_brush_radius_djkqmf() * 0.16)
+            .clamp(0.9, 2.8)
+            .toDouble();
+    final int scratch144_count_vhyplq = math.max(
+      1,
+      (scratch144_distance_nluqgj / scratch144_step_jeuyvp).ceil(),
+    );
+    final List<Offset> scratch144_points_dhztjg = <Offset>[];
+    for (
+      int scratch144_index_snxlrd = 1;
+      scratch144_index_snxlrd <= scratch144_count_vhyplq;
+      scratch144_index_snxlrd++
+    ) {
+      final double scratch144_t_nezphc =
+          scratch144_index_snxlrd / scratch144_count_vhyplq;
+      scratch144_points_dhztjg.add(
+        Offset(
+          ui.lerpDouble(
+                scratch144_last_point_tjvqmd.dx,
+                scratch144_target_vlqmuj.dx,
+                scratch144_t_nezphc,
+              ) ??
+              scratch144_target_vlqmuj.dx,
+          ui.lerpDouble(
+                scratch144_last_point_tjvqmd.dy,
+                scratch144_target_vlqmuj.dy,
+                scratch144_t_nezphc,
+              ) ??
+              scratch144_target_vlqmuj.dy,
+        ),
+      );
+    }
+    return scratch144_points_dhztjg;
   }
 
   void _scratch144_mark_cells_juncmr(Offset scratch144_center_ofekyh) {
@@ -1085,11 +1150,16 @@ class _Scratch144ScratchCardWidgetPwsltdState
     }
     final double scratch144_progress_qtwyco =
         _scratch144_cells_xgmuki.length / scratch144_total_cells_tkbymp;
-    if (scratch144_progress_qtwyco >=
-        _scratch144_get_reveal_threshold_zhqufx()) {
+    if (!_scratch144_revealed_uzdykl &&
+        scratch144_progress_qtwyco >=
+            _scratch144_get_reveal_threshold_zhqufx()) {
       _scratch144_revealed_uzdykl = true;
       _scratch144_points_qjoklt.clear();
       _scratch144_cover_opacity_mqzvhr = 1;
+      _scratch144_paint_version_kmztqr++;
+      if (mounted) {
+        setState(() {});
+      }
       widget.scratch144_on_reveal_nivktr?.call();
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (!mounted || !_scratch144_revealed_uzdykl) {
@@ -1123,16 +1193,28 @@ class _Scratch144ScratchCardWidgetPwsltdState
             BuildContext scratch144_context_bfeqmu,
             BoxConstraints scratch144_constraints_vgnuqt,
           ) {
-            final double scratch144_width_iurbkz =
+            final double scratch144_width_candidate_djvpxf =
                 widget.scratch144_width_qwntvi ??
-                (scratch144_constraints_vgnuqt.maxWidth.isFinite
-                    ? scratch144_constraints_vgnuqt.maxWidth
-                    : 320);
-            final double scratch144_height_hvotac =
+                scratch144_constraints_vgnuqt.maxWidth;
+            final double scratch144_height_candidate_szfopn =
                 widget.scratch144_height_eujpfh ??
-                (scratch144_constraints_vgnuqt.maxHeight.isFinite
-                    ? scratch144_constraints_vgnuqt.maxHeight
-                    : 200);
+                scratch144_constraints_vgnuqt.maxHeight;
+            final double scratch144_width_iurbkz =
+                (scratch144_width_candidate_djvpxf.isFinite &&
+                    scratch144_width_candidate_djvpxf > 0)
+                ? scratch144_width_candidate_djvpxf
+                : (scratch144_constraints_vgnuqt.maxWidth.isFinite &&
+                          scratch144_constraints_vgnuqt.maxWidth > 0
+                      ? scratch144_constraints_vgnuqt.maxWidth
+                      : 320);
+            final double scratch144_height_hvotac =
+                (scratch144_height_candidate_szfopn.isFinite &&
+                    scratch144_height_candidate_szfopn > 0)
+                ? scratch144_height_candidate_szfopn
+                : (scratch144_constraints_vgnuqt.maxHeight.isFinite &&
+                          scratch144_constraints_vgnuqt.maxHeight > 0
+                      ? scratch144_constraints_vgnuqt.maxHeight
+                      : 200);
 
             _scratch144_view_size_nrcpmx = Size(
               scratch144_width_iurbkz,
@@ -1152,6 +1234,7 @@ class _Scratch144ScratchCardWidgetPwsltdState
                       onPanStart: (DragStartDetails scratch144_details_xtqzew) {
                         _scratch144_auto_token_dvibyk++;
                         _scratch144_runtime_brush_radius_ljuzhx = null;
+                        _scratch144_last_pan_point_jbyxqk = null;
                         _scratch144_handle_pan_update_yhprwu(
                           scratch144_details_xtqzew.localPosition,
                         );
@@ -1172,6 +1255,8 @@ class _Scratch144ScratchCardWidgetPwsltdState
                           scratch144_points_xzreof: _scratch144_points_qjoklt,
                           scratch144_radius_krzquh:
                               _scratch144_get_active_brush_radius_djkqmf(),
+                          scratch144_paint_version_kmztqr:
+                              _scratch144_paint_version_kmztqr,
                           scratch144_cover_fit_uqvmxp:
                               widget.scratch144_cover_fit_uqvmxp,
                         ),
@@ -1189,6 +1274,8 @@ class _Scratch144ScratchCardWidgetPwsltdState
                           scratch144_points_xzreof: const <Offset?>[],
                           scratch144_radius_krzquh:
                               _scratch144_get_active_brush_radius_djkqmf(),
+                          scratch144_paint_version_kmztqr:
+                              _scratch144_paint_version_kmztqr,
                           scratch144_cover_fit_uqvmxp:
                               widget.scratch144_cover_fit_uqvmxp,
                         ),
@@ -1215,12 +1302,14 @@ class _Scratch144ScratchCoverPainterPwsltd extends CustomPainter {
     required this.scratch144_cover_image_dpkjhy,
     required this.scratch144_points_xzreof,
     required this.scratch144_radius_krzquh,
+    required this.scratch144_paint_version_kmztqr,
     required this.scratch144_cover_fit_uqvmxp,
   });
 
   final ui.Image? scratch144_cover_image_dpkjhy;
   final List<Offset?> scratch144_points_xzreof;
   final double scratch144_radius_krzquh;
+  final int scratch144_paint_version_kmztqr;
   final BoxFit scratch144_cover_fit_uqvmxp;
 
   @override
@@ -1245,16 +1334,80 @@ class _Scratch144ScratchCoverPainterPwsltd extends CustomPainter {
     final Paint scratch144_clear_paint_zyfwko = Paint()
       ..blendMode = BlendMode.clear
       ..isAntiAlias = true;
+    final Paint scratch144_clear_line_paint_vjrxot = Paint()
+      ..blendMode = BlendMode.clear
+      ..isAntiAlias = true
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = scratch144_radius_krzquh * 2
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round;
 
-    for (final Offset? scratch144_point_wnxulv in scratch144_points_xzreof) {
-      if (scratch144_point_wnxulv != null) {
+    final List<Offset> scratch144_stroke_points_eblrzj = <Offset>[];
+    void scratch144_flush_stroke_fcnjgx() {
+      if (scratch144_stroke_points_eblrzj.isEmpty) {
+        return;
+      }
+      if (scratch144_stroke_points_eblrzj.length == 1) {
         canvas.drawCircle(
-          scratch144_point_wnxulv,
+          scratch144_stroke_points_eblrzj.first,
           scratch144_radius_krzquh,
           scratch144_clear_paint_zyfwko,
         );
+        scratch144_stroke_points_eblrzj.clear();
+        return;
       }
+      if (scratch144_stroke_points_eblrzj.length == 2) {
+        canvas.drawLine(
+          scratch144_stroke_points_eblrzj.first,
+          scratch144_stroke_points_eblrzj.last,
+          scratch144_clear_line_paint_vjrxot,
+        );
+        scratch144_stroke_points_eblrzj.clear();
+        return;
+      }
+      final Path scratch144_path_pxkloj = Path()
+        ..moveTo(
+          scratch144_stroke_points_eblrzj.first.dx,
+          scratch144_stroke_points_eblrzj.first.dy,
+        );
+      for (
+        int scratch144_index_snxlrd = 1;
+        scratch144_index_snxlrd < scratch144_stroke_points_eblrzj.length - 1;
+        scratch144_index_snxlrd++
+      ) {
+        final Offset scratch144_current_jigqbl =
+            scratch144_stroke_points_eblrzj[scratch144_index_snxlrd];
+        final Offset scratch144_next_hmkjdw =
+            scratch144_stroke_points_eblrzj[scratch144_index_snxlrd + 1];
+        final Offset scratch144_midpoint_nphzkw = Offset(
+          (scratch144_current_jigqbl.dx + scratch144_next_hmkjdw.dx) / 2,
+          (scratch144_current_jigqbl.dy + scratch144_next_hmkjdw.dy) / 2,
+        );
+        scratch144_path_pxkloj.quadraticBezierTo(
+          scratch144_current_jigqbl.dx,
+          scratch144_current_jigqbl.dy,
+          scratch144_midpoint_nphzkw.dx,
+          scratch144_midpoint_nphzkw.dy,
+        );
+      }
+      final Offset scratch144_last_point_gzqwux =
+          scratch144_stroke_points_eblrzj.last;
+      scratch144_path_pxkloj.lineTo(
+        scratch144_last_point_gzqwux.dx,
+        scratch144_last_point_gzqwux.dy,
+      );
+      canvas.drawPath(scratch144_path_pxkloj, scratch144_clear_line_paint_vjrxot);
+      scratch144_stroke_points_eblrzj.clear();
     }
+
+    for (final Offset? scratch144_point_wnxulv in scratch144_points_xzreof) {
+      if (scratch144_point_wnxulv == null) {
+        scratch144_flush_stroke_fcnjgx();
+        continue;
+      }
+      scratch144_stroke_points_eblrzj.add(scratch144_point_wnxulv);
+    }
+    scratch144_flush_stroke_fcnjgx();
 
     canvas.restore();
   }
@@ -1268,6 +1421,8 @@ class _Scratch144ScratchCoverPainterPwsltd extends CustomPainter {
         oldDelegate.scratch144_cover_fit_uqvmxp !=
             scratch144_cover_fit_uqvmxp ||
         oldDelegate.scratch144_radius_krzquh != scratch144_radius_krzquh ||
+        oldDelegate.scratch144_paint_version_kmztqr !=
+            scratch144_paint_version_kmztqr ||
         oldDelegate.scratch144_points_xzreof.length !=
             scratch144_points_xzreof.length;
   }

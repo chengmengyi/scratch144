@@ -26,7 +26,11 @@ class Scratch144AaaHomePageDjhwijdowm extends Scratch144WidgetInhgkd<Scratch144A
           children: scratch144Controllerwjbgnj.childList,
         ),
       ),
-      Scratch144AaaTopViewFjeijfoe(),
+      Scratch144AaaTopViewFjeijfoe(
+        testCall: (){
+          scratch144Controllerwjbgnj.test();
+        },
+      ),
       Align(
         alignment: Alignment.bottomCenter,
         child: _bottomWidget(),
