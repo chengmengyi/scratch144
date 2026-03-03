@@ -27,6 +27,6 @@ class Scratch144AaaHomeControllerDjwidow extends Scratch144ConSspacr{
     if(!kDebugMode){
       return;
     }
-    Scratch144AaaGameConfigUtilsFjeofjoe.instance.getTigerNum();
+    print(Scratch144AaaGameConfigUtilsFjeofjoe.instance.getTigerNum());
   }
 }

@@ -1154,7 +1154,6 @@ class _Scratch144ScratchCardWidgetPwsltdState
         scratch144_progress_qtwyco >=
             _scratch144_get_reveal_threshold_zhqufx()) {
       _scratch144_revealed_uzdykl = true;
-      _scratch144_points_qjoklt.clear();
       _scratch144_cover_opacity_mqzvhr = 1;
       _scratch144_paint_version_kmztqr++;
       if (mounted) {
@@ -1271,7 +1270,7 @@ class _Scratch144ScratchCardWidgetPwsltdState
                         painter: _Scratch144ScratchCoverPainterPwsltd(
                           scratch144_cover_image_dpkjhy:
                               _scratch144_cover_image_htmrpa,
-                          scratch144_points_xzreof: const <Offset?>[],
+                          scratch144_points_xzreof: _scratch144_points_qjoklt,
                           scratch144_radius_krzquh:
                               _scratch144_get_active_brush_radius_djkqmf(),
                           scratch144_paint_version_kmztqr:

@@ -9,6 +9,7 @@ import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_util
 class Scratch144AaaGameConfigUtilsFjeofjoe{
   static final Scratch144AaaGameConfigUtilsFjeofjoe _configUtilsFjeofjoe=Scratch144AaaGameConfigUtilsFjeofjoe();
   static Scratch144AaaGameConfigUtilsFjeofjoe get instance => _configUtilsFjeofjoe;
+  final Random _scratch144_random_uwpxte = Random();
 
   Scratch144AaaGameConfigBeanFjeifjoe? _gameConfigBean;
 
@@ -42,35 +43,36 @@ class Scratch144AaaGameConfigUtilsFjeofjoe{
 
   int getTigerNum(){
     var cardTiger = _gameConfigBean?.cardTiger;
-    var tiger0 = cardTiger?.tiger0??40;
-    var tiger3 = cardTiger?.tiger3??30;
-    var tiger4 = cardTiger?.tiger4??10;
-    var tiger5 = cardTiger?.tiger5??10;
-    var tiger6 = cardTiger?.tiger6??8;
-    var tiger7 = cardTiger?.tiger7??8;
-    var tiger8 = cardTiger?.tiger8??0;
-    var tiger9 = cardTiger?.tiger9??0;
-    var tiger10 = cardTiger?.tiger10??0;
-    var index = Random().nextInt(100);
-    if(index<tiger0){
-      return 0;
-    }else if(index>=tiger0&&index<(tiger0+tiger3)){
-      return 3;
-    }else if(index>=(tiger0+tiger3)&&index<(tiger0+tiger3+tiger4)){
-      return 4;
-    }else if(index>=(tiger0+tiger3+tiger4)&&index<(tiger0+tiger3+tiger4+tiger5)){
-      return 5;
-    }else if(index>=(tiger0+tiger3+tiger4+tiger5)&&index<(tiger0+tiger3+tiger4+tiger5+tiger6)){
-      return 6;
-    }else if(index>=(tiger0+tiger3+tiger4+tiger5+tiger6)&&index<(tiger0+tiger3+tiger4+tiger5+tiger6+tiger7)){
-      return 7;
-    }else if(index>=(tiger0+tiger3+tiger4+tiger5+tiger6+tiger7)&&index<(tiger0+tiger3+tiger4+tiger5+tiger6+tiger7+tiger8)){
-      return 8;
-    }else if(index>=(tiger0+tiger3+tiger4+tiger5+tiger6+tiger7+tiger8)&&index<(tiger0+tiger3+tiger4+tiger5+tiger6+tiger7+tiger8+tiger9)){
-      return 9;
-    } else{
-      return 10;
+    final List<MapEntry<int,int>> scratch144_tiger_weights_ntkqoi = <MapEntry<int,int>>[
+      MapEntry<int,int>(0, cardTiger?.tiger0??40),
+      MapEntry<int,int>(3, cardTiger?.tiger3??30),
+      MapEntry<int,int>(4, cardTiger?.tiger4??10),
+      MapEntry<int,int>(5, cardTiger?.tiger5??10),
+      MapEntry<int,int>(6, cardTiger?.tiger6??8),
+      MapEntry<int,int>(7, cardTiger?.tiger7??2),
+      MapEntry<int,int>(8, cardTiger?.tiger8??0),
+      MapEntry<int,int>(9, cardTiger?.tiger9??0),
+      MapEntry<int,int>(10, cardTiger?.tiger10??0),
+    ];
+
+    int scratch144_total_weight_xnmlpc = 0;
+    for(final MapEntry<int,int> scratch144_item_pxvgtf in scratch144_tiger_weights_ntkqoi){
+      scratch144_total_weight_xnmlpc += max(0, scratch144_item_pxvgtf.value);
     }
+    if(scratch144_total_weight_xnmlpc<=0){
+      return 0;
+    }
+
+    final int scratch144_index_xnypcq = _scratch144_random_uwpxte.nextInt(scratch144_total_weight_xnmlpc);
+    int scratch144_cursor_fnxqwu = 0;
+    for(final MapEntry<int,int> scratch144_item_pxvgtf in scratch144_tiger_weights_ntkqoi){
+      final int scratch144_weight_rynvkp = max(0, scratch144_item_pxvgtf.value);
+      scratch144_cursor_fnxqwu += scratch144_weight_rynvkp;
+      if(scratch144_index_xnypcq<scratch144_cursor_fnxqwu){
+        return scratch144_item_pxvgtf.key;
+      }
+    }
+    return 0;
   }
 
   int getRewardNum(Scratch144CardTypeEnumDwidjow type){

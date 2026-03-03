@@ -18,6 +18,7 @@ class Scratch144TigerPlayViewDjwijow extends Scratch144StatefulWidgetJmndjv{
 
 class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch144TigerPlayViewDjwijow>{
   final Scratch144ScratchCardControllerPwsltd controller = Scratch144ScratchCardControllerPwsltd();
+  var tigerNum=0;
   List<Scratch144AaaRewardBeanFeifjoe> rewardList=[];
   final List<String> _otherIconList=["tiger5","tiger6","tiger7"];
 
@@ -71,7 +72,7 @@ class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch
           child: Container(
             margin: EdgeInsets.only(top: 42.h,left: 16.w,right: 16.w),
             child: Scratch144LocalImagesWidgetGohzrl(
-              scratch144Nametrrwib: "find3",
+              scratch144Nametrrwib: _getFindImage(),
               scratch144Widthcpygxw: double.infinity,
               scratch144Heightvnnnnq: 68.h,
             ),
@@ -140,7 +141,7 @@ class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch
 
   _initRewardList(){
     rewardList.clear();
-    var tigerNum = Scratch144AaaGameConfigUtilsFjeofjoe.instance.getTigerNum();
+    tigerNum = Scratch144AaaGameConfigUtilsFjeofjoe.instance.getTigerNum();
     var rewardNum = Scratch144AaaGameConfigUtilsFjeofjoe.instance.getRewardNum(Scratch144CardTypeEnumDwidjow.tiger);
     for(var index=0;index<tigerNum;index++){
       rewardList.add(Scratch144AaaRewardBeanFeifjoe(icon: "tiger8", win: true, rewardNum: rewardNum));
@@ -149,5 +150,12 @@ class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch
       rewardList.add(Scratch144AaaRewardBeanFeifjoe(icon: _otherIconList.random(), win: false, rewardNum: rewardNum));
     }
     setState(() {});
+  }
+
+  String _getFindImage(){
+    if(tigerNum>=0&&tigerNum<=10){
+      return "find$tigerNum";
+    }
+    return "find0";
   }
 }
