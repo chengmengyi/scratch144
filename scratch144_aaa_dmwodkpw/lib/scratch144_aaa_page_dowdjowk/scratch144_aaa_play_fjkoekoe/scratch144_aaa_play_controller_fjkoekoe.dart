@@ -1,5 +1,8 @@
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_play_listener.dart';
+import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_user_info_fjeofjoekf.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_enum_djwdjow/scratch144_card_type_enum_dwidjow.dart';
+import 'package:scratch144_base_dwhidjwo/scratch144_event_ipdmyu/scratch144_event_code_lmdqps.dart';
+import 'package:scratch144_base_dwhidjwo/scratch144_event_ipdmyu/scratch144_event_utils_dzijuo.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_page_yyclzs/scratch144_con_sspacr.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_routers_nxtyun/scratch144_router_utils_dnwkdjow.dart';
 import '../../scratch144_aaa_dialog_dwijijfie/scratch144_aaa_play_fail_dialog_fjeojfoe/scratch144_aaa_play_fail_dialog_fjeojfoe.dart';
@@ -39,13 +42,25 @@ class Scratch144AaaPlayControllerFjkoekoe extends Scratch144ConSspacr implements
       Scratch144RouterUtilsDnwkdjow.instance.showDialogwouwojdw(
         child: Scratch144AaaPlayFailDialogFjeojfoe(
           callback: (){
-            start=false;
-
+            _resetCard(type);
           },
         ),
       );
       return;
     }
+  }
+
+  _resetCard(Scratch144CardTypeEnumDwidjow type){
+    start=false;
+    Scratch144EventUtilsDzijuo.instance.scratch144_send_msg_olcuzr(scratch144Codembkrac: Scratch144EventCodeLmdqps.aResetPlayView,scratch144Anyhqnitu: type);
+    Scratch144AaaUserInfoFjeofjoekf.instance.updateGuaKaNum();
+  }
+
+  clickRevealAll(){
+    if(start){
+      return;
+    }
+    Scratch144EventUtilsDzijuo.instance.scratch144_send_msg_olcuzr(scratch144Codembkrac: Scratch144EventCodeLmdqps.aAutoPlay,scratch144Anyhqnitu: type);
   }
 
   clickHome(){

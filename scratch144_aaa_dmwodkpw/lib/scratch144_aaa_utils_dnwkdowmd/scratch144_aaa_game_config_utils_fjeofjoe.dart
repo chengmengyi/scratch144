@@ -110,4 +110,6 @@ class Scratch144AaaGameConfigUtilsFjeofjoe{
     var max = list.last;
     return min + Random().nextInt(max - min + 1);
   }
+
+  bool emojiHasReward()=>Random().nextInt(100)<(_gameConfigBean?.cardEmoji?.pointFace??40);
 }

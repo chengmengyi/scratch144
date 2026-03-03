@@ -12,24 +12,24 @@ class Scratch144EventUtilsDzijuo {
     dynamic scratch144_handle_event_uqbvmi,
   ) => scratch144pyjyas.on<Map>().listen((data) {
     scratch144_handle_event_uqbvmi(
-      data["scratch144mbkrac"],
-      data["scratch144dgkpic"],
-      data["scratch144itcbqx"],
-      data["scratch144hqnitu"],
+      data["scratch144Codembkrac"],
+      data["scratch144Intdgkpic"],
+      data["scratch144Stringitcbqx"],
+      data["scratch144Anyhqnitu"],
     );
   });
 
   void scratch144_send_msg_olcuzr({
-    required int scratch144mbkrac,
-    int? scratch144dgkpic,
-    String? scratch144itcbqx,
-    dynamic scratch144hqnitu,
+    required int scratch144Codembkrac,
+    int? scratch144Intdgkpic,
+    String? scratch144Stringitcbqx,
+    dynamic scratch144Anyhqnitu,
   }) {
     scratch144pyjyas.fire({
-      "scratch144mbkrac": scratch144mbkrac,
-      "scratch144dgkpic": scratch144dgkpic,
-      "scratch144itcbqx": scratch144itcbqx,
-      "scratch144hqnitu": scratch144hqnitu,
+      "scratch144Codembkrac": scratch144Codembkrac,
+      "scratch144Intdgkpic": scratch144Intdgkpic,
+      "scratch144Stringitcbqx": scratch144Stringitcbqx,
+      "scratch144Anyhqnitu": scratch144Anyhqnitu,
     });
   }
 }

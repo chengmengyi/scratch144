@@ -8,12 +8,12 @@ class Scratch144AaaUserInfoFjeofjoekf{
 
   updateUserCoinsdjwidjoiw(int addNum){
     aCoinsNumwdjowkod.saveData(aCoinsNumwdjowkod.getData()+addNum);
-    Scratch144EventUtilsDzijuo.instance.scratch144_send_msg_olcuzr(scratch144mbkrac: Scratch144EventCodeLmdqps.aUpdateCoinsfhwidhiw);
+    Scratch144EventUtilsDzijuo.instance.scratch144_send_msg_olcuzr(scratch144Codembkrac: Scratch144EventCodeLmdqps.aUpdateCoinsfhwidhiw);
   }
 
   updateGuaKaNum(){
     aGuaKaNumfwofjow.saveData(aGuaKaNumfwofjow.getData()+1);
-    Scratch144EventUtilsDzijuo.instance.scratch144_send_msg_olcuzr(scratch144mbkrac: Scratch144EventCodeLmdqps.aUpdateGuaKaNumfeifjoe);
+    Scratch144EventUtilsDzijuo.instance.scratch144_send_msg_olcuzr(scratch144Codembkrac: Scratch144EventCodeLmdqps.aUpdateGuaKaNumfeifjoe);
   }
 
   int getCurrentLevel()=>aGuaKaNumfwofjow.getData() ~/ getLevelTotalPro();
