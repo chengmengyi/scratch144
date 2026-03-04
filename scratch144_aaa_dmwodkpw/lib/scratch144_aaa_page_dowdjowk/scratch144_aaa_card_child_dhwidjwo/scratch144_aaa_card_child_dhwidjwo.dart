@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_page_dowdjowk/scratch144_aaa_card_child_dhwidjwo/scratch144_aaa_card_child_controller_dhwidjwo.dart';
+import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_aaa_win_up_view_fjweiofjoe.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_enum_djwdjow/scratch144_card_type_enum_dwidjow.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_page_yyclzs/scratch144_widget_inhgkd.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_page_yyclzs/scratch144_widget_type_vsmaou.dart';
@@ -89,33 +90,7 @@ class Scratch144AaaCardChildDhwidjwo extends Scratch144WidgetInhgkd<Scratch144Aa
           Positioned(
             left: 18.w,
             bottom: 10.h,
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Scratch144TextWidgetPcbuin(
-                  scratch144Textannbiq: "Win Up to ",
-                  scratch144Sizefbwmhh: 24.sp,
-                  scratch144TextColorrzkydb: Scratch144nwekyj.colorFFFFFF,
-                  scratch144OutLineColorbzjwzh: Scratch144nwekyj.color000000,
-                  scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.pattaya,
-                ),
-                Scratch144GradientTextFjeofjoe(
-                  textContent: "1500",
-                  textSize: 24.sp,
-                  fontWeight: FontWeight.bold,
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Scratch144nwekyj.colorFDF4D1,
-                      Scratch144nwekyj.colorEAC151,
-                    ],
-                  ),
-                  outlineColor: Scratch144nwekyj.color522703,
-                  scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.pattaya,
-                ),
-              ],
-            ),
+            child: Scratch144AaaWinUpViewFjweiofjoe(type: type),
           ),
           Positioned(
             right: 16.w,

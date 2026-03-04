@@ -1,3 +1,4 @@
+import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_dialog_dwijijfie/scratch144_aaa_win_dialog_fjeifjoej/scratch144_aaa_win_dialog_fjeifjoej.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_play_listener.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_user_info_fjeofjoekf.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_enum_djwdjow/scratch144_card_type_enum_dwidjow.dart';
@@ -48,6 +49,14 @@ class Scratch144AaaPlayControllerFjkoekoe extends Scratch144ConSspacr implements
       );
       return;
     }
+    Scratch144RouterUtilsDnwkdjow.instance.showDialogwouwojdw(
+      child: Scratch144AaaWinDialogFjeifjoej(
+        reward: reward,
+        callback: (){
+          _resetCard(type);
+        },
+      ),
+    );
   }
 
   _resetCard(Scratch144CardTypeEnumDwidjow type){

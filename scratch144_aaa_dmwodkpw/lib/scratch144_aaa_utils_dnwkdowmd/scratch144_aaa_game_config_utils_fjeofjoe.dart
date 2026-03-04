@@ -112,4 +112,6 @@ class Scratch144AaaGameConfigUtilsFjeofjoe{
   }
 
   bool emojiHasReward()=>Random().nextInt(100)<(_gameConfigBean?.cardEmoji?.pointFace??40);
+
+  bool isBigWin(int reward)=>reward>=3000;
 }

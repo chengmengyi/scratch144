@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_page_dowdjowk/scratch144_aaa_play_fjkoekoe/scratch144_aaa_play_controller_fjkoekoe.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_aaa_top_view_fjeijfoe.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_play_view_fkoekfeop/scratch144_aaa_emoji_play_view_fjwifjoejf.dart';
+import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_play_view_fkoekfeop/scratch144_big_game_play_view_fjwifjoejf.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_play_view_fkoekfeop/scratch144_tiger_play_view_djwijow.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_up_level_view_fjeifjeo.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_enum_djwdjow/scratch144_card_type_enum_dwidjow.dart';
@@ -108,6 +109,9 @@ class Scratch144AaaPlayFjkoekoe extends Scratch144WidgetInhgkd<Scratch144AaaPlay
         playListener: scratch144Controllerwjbgnj,
       );
       case Scratch144CardTypeEnumDwidjow.emoji: return Scratch144AaaEmojiPlayViewFjwifjoejf(
+        playListener: scratch144Controllerwjbgnj,
+      );
+      case Scratch144CardTypeEnumDwidjow.bigGame: return Scratch144BigGamePlayViewFjwifjoejf(
         playListener: scratch144Controllerwjbgnj,
       );
       default: return Container();

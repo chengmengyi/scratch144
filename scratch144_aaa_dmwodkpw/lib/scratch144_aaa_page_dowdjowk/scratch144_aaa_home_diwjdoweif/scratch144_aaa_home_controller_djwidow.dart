@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_dialog_dwijijfie/scratch144_aaa_play_fail_dialog_fjeojfoe/scratch144_aaa_play_fail_dialog_fjeojfoe.dart';
+import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_dialog_dwijijfie/scratch144_aaa_win_dialog_fjeifjoej/scratch144_aaa_win_dialog_fjeifjoej.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_page_dowdjowk/scratch144_aaa_ach_foejfoe/scratch144_aaa_ach_foejfoe.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_page_dowdjowk/scratch144_aaa_card_child_dhwidjwo/scratch144_aaa_card_child_dhwidjwo.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_page_dowdjowk/scratch144_aaa_wheel_dwjodjwo/scratch144_aaa_wheel_dwjodjwo.dart';
@@ -29,6 +30,6 @@ class Scratch144AaaHomeControllerDjwidow extends Scratch144ConSspacr{
     if(!kDebugMode){
       return;
     }
-    // Scratch144RouterUtilsDnwkdjow.instance.showDialogwouwojdw(child: Scratch144AaaPlayFailDialogFjeojfoe());
+    Scratch144RouterUtilsDnwkdjow.instance.showDialogwouwojdw(child: Scratch144AaaWinDialogFjeifjoej(reward: 3000,callback: (){},));
   }
 }
