@@ -84,6 +84,9 @@ flutter:
     - family: patuaone
       fonts:
         - asset: assets/scratch144tfffekofko/PatuaOne-Regular.ttf
+    - family: flavors
+      fonts:
+        - asset: assets/scratch144tfffekofko/Flavors-Regular.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:

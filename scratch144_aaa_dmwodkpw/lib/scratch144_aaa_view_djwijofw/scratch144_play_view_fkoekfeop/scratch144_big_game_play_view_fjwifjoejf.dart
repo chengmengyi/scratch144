@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_bean_djwjofepf/scratch144_aaa_reward_bean_feifjoe.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_game_config_utils_fjeofjoe.dart';
@@ -26,7 +28,9 @@ class Scratch144BigGamePlayViewFjwifjoejf extends Scratch144StatefulWidgetJmndjv
 class _Scratch144BigGamePlayViewFjwifjoejfState extends Scratch144Statemubfka<Scratch144BigGamePlayViewFjwifjoejf>{
   final Scratch144CardTypeEnumDwidjow type=Scratch144CardTypeEnumDwidjow.bigGame;
   final Scratch144ScratchCardControllerPwsltd controller = Scratch144ScratchCardControllerPwsltd();
+  final Random _scratch144_random_vnhqxt = Random();
   var showResult=false;
+  List<int> winList=[];
   List<Scratch144AaaRewardBeanFeifjoe> rewardList=[];
   final ValueNotifier<Offset> scratch144_aaa_card_offset_hqzpmr = ValueNotifier<Offset>(Offset.zero);
   final ValueNotifier<Duration> scratch144_aaa_card_anim_duration_mpwzqy = ValueNotifier<Duration>(const Duration(milliseconds: 340));
@@ -97,32 +101,85 @@ class _Scratch144BigGamePlayViewFjwifjoejfState extends Scratch144Statemubfka<Sc
     width: double.infinity,
     height: 378.h,
     child: Stack(
+      alignment: Alignment.topCenter,
       children: [
-        Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "emoji3", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Container(
-            width: double.infinity,
-            height: 231.h,
-            margin: EdgeInsets.only(left: 16.w,right: 16.w,bottom: 64.h),
-            child: Stack(
-              children: [
-                Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "emoji4", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
-                MasonryGridView.count(
-                  padding: const EdgeInsets.all(0),
-                  itemCount: rewardList.length,
-                  shrinkWrap: true,
-                  crossAxisCount: 3,
-                  mainAxisSpacing: 0,
-                  crossAxisSpacing: 0,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (context,index)=>_itemItemWidget(rewardList[index]),
-                ),
-              ],
+        Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "big3", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+        Column(
+          children: [
+            SizedBox(height: 9.h,),
+            Scratch144TextWidgetPcbuin(
+              scratch144Textannbiq: "Winning Numbers",
+              scratch144Sizefbwmhh: 24.sp,
+              scratch144FontWeightvzszvv: FontWeight.bold,
+              scratch144TextColorrzkydb: Scratch144nwekyj.colorFFFFFF,
+              scratch144OutLineColorbzjwzh: Scratch144nwekyj.color12508C,
+              scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
             ),
-          ),
+            SizedBox(height: 4.h,),
+            Container(
+              width: double.infinity,
+              height: 50.h,
+              margin: EdgeInsets.only(left: 16.w,right: 16.w),
+              child: Stack(
+                children: [
+                  Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "big4", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+                  MasonryGridView.count(
+                    padding: const EdgeInsets.all(0),
+                    itemCount: winList.length,
+                    shrinkWrap: true,
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 0,
+                    crossAxisSpacing: 0,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (context,index)=>_winNumItemWidget(winList[index]),
+                  ),
+                ],
+              ),
+            ),
+            Scratch144TextWidgetPcbuin(
+              scratch144Textannbiq: "You Numbers",
+              scratch144Sizefbwmhh: 24.sp,
+              scratch144FontWeightvzszvv: FontWeight.bold,
+              scratch144TextColorrzkydb: Scratch144nwekyj.colorFFFFFF,
+              scratch144OutLineColorbzjwzh: Scratch144nwekyj.color12508C,
+              scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+            ),
+            Container(
+              width: double.infinity,
+              height: 201.h,
+              margin: EdgeInsets.only(left: 16.w,right: 16.w),
+              child: Stack(
+                children: [
+                  Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "big5", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+                  MasonryGridView.count(
+                    padding: const EdgeInsets.all(0),
+                    itemCount: rewardList.length,
+                    shrinkWrap: true,
+                    crossAxisCount: 4,
+                    mainAxisSpacing: 0,
+                    crossAxisSpacing: 0,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (context,index)=>_itemItemWidget(rewardList[index]),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ],
+    ),
+  );
+
+  _winNumItemWidget(int data)=>Container(
+    width: double.infinity,
+    height: 50.h,
+    alignment: Alignment.center,
+    child: Scratch144TextWidgetPcbuin(
+      scratch144Textannbiq: "$data",
+      scratch144Sizefbwmhh: 40.sp,
+      scratch144TextColorrzkydb: Scratch144nwekyj.color07308F,
+      scratch144OutLineColorbzjwzh: Scratch144nwekyj.colorFFFFFF,
+      scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.flavors,
     ),
   );
 
@@ -130,7 +187,7 @@ class _Scratch144BigGamePlayViewFjwifjoejfState extends Scratch144Statemubfka<Sc
     if(bean.win){
       return SizedBox(
         width: double.infinity,
-        height: 77.h,
+        height: 67.h,
         child: Stack(
           children: [
             Align(
@@ -150,7 +207,13 @@ class _Scratch144BigGamePlayViewFjwifjoejfState extends Scratch144Statemubfka<Sc
                 children: [
                   Align(
                     alignment: Alignment.topCenter,
-                    child: Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: bean.icon, scratch144Widthcpygxw: 67.w, scratch144Heightvnnnnq: 67.h,),
+                    child: Scratch144TextWidgetPcbuin(
+                      scratch144Textannbiq: bean.icon,
+                      scratch144Sizefbwmhh: 36.sp,
+                      scratch144TextColorrzkydb: Scratch144nwekyj.color07308F,
+                      scratch144OutLineColorbzjwzh: Scratch144nwekyj.colorFFFFFF,
+                      scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.flavors,
+                    ),
                   ),
                   Align(
                     alignment: Alignment.bottomCenter,
@@ -179,14 +242,37 @@ class _Scratch144BigGamePlayViewFjwifjoejfState extends Scratch144Statemubfka<Sc
     }
     return SizedBox(
       width: double.infinity,
-      height: 77.h,
+      height: 67.h,
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Scratch144LocalImagesWidgetGohzrl(
-            scratch144Nametrrwib: bean.icon,
-            scratch144Widthcpygxw: 67.w,
-            scratch144Heightvnnnnq: 67.h,
+          Align(
+            alignment: Alignment.topCenter,
+            child: Scratch144TextWidgetPcbuin(
+              scratch144Textannbiq: bean.icon,
+              scratch144Sizefbwmhh: 36.sp,
+              scratch144TextColorrzkydb: Scratch144nwekyj.color07308F,
+              scratch144OutLineColorbzjwzh: Scratch144nwekyj.colorFFFFFF,
+              scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.flavors,
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Scratch144GradientTextFjeofjoe(
+              textContent: "${bean.rewardNum}",
+              textSize: 28.sp,
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Scratch144nwekyj.colorFFDA6E,
+                  Scratch144nwekyj.colorFFF5AC,
+                  Scratch144nwekyj.colorFFDA6E,
+                ],
+              ),
+              outlineColor: Scratch144nwekyj.color000000,
+              scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+            ),
           ),
           Visibility(
             visible: showResult,
@@ -202,8 +288,47 @@ class _Scratch144BigGamePlayViewFjwifjoejfState extends Scratch144Statemubfka<Sc
   }
 
   _initRewardList(){
+    final List<int> scratch144_all_numbers_hxpmtq = List<int>.generate(
+      99,
+      (int index) => index + 1,
+    )..shuffle(_scratch144_random_vnhqxt);
+    winList = scratch144_all_numbers_hxpmtq.take(3).toList();
+
     rewardList.clear();
     showResult=false;
+    final bool scratch144_has_reward_mxvqpz =
+        Scratch144AaaGameConfigUtilsFjeofjoe.instance.bigGameHasReward();
+    final int scratch144_win_match_count_pkztqv =
+        scratch144_has_reward_mxvqpz ? _scratch144_random_vnhqxt.nextInt(3) + 1 : 0;
+    final Set<int> scratch144_win_indexes_hqjptw = <int>{};
+    while (scratch144_win_indexes_hqjptw.length < scratch144_win_match_count_pkztqv) {
+      scratch144_win_indexes_hqjptw.add(_scratch144_random_vnhqxt.nextInt(12));
+    }
+
+    final List<int> scratch144_non_win_pool_zhqpmw =
+        List<int>.generate(99, (int index) => index + 1)
+            .where((int value) => !winList.contains(value))
+            .toList();
+
+    for (int scratch144_index_snxlrd = 0;
+        scratch144_index_snxlrd < 12;
+        scratch144_index_snxlrd++) {
+      final bool scratch144_is_win_hqnvzt =
+          scratch144_win_indexes_hqjptw.contains(scratch144_index_snxlrd);
+      final int scratch144_number_vxqptw = scratch144_is_win_hqnvzt
+          ? winList[_scratch144_random_vnhqxt.nextInt(winList.length)]
+          : scratch144_non_win_pool_zhqpmw[
+              _scratch144_random_vnhqxt.nextInt(scratch144_non_win_pool_zhqpmw.length)
+            ];
+      rewardList.add(
+        Scratch144AaaRewardBeanFeifjoe(
+          icon: "$scratch144_number_vxqptw",
+          win: scratch144_is_win_hqnvzt,
+          rewardNum: Scratch144AaaGameConfigUtilsFjeofjoe.instance.getRewardNum(type),
+        ),
+      );
+    }
+
 
     setState(() {});
   }

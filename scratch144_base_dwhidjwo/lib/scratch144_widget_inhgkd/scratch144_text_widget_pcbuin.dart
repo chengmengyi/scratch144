@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:outlined_text/outlined_text.dart';
 
 enum Scratch144FontFamilydwedowkd{
-  pattaya,patuaone,
+  pattaya,patuaone,flavors,
 }
 
 class Scratch144TextWidgetPcbuin extends StatelessWidget {
