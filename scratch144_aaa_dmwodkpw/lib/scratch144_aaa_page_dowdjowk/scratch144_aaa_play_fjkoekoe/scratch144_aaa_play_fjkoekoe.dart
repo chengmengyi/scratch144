@@ -3,8 +3,10 @@ import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_page_dowdjowk/scratch144_
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_aaa_top_view_fjeijfoe.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_play_view_fkoekfeop/scratch144_aaa_emoji_play_view_fjwifjoejf.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_play_view_fkoekfeop/scratch144_big_game_play_view_fjwifjoejf.dart';
+import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_play_view_fkoekfeop/scratch144_fruit_play_view_fjwifjoejf.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_play_view_fkoekfeop/scratch144_hot77_play_view_fjwifjoejf.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_play_view_fkoekfeop/scratch144_lucky_play_view_fjwifjoejf.dart';
+import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_play_view_fkoekfeop/scratch144_mega_play_view_fjwifjoejf.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_play_view_fkoekfeop/scratch144_money_play_view_fjwifjoejf.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_play_view_fkoekfeop/scratch144_sweet_play_view_fjwifjoejf.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_play_view_fkoekfeop/scratch144_tiger_play_view_djwijow.dart';
@@ -130,7 +132,12 @@ class Scratch144AaaPlayFjkoekoe extends Scratch144WidgetInhgkd<Scratch144AaaPlay
       case Scratch144CardTypeEnumDwidjow.moneyStorm: return Scratch144MoneyPlayViewFjwifjoejf(
         playListener: scratch144Controllerwjbgnj,
       );
-      default: return Container();
+      case Scratch144CardTypeEnumDwidjow.fruit: return Scratch144FruitPlayViewFjwifjoejf(
+        playListener: scratch144Controllerwjbgnj,
+      );
+      case Scratch144CardTypeEnumDwidjow.mega: return Scratch144MegaPlayViewFjwifjoejf(
+        playListener: scratch144Controllerwjbgnj,
+      );
     }
   }
 }

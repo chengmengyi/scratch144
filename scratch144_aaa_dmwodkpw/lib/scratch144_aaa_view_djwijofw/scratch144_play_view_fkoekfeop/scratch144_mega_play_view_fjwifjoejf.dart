@@ -16,17 +16,17 @@ import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_gra
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_local_images_widget_gohzrl.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_text_widget_pcbuin.dart';
 
-class Scratch144LuckyPlayViewFjwifjoejf extends Scratch144StatefulWidgetJmndjv{
+class Scratch144MegaPlayViewFjwifjoejf extends Scratch144StatefulWidgetJmndjv{
   Scratch144AaaPlayListener playListener;
-  Scratch144LuckyPlayViewFjwifjoejf({
+  Scratch144MegaPlayViewFjwifjoejf({
     required this.playListener,
   });
   @override
-  State<StatefulWidget> createState() => _Scratch144LuckyPlayViewFjwifjoejfState();
+  State<StatefulWidget> createState() => _Scratch144MegaPlayViewFjwifjoejfState();
 }
 
-class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scratch144LuckyPlayViewFjwifjoejf>{
-  final Scratch144CardTypeEnumDwidjow type=Scratch144CardTypeEnumDwidjow.luckyRich;
+class _Scratch144MegaPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scratch144MegaPlayViewFjwifjoejf>{
+  final Scratch144CardTypeEnumDwidjow type=Scratch144CardTypeEnumDwidjow.mega;
   final Scratch144ScratchCardControllerPwsltd controller = Scratch144ScratchCardControllerPwsltd();
   final Random _scratch144_random_qhvpxt = Random();
   var showResult=false;
@@ -38,8 +38,8 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
     ...rewardList2,
     ...rewardList3,
   ];
-  final String _lucky8="lucky12";
-  final List<String> _iconList=["lucky4","lucky5","lucky7","lucky8","lucky9","lucky10","lucky11",];
+  final String _lucky8="mega12";
+  final List<String> _iconList=["mega4","mega5","mega6","mega7","mega8","mega9","mega10",];
   final ValueNotifier<Offset> scratch144_aaa_card_offset_hqzpmr = ValueNotifier<Offset>(Offset.zero);
   final ValueNotifier<Duration> scratch144_aaa_card_anim_duration_mpwzqy = ValueNotifier<Duration>(const Duration(milliseconds: 340));
   final ValueNotifier<bool> scratch144_aaa_card_switching_uqtxam = ValueNotifier<bool>(false);
@@ -56,7 +56,7 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
     child: Stack(
       alignment: Alignment.topCenter,
       children: [
-        Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "lucky1", scratch144Widthcpygxw: null, scratch144Heightvnnnnq: 110.h,boxFit: BoxFit.fitHeight,),
+        Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "mega1", scratch144Widthcpygxw: null, scratch144Heightvnnnnq: 110.h,boxFit: BoxFit.fitHeight,),
         _playWidget(context),
         Container(
           margin: EdgeInsets.only(top: 110.h),
@@ -87,7 +87,7 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                 scratch144_width_qwntvi: double.infinity,
                 scratch144_height_eujpfh: 358.h,
                 scratch144_bottom_widget_fhpgka: _bottomWidget(context),
-                scratch144_cover_image_vlywop: AssetImage("assets/scratch144bsbzmv/lucky2.webp",),
+                scratch144_cover_image_vlywop: AssetImage("assets/scratch144bsbzmv/mega2.webp",),
                 scratch144_cover_fit_uqvmxp: BoxFit.fill,
                 scratch144_controller_ptjlwm: controller,
                 scratch144_reveal_threshold_jfudce: 0.7,
@@ -111,10 +111,10 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
     child: Stack(
       alignment: Alignment.bottomCenter,
       children: [
-        Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "lucky3", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+        Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "mega3", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
         Container(
           width: double.infinity,
-          height: 215.h,
+          height: 221.h,
           margin: EdgeInsets.only(left: 16.w,right: 16.w,bottom: 50.h),
           child: Row(
             children: [
@@ -123,7 +123,7 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                 height: double.infinity,
                 child: Stack(
                   children: [
-                    Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "lucky13", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+                    Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "mega13", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
                     MediaQuery.removePadding(
                       context: context,
                       removeTop: true,
@@ -144,7 +144,7 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                 height: double.infinity,
                 child: Stack(
                   children: [
-                    Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "lucky14", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+                    Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "mega14", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
                     MediaQuery.removePadding(
                       context: context,
                       removeTop: true,
@@ -163,7 +163,7 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
               Expanded(
                 child: Stack(
                   children: [
-                    Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "lucky15", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+                    Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "mega15", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
                     MasonryGridView.count(
                       padding: const EdgeInsets.all(0),
                       itemCount: rewardList3.length,
@@ -188,7 +188,7 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
     if(bean.win){
       return SizedBox(
         width: double.infinity,
-        height: 71.h,
+        height: 73.h,
         child: Stack(
           children: [
             Align(
@@ -211,7 +211,7 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                     child: Scratch144LocalImagesWidgetGohzrl(
                       scratch144Nametrrwib: bean.winLuckyType==2?_lucky8:bean.icon,
                       scratch144Widthcpygxw: null,
-                      scratch144Heightvnnnnq: 44.h,
+                      scratch144Heightvnnnnq: bean.icon=="mega8"?34.h:44.h,
                       boxFit: BoxFit.fitHeight,
                     ),
                   ),
@@ -242,14 +242,14 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
     }
     return SizedBox(
       width: double.infinity,
-      height: 71.h,
+      height: 73.h,
       child: Stack(
         alignment: Alignment.center,
         children: [
           Scratch144LocalImagesWidgetGohzrl(
             scratch144Nametrrwib: bean.icon,
             scratch144Widthcpygxw: null,
-            scratch144Heightvnnnnq: 44.h,
+            scratch144Heightvnnnnq: bean.icon=="mega8"?34.h:44.h,
             boxFit: BoxFit.fitHeight,
           ),
           Visibility(
