@@ -164,6 +164,44 @@ class _Scratch144BigGamePlayViewFjwifjoejfState extends Scratch144Statemubfka<Sc
                 ],
               ),
             ),
+            Stack(
+              alignment: Alignment.topCenter,
+              children: [
+                Scratch144GradientTextFjeofjoe(
+                  textContent: "Match winning numbers to any of your",
+                  textSize: 16.sp,
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Scratch144nwekyj.colorFCE791,
+                      Scratch144nwekyj.colorFFF8CC,
+                      Scratch144nwekyj.colorF8D981,
+                    ],
+                  ),
+                  outlineColor: Scratch144nwekyj.color000000,
+                  scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 16.h),
+                  child: Scratch144GradientTextFjeofjoe(
+                    textContent: "numbers to win prize",
+                    textSize: 16.sp,
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [
+                        Scratch144nwekyj.colorFCE791,
+                        Scratch144nwekyj.colorFFF8CC,
+                        Scratch144nwekyj.colorF8D981,
+                      ],
+                    ),
+                    outlineColor: Scratch144nwekyj.color000000,
+                    scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ],

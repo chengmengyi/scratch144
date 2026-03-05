@@ -115,5 +115,36 @@ class Scratch144AaaGameConfigUtilsFjeofjoe{
 
   bool bigGameHasReward()=>Random().nextInt(100)<(_gameConfigBean?.cardNumber?.point??40);
 
+  //return = 0没有 1是1个7  2是1个77
+  int hot7Num(){
+    final Card77hot? scratch144_card77hot_hnvqpx = _gameConfigBean?.card77hot;
+    final List<MapEntry<int, int>> scratch144_hot77_weights_hqvpmx =
+        <MapEntry<int, int>>[
+          MapEntry<int, int>(0, scratch144_card77hot_hnvqpx?.point0 ?? 40),
+          MapEntry<int, int>(1, scratch144_card77hot_hnvqpx?.point7 ?? 40),
+          MapEntry<int, int>(2, scratch144_card77hot_hnvqpx?.point77 ?? 20),
+        ];
+    int scratch144_total_weight_xnmlpc = 0;
+    for (final MapEntry<int, int> scratch144_item_pxvgtf
+        in scratch144_hot77_weights_hqvpmx) {
+      scratch144_total_weight_xnmlpc += max(0, scratch144_item_pxvgtf.value);
+    }
+    if (scratch144_total_weight_xnmlpc <= 0) {
+      return 0;
+    }
+    final int scratch144_index_xnypcq = _scratch144_random_uwpxte.nextInt(
+      scratch144_total_weight_xnmlpc,
+    );
+    int scratch144_cursor_fnxqwu = 0;
+    for (final MapEntry<int, int> scratch144_item_pxvgtf
+        in scratch144_hot77_weights_hqvpmx) {
+      scratch144_cursor_fnxqwu += max(0, scratch144_item_pxvgtf.value);
+      if (scratch144_index_xnypcq < scratch144_cursor_fnxqwu) {
+        return scratch144_item_pxvgtf.key;
+      }
+    }
+    return 0;
+  }
+
   bool isBigWin(int reward)=>reward>=3000;
 }
