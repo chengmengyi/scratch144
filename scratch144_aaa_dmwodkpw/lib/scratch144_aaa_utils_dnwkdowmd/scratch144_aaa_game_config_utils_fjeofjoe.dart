@@ -150,5 +150,7 @@ class Scratch144AaaGameConfigUtilsFjeofjoe{
 
   bool luckyHas3IconWin()=>Random().nextInt(100)<(_gameConfigBean?.card8rich?.point3match??20);
 
+  bool sweetHasWin()=>Random().nextInt(100)<(_gameConfigBean?.cardFruit?.point??75);
+
   bool isBigWin(int reward)=>reward>=3000;
 }
