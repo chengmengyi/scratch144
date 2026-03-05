@@ -146,5 +146,23 @@ class Scratch144AaaGameConfigUtilsFjeofjoe{
     return 0;
   }
 
+  //return 0没中奖 1是3个相同的  2是刮中8
+  int luckyNum(){
+    final Card8rich? scratch144_card8rich_nqvptx = _gameConfigBean?.card8rich;
+    final int scratch144_point_3match_hqzvpk =
+        (scratch144_card8rich_nqvptx?.point3match ?? 80).clamp(0, 100);
+    final int scratch144_point_8bet_wqzvpt =
+        (scratch144_card8rich_nqvptx?.point8bet ?? 20).clamp(0, 100);
+    final int scratch144_index_xnypcq = _scratch144_random_uwpxte.nextInt(100);
+    if (scratch144_index_xnypcq < scratch144_point_3match_hqzvpk) {
+      return 1;
+    }
+    if (scratch144_index_xnypcq <
+        scratch144_point_3match_hqzvpk + scratch144_point_8bet_wqzvpt) {
+      return 2;
+    }
+    return 0;
+  }
+
   bool isBigWin(int reward)=>reward>=3000;
 }

@@ -4,6 +4,7 @@ import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_play_view_fkoekfeop/scratch144_aaa_emoji_play_view_fjwifjoejf.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_play_view_fkoekfeop/scratch144_big_game_play_view_fjwifjoejf.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_play_view_fkoekfeop/scratch144_hot77_play_view_fjwifjoejf.dart';
+import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_play_view_fkoekfeop/scratch144_lucky_play_view_fjwifjoejf.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_play_view_fkoekfeop/scratch144_tiger_play_view_djwijow.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_up_level_view_fjeifjeo.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_enum_djwdjow/scratch144_card_type_enum_dwidjow.dart';
@@ -116,6 +117,9 @@ class Scratch144AaaPlayFjkoekoe extends Scratch144WidgetInhgkd<Scratch144AaaPlay
         playListener: scratch144Controllerwjbgnj,
       );
       case Scratch144CardTypeEnumDwidjow.hot77: return Scratch144Hot77PlayViewFjwifjoejf(
+        playListener: scratch144Controllerwjbgnj,
+      );
+      case Scratch144CardTypeEnumDwidjow.luckyRich: return Scratch144LuckyPlayViewFjwifjoejf(
         playListener: scratch144Controllerwjbgnj,
       );
       default: return Container();

@@ -148,6 +148,7 @@ class _Scratch144ScratchCardWidgetPwsltdState
   double? _scratch144_runtime_brush_radius_ljuzhx;
   Offset? _scratch144_last_pan_point_jbyxqk;
   bool _scratch144_cover_hidden_reported_xvqlpm = false;
+  bool _scratch144_auto_running_bxqvzt = false;
 
   @override
   void initState() {
@@ -245,6 +246,7 @@ class _Scratch144ScratchCardWidgetPwsltdState
       _scratch144_runtime_brush_radius_ljuzhx = null;
       _scratch144_last_pan_point_jbyxqk = null;
       _scratch144_cover_hidden_reported_xvqlpm = false;
+      _scratch144_auto_running_bxqvzt = false;
     });
   }
 
@@ -254,7 +256,15 @@ class _Scratch144ScratchCardWidgetPwsltdState
     double? scratch144_auto_four_bottom_gap_pmxhtw,
     double? scratch144_auto_track_width_ljuzhx,
   }) async {
+    if (_scratch144_revealed_uzdykl) {
+      return;
+    }
     if (_scratch144_view_size_nrcpmx == Size.zero) {
+      return;
+    }
+    _scratch144_prepare_auto_start_qxvztr();
+    await Future<void>.delayed(const Duration(milliseconds: 12));
+    if (!mounted || _scratch144_revealed_uzdykl) {
       return;
     }
     final double? scratch144_auto_brush_radius_krjtxv =
@@ -271,6 +281,7 @@ class _Scratch144ScratchCardWidgetPwsltdState
     if (scratch144_path_iyqpnd.isEmpty) {
       return;
     }
+    _scratch144_set_auto_running_czvpmx(true);
     widget.scratch144_on_scratch_start_zqjpmr?.call();
 
     _scratch144_auto_token_dvibyk++;
@@ -287,22 +298,86 @@ class _Scratch144ScratchCardWidgetPwsltdState
     final Duration scratch144_tick_delay_jeqkmu = Duration(
       milliseconds: scratch144_tick_delay_ms_jdkfye,
     );
-    for (final Offset? scratch144_point_jlgtnk in scratch144_path_iyqpnd) {
-      if (!mounted ||
-          scratch144_run_token_hxzfqc != _scratch144_auto_token_dvibyk) {
-        return;
+    try {
+      for (final Offset? scratch144_point_jlgtnk in scratch144_path_iyqpnd) {
+        if (!mounted ||
+            scratch144_run_token_hxzfqc != _scratch144_auto_token_dvibyk) {
+          return;
+        }
+        if (_scratch144_revealed_uzdykl) {
+          return;
+        }
+        if (scratch144_point_jlgtnk == null) {
+          _scratch144_append_auto_break_hkqvpx();
+        } else {
+          _scratch144_append_auto_point_wqjvpx(scratch144_point_jlgtnk);
+        }
+        await Future<void>.delayed(scratch144_tick_delay_jeqkmu);
       }
-      if (_scratch144_revealed_uzdykl) {
-        return;
-      }
-      if (scratch144_point_jlgtnk == null) {
-        _scratch144_handle_pan_end_yrkcqm();
-      } else {
-        _scratch144_handle_pan_update_yhprwu(scratch144_point_jlgtnk);
-      }
-      await Future<void>.delayed(scratch144_tick_delay_jeqkmu);
+      _scratch144_append_auto_break_hkqvpx();
+    } finally {
+      _scratch144_set_auto_running_czvpmx(false);
     }
-    _scratch144_handle_pan_end_yrkcqm();
+  }
+
+  void _scratch144_set_auto_running_czvpmx(bool scratch144_running_zqnhpt) {
+    if (_scratch144_auto_running_bxqvzt == scratch144_running_zqnhpt) {
+      return;
+    }
+    if (!mounted) {
+      _scratch144_auto_running_bxqvzt = scratch144_running_zqnhpt;
+      return;
+    }
+    setState(() {
+      _scratch144_auto_running_bxqvzt = scratch144_running_zqnhpt;
+    });
+  }
+
+  void _scratch144_prepare_auto_start_qxvztr() {
+    if (!mounted) {
+      _scratch144_last_pan_point_jbyxqk = null;
+      return;
+    }
+    setState(() {
+      if (_scratch144_points_qjoklt.isNotEmpty &&
+          _scratch144_points_qjoklt.last != null) {
+        _scratch144_points_qjoklt.add(null);
+        _scratch144_paint_version_kmztqr++;
+      }
+      _scratch144_last_pan_point_jbyxqk = null;
+    });
+  }
+
+  void _scratch144_append_auto_point_wqjvpx(Offset scratch144_offset_wcfuaz) {
+    if (_scratch144_revealed_uzdykl ||
+        _scratch144_view_size_nrcpmx == Size.zero) {
+      return;
+    }
+    final double scratch144_dx_ckotfs = scratch144_offset_wcfuaz.dx;
+    final double scratch144_dy_alzqet = scratch144_offset_wcfuaz.dy;
+    if (scratch144_dx_ckotfs < 0 ||
+        scratch144_dy_alzqet < 0 ||
+        scratch144_dx_ckotfs > _scratch144_view_size_nrcpmx.width ||
+        scratch144_dy_alzqet > _scratch144_view_size_nrcpmx.height) {
+      return;
+    }
+    setState(() {
+      _scratch144_points_qjoklt.add(scratch144_offset_wcfuaz);
+      _scratch144_paint_version_kmztqr++;
+    });
+    _scratch144_mark_cells_juncmr(scratch144_offset_wcfuaz);
+  }
+
+  void _scratch144_append_auto_break_hkqvpx() {
+    _scratch144_last_pan_point_jbyxqk = null;
+    setState(() {
+      if (!_scratch144_revealed_uzdykl &&
+          _scratch144_points_qjoklt.isNotEmpty &&
+          _scratch144_points_qjoklt.last != null) {
+        _scratch144_points_qjoklt.add(null);
+        _scratch144_paint_version_kmztqr++;
+      }
+    });
   }
 
   List<Offset?> _scratch144_build_pattern_path_lqvwca(
@@ -1246,37 +1321,42 @@ class _Scratch144ScratchCardWidgetPwsltdState
                 children: <Widget>[
                   widget.scratch144_bottom_widget_fhpgka,
                   if (!_scratch144_revealed_uzdykl)
-                    GestureDetector(
-                      behavior: HitTestBehavior.opaque,
-                      onPanStart: (DragStartDetails scratch144_details_xtqzew) {
-                        _scratch144_auto_token_dvibyk++;
-                        _scratch144_runtime_brush_radius_ljuzhx = null;
-                        _scratch144_last_pan_point_jbyxqk = null;
-                        widget.scratch144_on_scratch_start_zqjpmr?.call();
-                        _scratch144_handle_pan_update_yhprwu(
-                          scratch144_details_xtqzew.localPosition,
-                        );
-                      },
-                      onPanUpdate:
-                          (DragUpdateDetails scratch144_details_xcpuzh) {
-                            _scratch144_handle_pan_update_yhprwu(
-                              scratch144_details_xcpuzh.localPosition,
-                            );
-                          },
-                      onPanEnd: (DragEndDetails scratch144_details_hqpcyw) {
-                        _scratch144_handle_pan_end_yrkcqm();
-                      },
-                      child: CustomPaint(
-                        painter: _Scratch144ScratchCoverPainterPwsltd(
-                          scratch144_cover_image_dpkjhy:
-                              _scratch144_cover_image_htmrpa,
-                          scratch144_points_xzreof: _scratch144_points_qjoklt,
-                          scratch144_radius_krzquh:
-                              _scratch144_get_active_brush_radius_djkqmf(),
-                          scratch144_paint_version_kmztqr:
-                              _scratch144_paint_version_kmztqr,
-                          scratch144_cover_fit_uqvmxp:
-                              widget.scratch144_cover_fit_uqvmxp,
+                    IgnorePointer(
+                      ignoring: _scratch144_auto_running_bxqvzt,
+                      child: GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onPanStart: (DragStartDetails scratch144_details_xtqzew) {
+                          if (_scratch144_auto_running_bxqvzt) {
+                            return;
+                          }
+                          _scratch144_runtime_brush_radius_ljuzhx = null;
+                          _scratch144_last_pan_point_jbyxqk = null;
+                          widget.scratch144_on_scratch_start_zqjpmr?.call();
+                          _scratch144_handle_pan_update_yhprwu(
+                            scratch144_details_xtqzew.localPosition,
+                          );
+                        },
+                        onPanUpdate:
+                            (DragUpdateDetails scratch144_details_xcpuzh) {
+                              _scratch144_handle_pan_update_yhprwu(
+                                scratch144_details_xcpuzh.localPosition,
+                              );
+                            },
+                        onPanEnd: (DragEndDetails scratch144_details_hqpcyw) {
+                          _scratch144_handle_pan_end_yrkcqm();
+                        },
+                        child: CustomPaint(
+                          painter: _Scratch144ScratchCoverPainterPwsltd(
+                            scratch144_cover_image_dpkjhy:
+                                _scratch144_cover_image_htmrpa,
+                            scratch144_points_xzreof: _scratch144_points_qjoklt,
+                            scratch144_radius_krzquh:
+                                _scratch144_get_active_brush_radius_djkqmf(),
+                            scratch144_paint_version_kmztqr:
+                                _scratch144_paint_version_kmztqr,
+                            scratch144_cover_fit_uqvmxp:
+                                widget.scratch144_cover_fit_uqvmxp,
+                          ),
                         ),
                       ),
                     ),
