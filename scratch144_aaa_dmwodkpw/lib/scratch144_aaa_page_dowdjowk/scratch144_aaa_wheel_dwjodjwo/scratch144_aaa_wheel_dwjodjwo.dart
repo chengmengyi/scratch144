@@ -4,6 +4,7 @@ import 'package:scratch144_base_dwhidjwo/scratch144_page_yyclzs/scratch144_widge
 import 'package:scratch144_base_dwhidjwo/scratch144_page_yyclzs/scratch144_widget_type_vsmaou.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_colors_tvffoz.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_utils_zhnggc.dart';
+import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_click_widget_mplwfm.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_local_images_widget_gohzrl.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_text_widget_pcbuin.dart';
 
@@ -47,7 +48,12 @@ class Scratch144AaaWheelDwjodjwo extends Scratch144WidgetInhgkd<Scratch144AaaWhe
               alignment: Alignment.center,
               children: [
                 Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "wheel3", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
-                Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "wheel5", scratch144Widthcpygxw: 104.w, scratch144Heightvnnnnq: 126.h),
+                Scratch144ClickWidgetMplwfm(
+                  onTap: (){
+                    scratch144Controllerwjbgnj.clickStart();
+                  },
+                  child: Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "wheel5", scratch144Widthcpygxw: 104.w, scratch144Heightvnnnnq: 126.h),
+                ),
               ],
             ),
           ),
