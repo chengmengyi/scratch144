@@ -25,16 +25,16 @@ class Scratch144AaaCardChildDhwidjwo extends Scratch144WidgetInhgkd<Scratch144Aa
       Scratch144WidgetTypezeuaqu.child;
 
   @override
-  Widget scratch144_init_widget_xnblzi() => Container(
-    padding: EdgeInsets.only(top: 110.h, bottom: 100.h),
-    child: Stack(
-      children: [
-        Scratch144LocalImagesWidgetGohzrl(
-          scratch144Nametrrwib: "card_bg",
-          scratch144Widthcpygxw: double.infinity,
-          scratch144Heightvnnnnq: double.infinity,
-        ),
-        SingleChildScrollView(
+  Widget scratch144_init_widget_xnblzi() => Stack(
+    children: [
+      Scratch144LocalImagesWidgetGohzrl(
+        scratch144Nametrrwib: "card_bg",
+        scratch144Widthcpygxw: double.infinity,
+        scratch144Heightvnnnnq: double.infinity,
+      ),
+      Container(
+        padding: EdgeInsets.only(top: 110.h, bottom: 100.h),
+        child: SingleChildScrollView(
           child: Container(
             margin: EdgeInsets.only(left: 15.w, right: 15.w),
             child: GetBuilder<Scratch144AaaCardChildControllerDhwidjwo>(
@@ -67,8 +67,8 @@ class Scratch144AaaCardChildDhwidjwo extends Scratch144WidgetInhgkd<Scratch144Aa
             ),
           ),
         ),
-      ],
-    ),
+      ),
+    ],
   );
 
   _largeItemWidget(Scratch144CardTypeEnumDwidjow type,){

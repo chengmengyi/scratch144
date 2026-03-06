@@ -111,7 +111,7 @@ class Scratch144AaaWheelDwjodjwo
                                   !scratch144Controllerwjbgnj
                                       .scratch144_spinning_hqmvpt,
                               child: Container(
-                                margin: EdgeInsets.only(left: 40.w,top: 90.h),
+                                margin: EdgeInsets.only(left: 40.w, top: 90.h),
                                 child: IgnorePointer(
                                   child: Scratch144FingerWidgetUpnejl(
                                     scratch144Widthcpygxw: 63.w,
