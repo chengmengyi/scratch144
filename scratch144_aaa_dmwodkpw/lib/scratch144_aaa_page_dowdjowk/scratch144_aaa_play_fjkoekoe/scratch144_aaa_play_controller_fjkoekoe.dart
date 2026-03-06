@@ -1,4 +1,5 @@
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_dialog_dwijijfie/scratch144_aaa_win_dialog_fjeifjoej/scratch144_aaa_win_dialog_fjeifjoej.dart';
+import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_card_list_utils_cheijoef.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_play_listener.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_user_info_fjeofjoekf.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_enum_djwdjow/scratch144_card_type_enum_dwidjow.dart';
@@ -6,6 +7,7 @@ import 'package:scratch144_base_dwhidjwo/scratch144_event_ipdmyu/scratch144_even
 import 'package:scratch144_base_dwhidjwo/scratch144_event_ipdmyu/scratch144_event_utils_dzijuo.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_page_yyclzs/scratch144_con_sspacr.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_routers_nxtyun/scratch144_router_utils_dnwkdjow.dart';
+import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_utils_zhnggc.dart';
 import '../../scratch144_aaa_dialog_dwijijfie/scratch144_aaa_play_fail_dialog_fjeojfoe/scratch144_aaa_play_fail_dialog_fjeojfoe.dart';
 
 class Scratch144AaaPlayControllerFjkoekoe extends Scratch144ConSspacr implements Scratch144AaaPlayListener{
@@ -59,10 +61,22 @@ class Scratch144AaaPlayControllerFjkoekoe extends Scratch144ConSspacr implements
     );
   }
 
-  _resetCard(Scratch144CardTypeEnumDwidjow type){
+  _resetCard(Scratch144CardTypeEnumDwidjow type)async{
     start=false;
-    Scratch144EventUtilsDzijuo.instance.scratch144_send_msg_olcuzr(scratch144Codembkrac: Scratch144EventCodeLmdqps.aResetPlayView,scratch144Anyhqnitu: type);
     Scratch144AaaUserInfoFjeofjoekf.instance.updateGuaKaNum();
+    var currentCardNum = await Scratch144AaaCardListUtilsCheijoef.instance.updateCardCurrentNum(type, -1);
+    if(currentCardNum>0){
+      Scratch144EventUtilsDzijuo.instance.scratch144_send_msg_olcuzr(scratch144Codembkrac: Scratch144EventCodeLmdqps.aResetPlayView,scratch144Anyhqnitu: type);
+      return;
+    }
+    var nextType = await Scratch144AaaCardListUtilsCheijoef.instance.getNextCardType(type);
+    if(null==nextType){
+      scratch144ShowToastupfsnd(text: "Please wait for updates");
+      Scratch144RouterUtilsDnwkdjow.instance.closedwkpdkwpd();
+      return;
+    }
+    this.type=nextType;
+    update(["page"]);
   }
 
   clickRevealAll(){

@@ -75,7 +75,7 @@ extension Strint2Double on String {
   }
 }
 
-scratch144upfsnd({required String? text}) {
+scratch144ShowToastupfsnd({required String? text}) {
   if ((text ?? "").isEmpty) {
     return;
   }
@@ -128,4 +128,17 @@ scratch144rksmih({required Widget child}) {
 
 scratch144twnvlg({Map<String, dynamic>? params}) {
   Get.back(result: params);
+}
+
+
+String formatSeconds(int seconds) {
+  Duration duration = Duration(seconds: seconds);
+
+  String twoDigits(int n) => n.toString().padLeft(2, "0");
+
+  String hours = twoDigits(duration.inHours);
+  String minutes = twoDigits(duration.inMinutes.remainder(60));
+  String secs = twoDigits(duration.inSeconds.remainder(60));
+
+  return "$hours:$minutes:$secs";
 }

@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_bean_djwjofepf/scratch144_aaa_game_config_bean_fjeifjoe.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_enum_djwdjow/scratch144_card_type_enum_dwidjow.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_local_ymevgx.dart';
@@ -153,4 +154,11 @@ class Scratch144AaaGameConfigUtilsFjeofjoe{
   bool sweetHasWin()=>Random().nextInt(100)<(_gameConfigBean?.cardFruit?.point??75);
 
   bool isBigWin(int reward)=>reward>=3000;
+
+  int unlockMoneyNum()=>5000;
+
+  int upLevelAddNum()=>6000;
+
+  //刷新总时间，秒。
+  int refreshAllTime()=>kDebugMode?10:10*60*60;
 }

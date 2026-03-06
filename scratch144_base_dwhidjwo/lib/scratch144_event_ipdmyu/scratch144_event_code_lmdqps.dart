@@ -4,4 +4,6 @@ class Scratch144EventCodeLmdqps {
   static const int aUpdateGuaKaNumfeifjoe = 2;
   static const int aResetPlayView = 3;
   static const int aAutoPlay = 4;
+  static const int aUnlockCard = 5;
+  static const int aUpdateCardInfo = 6;
 }

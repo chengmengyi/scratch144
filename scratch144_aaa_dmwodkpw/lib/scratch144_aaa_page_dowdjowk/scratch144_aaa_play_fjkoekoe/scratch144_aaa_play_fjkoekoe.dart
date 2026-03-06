@@ -28,24 +28,27 @@ class Scratch144AaaPlayFjkoekoe extends Scratch144WidgetInhgkd<Scratch144AaaPlay
   Scratch144WidgetTypezeuaqu scratch144_init_type_hqrwcn() => Scratch144WidgetTypezeuaqu.page;
 
   @override
-  Widget scratch144_init_widget_xnblzi() => Stack(
-    children: [
-      Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: scratch144Controllerwjbgnj.getBgImages(), scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
-      _getPlayWidget(),
-      Column(
-        children: [
-          Scratch144AaaTopViewFjeijfoe(
-            isPlayPage: true,
-            clickHome: (){
-              scratch144Controllerwjbgnj.clickHome();
-            },
-          ),
-          SizedBox(height: 20.h,),
-          Scratch144UpLevelViewFjeifjeo(),
-        ],
-      ),
-      _bottomWidget(),
-    ],
+  Widget scratch144_init_widget_xnblzi() => GetBuilder<Scratch144AaaPlayControllerFjkoekoe>(
+    id: "page",
+    builder: (_)=>Stack(
+      children: [
+        Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: scratch144Controllerwjbgnj.getBgImages(), scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+        _getPlayWidget(),
+        Column(
+          children: [
+            Scratch144AaaTopViewFjeijfoe(
+              isPlayPage: true,
+              clickHome: (){
+                scratch144Controllerwjbgnj.clickHome();
+              },
+            ),
+            SizedBox(height: 20.h,),
+            Scratch144UpLevelViewFjeifjeo(),
+          ],
+        ),
+        _bottomWidget(),
+      ],
+    ),
   );
 
   _bottomWidget()=>Align(

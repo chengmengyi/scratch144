@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:scratch144/scratch144_launch_dwkjdow/scratch144_launch_page_dwkjdow.dart';
+import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_card_list_utils_cheijoef.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_game_config_utils_fjeofjoe.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_routers_nxtyun/scratch144_router_address_qvjthh.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_router_list_dniwjow.dart';
@@ -23,6 +24,7 @@ void main()async {
 
   //a
   Scratch144AaaGameConfigUtilsFjeofjoe.instance.initConfig();
+  Scratch144AaaCardListUtilsCheijoef.instance.initCardList();
 
   runApp(const MyApp());
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_bean_djwjofepf/scratch144_aaa_card_list_bean_fjeifjeo.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_page_dowdjowk/scratch144_aaa_card_child_dhwidjwo/scratch144_aaa_card_child_controller_dhwidjwo.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_aaa_win_up_view_fjweiofjoe.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_enum_djwdjow/scratch144_card_type_enum_dwidjow.dart';
@@ -36,30 +37,33 @@ class Scratch144AaaCardChildDhwidjwo extends Scratch144WidgetInhgkd<Scratch144Aa
         SingleChildScrollView(
           child: Container(
             margin: EdgeInsets.only(left: 15.w, right: 15.w),
-            child: Column(
-              children: [
-                SizedBox(height: 6.h),
-                _largeItemWidget(Scratch144CardTypeEnumDwidjow.tiger),
-                SizedBox(height: 6.h),
-                _smallItemWidget(
-                  Scratch144CardTypeEnumDwidjow.emoji,
-                  Scratch144CardTypeEnumDwidjow.bigGame,
-                ),
-                SizedBox(height: 6.h),
-                _largeItemWidget(Scratch144CardTypeEnumDwidjow.hot77),
-                SizedBox(height: 6.h),
-                _smallItemWidget(
-                  Scratch144CardTypeEnumDwidjow.luckyRich,
-                  Scratch144CardTypeEnumDwidjow.sweet,
-                ),
-                SizedBox(height: 6.h),
-                _largeItemWidget(Scratch144CardTypeEnumDwidjow.moneyStorm),
-                SizedBox(height: 6.h),
-                _smallItemWidget(
-                  Scratch144CardTypeEnumDwidjow.fruit,
-                  Scratch144CardTypeEnumDwidjow.mega,
-                ),
-              ],
+            child: GetBuilder<Scratch144AaaCardChildControllerDhwidjwo>(
+              id: "list",
+              builder: (_)=>Column(
+                children: [
+                  SizedBox(height: 6.h),
+                  _largeItemWidget(Scratch144CardTypeEnumDwidjow.tiger),
+                  SizedBox(height: 6.h),
+                  _smallItemWidget(
+                    Scratch144CardTypeEnumDwidjow.emoji,
+                    Scratch144CardTypeEnumDwidjow.bigGame,
+                  ),
+                  SizedBox(height: 6.h),
+                  _largeItemWidget(Scratch144CardTypeEnumDwidjow.hot77),
+                  SizedBox(height: 6.h),
+                  _smallItemWidget(
+                    Scratch144CardTypeEnumDwidjow.luckyRich,
+                    Scratch144CardTypeEnumDwidjow.sweet,
+                  ),
+                  SizedBox(height: 6.h),
+                  _largeItemWidget(Scratch144CardTypeEnumDwidjow.moneyStorm),
+                  SizedBox(height: 6.h),
+                  _smallItemWidget(
+                    Scratch144CardTypeEnumDwidjow.fruit,
+                    Scratch144CardTypeEnumDwidjow.mega,
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -67,40 +71,69 @@ class Scratch144AaaCardChildDhwidjwo extends Scratch144WidgetInhgkd<Scratch144Aa
     ),
   );
 
-  _largeItemWidget(Scratch144CardTypeEnumDwidjow type,) => Scratch144ClickWidgetMplwfm(
-    onTap: (){
-      scratch144Controllerwjbgnj.clickPlay(type);
-    },
-    child: SizedBox(
-      width: double.infinity,
-      height: 130.h,
-      child: Stack(
-        children: [
-          Scratch144LocalImagesWidgetGohzrl(
-            scratch144Nametrrwib: scratch144Controllerwjbgnj.getBgImages(type),
-            scratch144Widthcpygxw: double.infinity,
-            scratch144Heightvnnnnq: double.infinity,
-          ),
-          Scratch144BreathWidgetMknqtx(
-            scratch144_breath_speed_ms_vrqkxt: 600,
-            scratch144_breath_scale_extent_qhzxrw: 0.06,
-            child: _getLargeIconWidget(type),
-          ),
-          _cardNumLeftWidget(type),
-          Positioned(
-            left: 18.w,
-            bottom: 10.h,
-            child: Scratch144AaaWinUpViewFjweiofjoe(type: type),
-          ),
-          Positioned(
-            right: 16.w,
-            bottom: 16.h,
-            child: _playBtnWidget(type),
-          ),
-        ],
+  _largeItemWidget(Scratch144CardTypeEnumDwidjow type,){
+    var cardBean = scratch144Controllerwjbgnj.getCardBean(type);
+    if(null==cardBean){
+      return Container();
+    }
+    return Scratch144ClickWidgetMplwfm(
+      onTap: (){
+        scratch144Controllerwjbgnj.clickPlay(cardBean);
+      },
+      child: SizedBox(
+        width: double.infinity,
+        height: 130.h,
+        child: Stack(
+          children: [
+            Scratch144LocalImagesWidgetGohzrl(
+              scratch144Nametrrwib: scratch144Controllerwjbgnj.getBgImages(type),
+              scratch144Widthcpygxw: double.infinity,
+              scratch144Heightvnnnnq: double.infinity,
+            ),
+            Scratch144BreathWidgetMknqtx(
+              scratch144_breath_speed_ms_vrqkxt: 600,
+              scratch144_breath_scale_extent_qhzxrw: 0.06,
+              child: _getLargeIconWidget(type),
+            ),
+            _cardNumLeftWidget(type,cardBean),
+            Positioned(
+              left: 18.w,
+              bottom: 10.h,
+              child: Scratch144AaaWinUpViewFjweiofjoe(type: type),
+            ),
+            Positioned(
+              right: 16.w,
+              bottom: 16.h,
+              child: _playBtnWidget(cardBean),
+            ),
+            Visibility(
+              visible: (cardBean.refreshTime??0)>0,
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "large_cover", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity,),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "icon_refresh", scratch144Widthcpygxw: 32.w, scratch144Heightvnnnnq: 32.w,),
+                      SizedBox(width: 8.w,),
+                      Scratch144TextWidgetPcbuin(
+                        scratch144Textannbiq: "Refresh in ${formatSeconds(cardBean.refreshTime??0)}",
+                        scratch144Sizefbwmhh: 20.sp,
+                        scratch144TextColorrzkydb: Scratch144nwekyj.colorFFFFFF,
+                        scratch144OutLineColorbzjwzh: Scratch144nwekyj.color000000,
+                        scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
-    ),
-  );
+    );
+  }
 
   _getLargeIconWidget(Scratch144CardTypeEnumDwidjow type) {
     if (type == Scratch144CardTypeEnumDwidjow.tiger) {
@@ -150,79 +183,134 @@ class Scratch144AaaCardChildDhwidjwo extends Scratch144WidgetInhgkd<Scratch144Aa
   _smallItemWidget(
     Scratch144CardTypeEnumDwidjow leftType,
     Scratch144CardTypeEnumDwidjow rightType,
-  ) => LayoutBuilder(
-    builder: (context, bc) {
-      var width = bc.maxWidth / 2 + (12.w);
-      return SizedBox(
-        width: double.infinity,
-        height: 130.h,
-        child: Stack(
-          children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Scratech144ShimmerDwiofjofjo(
-                child: Scratch144ClickWidgetMplwfm(
-                  onTap: (){
-                    scratch144Controllerwjbgnj.clickPlay(leftType);
-                  },
-                  child: SizedBox(
-                    width: width,
-                    height: 130.h,
-                    child: Stack(
-                      children: [
-                        Scratch144LocalImagesWidgetGohzrl(
-                          scratch144Nametrrwib: scratch144Controllerwjbgnj.getBgImages(leftType),
-                          scratch144Widthcpygxw: width,
-                          scratch144Heightvnnnnq: double.infinity,
-                        ),
-                        _getSmallLeftIconWidget(leftType),
-                        _cardNumLeftWidget(leftType),
-                        Positioned(
-                          left: 16.w,
-                          bottom: 16.h,
-                          child: _playBtnWidget(leftType),
-                        ),
-                      ],
+  ){
+    var leftCard = scratch144Controllerwjbgnj.getCardBean(leftType);
+    var rightCard = scratch144Controllerwjbgnj.getCardBean(rightType);
+    if(null==leftCard||null==rightCard){
+      return Container();
+    }
+    return LayoutBuilder(
+      builder: (context, bc) {
+        var width = bc.maxWidth / 2 + (12.w);
+        return SizedBox(
+          width: double.infinity,
+          height: 130.h,
+          child: Stack(
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Scratech144ShimmerDwiofjofjo(
+                  child: Scratch144ClickWidgetMplwfm(
+                    onTap: (){
+                      scratch144Controllerwjbgnj.clickPlay(leftCard);
+                    },
+                    child: SizedBox(
+                      width: width,
+                      height: 130.h,
+                      child: Stack(
+                        children: [
+                          Scratch144LocalImagesWidgetGohzrl(
+                            scratch144Nametrrwib: scratch144Controllerwjbgnj.getBgImages(leftType),
+                            scratch144Widthcpygxw: width,
+                            scratch144Heightvnnnnq: double.infinity,
+                          ),
+                          _getSmallLeftIconWidget(leftType),
+                          _cardNumLeftWidget(leftType,leftCard),
+                          Positioned(
+                            left: 16.w,
+                            bottom: 16.h,
+                            child: _playBtnWidget(leftCard),
+                          ),
+                          Visibility(
+                            visible: (leftCard.refreshTime??0)>0,
+                            child: Stack(
+                              alignment: Alignment.centerLeft,
+                              children: [
+                                Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "small_left_cover", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity,),
+                                Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    SizedBox(width: 10.w,),
+                                    Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "icon_refresh", scratch144Widthcpygxw: 26.w, scratch144Heightvnnnnq: 26.w,),
+                                    SizedBox(width: 2.w,),
+                                    Scratch144TextWidgetPcbuin(
+                                      scratch144Textannbiq: "Refresh ${formatSeconds(leftCard.refreshTime??0)}",
+                                      scratch144Sizefbwmhh: 14.sp,
+                                      scratch144TextColorrzkydb: Scratch144nwekyj.colorFFFFFF,
+                                      scratch144OutLineColorbzjwzh: Scratch144nwekyj.color000000,
+                                      scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: Scratech144ShimmerDwiofjofjo(
-                child: Scratch144ClickWidgetMplwfm(
-                  onTap: (){
-                    scratch144Controllerwjbgnj.clickPlay(rightType);
-                  },
-                  child: SizedBox(
-                    width: width,
-                    height: 130.h,
-                    child: Stack(
-                      children: [
-                        Scratch144LocalImagesWidgetGohzrl(
-                          scratch144Nametrrwib: scratch144Controllerwjbgnj.getBgImages(rightType),
-                          scratch144Widthcpygxw: width,
-                          scratch144Heightvnnnnq: double.infinity,
-                        ),
-                        _getSmallRightIconWidget(rightType),
-                        _cardNumRightWidget(rightType),
-                        Positioned(
-                          right: 16.w,
-                          bottom: 16.h,
-                          child: _playBtnWidget(leftType),
-                        ),
-                      ],
+              Align(
+                alignment: Alignment.centerRight,
+                child: Scratech144ShimmerDwiofjofjo(
+                  child: Scratch144ClickWidgetMplwfm(
+                    onTap: (){
+                      scratch144Controllerwjbgnj.clickPlay(rightCard);
+                    },
+                    child: SizedBox(
+                      width: width,
+                      height: 130.h,
+                      child: Stack(
+                        children: [
+                          Scratch144LocalImagesWidgetGohzrl(
+                            scratch144Nametrrwib: scratch144Controllerwjbgnj.getBgImages(rightType),
+                            scratch144Widthcpygxw: width,
+                            scratch144Heightvnnnnq: double.infinity,
+                          ),
+                          _getSmallRightIconWidget(rightType),
+                          _cardNumRightWidget(rightType,rightCard),
+                          Positioned(
+                            right: 16.w,
+                            bottom: 16.h,
+                            child: _playBtnWidget(rightCard),
+                          ),
+                          Visibility(
+                            visible: (rightCard.refreshTime??0)>0,
+                            child: Stack(
+                              alignment: Alignment.centerRight,
+                              children: [
+                                Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "small_right_cover", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity,),
+                                Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "icon_refresh", scratch144Widthcpygxw: 26.w, scratch144Heightvnnnnq: 26.w,),
+                                    SizedBox(width: 2.w,),
+                                    Scratch144TextWidgetPcbuin(
+                                      scratch144Textannbiq: "Refresh in ${formatSeconds(rightCard.refreshTime??0)}",
+                                      scratch144Sizefbwmhh: 14.sp,
+                                      scratch144TextColorrzkydb: Scratch144nwekyj.colorFFFFFF,
+                                      scratch144OutLineColorbzjwzh: Scratch144nwekyj.color000000,
+                                      scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+                                    ),
+                                    SizedBox(width: 10.w,),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
-        ),
-      );
-    },
-  );
+            ],
+          ),
+        );
+      },
+    );
+  }
 
   _getSmallLeftIconWidget(Scratch144CardTypeEnumDwidjow leftType) {
     if (leftType == Scratch144CardTypeEnumDwidjow.emoji) {
@@ -313,7 +401,7 @@ class Scratch144AaaCardChildDhwidjwo extends Scratch144WidgetInhgkd<Scratch144Aa
     return Container();
   }
 
-  _cardNumLeftWidget(Scratch144CardTypeEnumDwidjow type) => Container(
+  _cardNumLeftWidget(Scratch144CardTypeEnumDwidjow type, Scratch144AaaCardListBeanFjeifjeo cardBean) => Container(
     margin: EdgeInsets.only(left: 8.w, top: 5.h),
     child: Stack(
       alignment: Alignment.topCenter,
@@ -324,7 +412,7 @@ class Scratch144AaaCardChildDhwidjwo extends Scratch144WidgetInhgkd<Scratch144Aa
           scratch144Heightvnnnnq: 26.h,
         ),
         Scratch144TextWidgetPcbuin(
-          scratch144Textannbiq: "Card：3/10",
+          scratch144Textannbiq: "Card：${cardBean.cardCurrentNum??0}/${cardBean.cardTotalNum??0}",
           scratch144Sizefbwmhh: 16.sp,
           scratch144FontWeightvzszvv: FontWeight.bold,
           scratch144TextColorrzkydb: Scratch144nwekyj.colorFFFFFF,
@@ -335,7 +423,7 @@ class Scratch144AaaCardChildDhwidjwo extends Scratch144WidgetInhgkd<Scratch144Aa
     ),
   );
 
-  _cardNumRightWidget(Scratch144CardTypeEnumDwidjow type) => Align(
+  _cardNumRightWidget(Scratch144CardTypeEnumDwidjow type, Scratch144AaaCardListBeanFjeifjeo cardBean) => Align(
     alignment: Alignment.topRight,
     child: Container(
       margin: EdgeInsets.only(right: 8.w, top: 5.h),
@@ -348,7 +436,7 @@ class Scratch144AaaCardChildDhwidjwo extends Scratch144WidgetInhgkd<Scratch144Aa
             scratch144Heightvnnnnq: 26.h,
           ),
           Scratch144TextWidgetPcbuin(
-            scratch144Textannbiq: "Card：3/10",
+            scratch144Textannbiq: "Card：${cardBean.cardCurrentNum??0}/${cardBean.cardTotalNum??0}",
             scratch144Sizefbwmhh: 16.sp,
             scratch144FontWeightvzszvv: FontWeight.bold,
             scratch144TextColorrzkydb: Scratch144nwekyj.colorFFFFFF,
@@ -360,19 +448,31 @@ class Scratch144AaaCardChildDhwidjwo extends Scratch144WidgetInhgkd<Scratch144Aa
     ),
   );
 
-  _playBtnWidget(Scratch144CardTypeEnumDwidjow type)=>Scratch144ClickWidgetMplwfm(
-    child: Stack(
-      alignment: Alignment.center,
-      children: [
-        Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "play_btn", scratch144Widthcpygxw: 100.w, scratch144Heightvnnnnq: 28.h),
-        Scratch144TextWidgetPcbuin(
-          scratch144Textannbiq: "Play",
-          scratch144Sizefbwmhh: 16.sp,
-          scratch144TextColorrzkydb: Scratch144nwekyj.colorFFFFFF,
-          scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
-          scratch144OutLineColorbzjwzh: Scratch144nwekyj.color000000,
+  _playBtnWidget(Scratch144AaaCardListBeanFjeifjeo bean)=>Stack(
+    alignment: Alignment.center,
+    children: [
+      Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "play_btn", scratch144Widthcpygxw: 100.w, scratch144Heightvnnnnq: 28.h),
+      Scratch144TextWidgetPcbuin(
+        scratch144Textannbiq: "Play",
+        scratch144Sizefbwmhh: 16.sp,
+        scratch144TextColorrzkydb: Scratch144nwekyj.colorFFFFFF,
+        scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+        scratch144OutLineColorbzjwzh: Scratch144nwekyj.color000000,
+      ),
+      Visibility(
+        visible: bean.lock==1,
+        child: Container(
+          width: 100.w,
+          height: 28.h,
+          alignment: Alignment.centerLeft,
+          padding: EdgeInsets.only(left: 12.w),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(40.w),
+            color: Scratch144nwekyj.color000000.withOpacity(0.4),
+          ),
+          child: Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "icon_suo", scratch144Widthcpygxw: 18.w, scratch144Heightvnnnnq: 23.h),
         ),
-      ],
-    ),
+      ),
+    ],
   );
 }
