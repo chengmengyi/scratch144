@@ -27,4 +27,7 @@ class Scratch144nwekyj {
   static const Color color976107 = Color(0xFF976107);
   static const Color color0A473D = Color(0xFF0A473D);
   static const Color color05332C = Color(0xFF05332C);
+  static const Color color0E201D = Color(0xFF0E201D);
+  static const Color colorF3F3F3 = Color(0xFFF3F3F3);
+  static const Color colorEFFEDF = Color(0xFFEFFEDF);
 }

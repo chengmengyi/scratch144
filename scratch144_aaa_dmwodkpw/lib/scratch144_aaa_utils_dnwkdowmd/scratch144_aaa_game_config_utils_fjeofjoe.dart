@@ -4,6 +4,8 @@ import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_bean_djwjofepf/scratch144_aaa_game_config_bean_fjeifjoe.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_enum_djwdjow/scratch144_card_type_enum_dwidjow.dart';
+import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_common_storage_iwgdlu.dart';
+import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_firebase_fjeijfoe.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_local_ymevgx.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_utils_zhnggc.dart';
 
@@ -15,8 +17,19 @@ class Scratch144AaaGameConfigUtilsFjeofjoe{
   Scratch144AaaGameConfigBeanFjeifjoe? _gameConfigBean;
 
   initConfig(){
+    _startInit();
+    Scratch144FirebaseFjeijfoe.instance.aGameConfigCallback=(){
+      _startInit();
+    };
+  }
+
+  _startInit(){
     try{
-      _gameConfigBean=Scratch144AaaGameConfigBeanFjeifjoe.fromJson(jsonDecode(Scratch144LocalYmevgx.localGameConfigBase64.base64()));
+      var data = aGameConfigStrfeifjoe.getData();
+      if(data.isEmpty){
+        data=Scratch144LocalYmevgx.localGameConfigBase64.base64();
+      }
+      _gameConfigBean=Scratch144AaaGameConfigBeanFjeifjoe.fromJson(jsonDecode(data));
     }catch(e){
       _gameConfigBean=Scratch144AaaGameConfigBeanFjeifjoe.fromJson(jsonDecode(Scratch144LocalYmevgx.localGameConfigBase64.base64()));
     }

@@ -52,4 +52,11 @@ class Scratch144RouterUtilsDnwkdjow{
       barrierDismissible: false,
     );
   }
+
+  toWebfjeofoe({
+    required String title,
+    required String url,
+}){
+    toNamedsjwidjow(routerName: "/web",params: {"title":title,"url":url});
+  }
 }

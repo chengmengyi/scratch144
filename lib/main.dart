@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:scratch144/scratch144_launch_dwkjdow/scratch144_launch_page_dwkjdow.dart';
+import 'package:scratch144/scratch144_web_fjeofje/scratch144_web_fjeofje.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_ach_utils_hiwhow.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_card_list_utils_cheijoef.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_game_config_utils_fjeofjoe.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_routers_nxtyun/scratch144_router_address_qvjthh.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_router_list_dniwjow.dart';
+import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_firebase_fjeijfoe.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_utils_zhnggc.dart';
+import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_voice_utils_djeijfoiejf.dart';
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,9 +27,11 @@ void main()async {
   await GetStorage.init();
 
   //a
+  Scratch144VoiceUtilsDjeijfoiejf.instance.initPlayer();
   Scratch144AaaGameConfigUtilsFjeofjoe.instance.initConfig();
   Scratch144AaaCardListUtilsCheijoef.instance.initCardList();
   Scratch144AaaAchUtilsHiwhow.instance.initTodayAch();
+  Scratch144FirebaseFjeijfoe.instance.init();
 
   runApp(const MyApp());
 }
@@ -40,7 +45,12 @@ class MyApp extends StatelessWidget {
       GetPage(
         name: "/launch",
         page: ()=> Scratch144LaunchPageDwkjdow(),
-        transition: Transition.fadeIn,
+        transition: Transition.rightToLeft,
+      ),
+      GetPage(
+        name: "/web",
+        page: ()=> Scratch144WebFjeofje(),
+        transition: Transition.rightToLeft,
       ),
     ];
     return ScreenUtilInit(

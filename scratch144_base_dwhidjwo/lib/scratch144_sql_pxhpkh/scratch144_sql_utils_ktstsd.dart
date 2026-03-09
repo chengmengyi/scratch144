@@ -25,6 +25,6 @@ class Scratch144SqlUtilsKtstsd {
 
   void _scratch144_create_version1_db_uzqfnt(Database db) {
     db.execute('CREATE TABLE ${Scratch144SqlTableNameTleech.scratch144CardListejfiej} (id INTEGER PRIMARY KEY AUTOINCREMENT, cardType TEXT, cardCurrentNum INTEGER, cardTotalNum INTEGER,refreshTime INTEGER,lock INTEGER)',);
-    db.execute('CREATE TABLE ${Scratch144SqlTableNameTleech.scratch144Achfjeofjoe} (id INTEGER PRIMARY KEY AUTOINCREMENT, taskType TEXT, todayTime TEXT, taskText TEXT, currentPro INTEGER, totalPro INTEGER,reward INTEGER)',);
+    db.execute('CREATE TABLE ${Scratch144SqlTableNameTleech.scratch144Achfjeofjoe} (id INTEGER PRIMARY KEY AUTOINCREMENT, taskType TEXT, todayTime TEXT, taskText TEXT, currentPro INTEGER, totalPro INTEGER,reward INTEGER, received INTEGER)',);
   }
 }

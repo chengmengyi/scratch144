@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_dialog_dwijijfie/scratch144_aaa_set_dialog_feikfjoe/scratch144_aaa_set_dialog_feikfjoe.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_aaa_coins_view_fejifjoef.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_view_djwijofw/scratch144_aaa_level_view_fjeifjoejf.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_page_yyclzs/scratch144_stateful_widget_jmndjv.dart';
+import 'package:scratch144_base_dwhidjwo/scratch144_routers_nxtyun/scratch144_router_utils_dnwkdjow.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_utils_zhnggc.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_click_widget_mplwfm.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_local_images_widget_gohzrl.dart';
@@ -48,10 +50,15 @@ class _Scratch144AaaTopViewFjeijfoeState extends Scratch144Statemubfka<Scratch14
               ),
               Visibility(
                 visible: !widget.isPlayPage,
-                child: Scratch144LocalImagesWidgetGohzrl(
-                  scratch144Nametrrwib: "icon_set",
-                  scratch144Widthcpygxw: 36.w,
-                  scratch144Heightvnnnnq: 36.w,
+                child: Scratch144ClickWidgetMplwfm(
+                  onTap: (){
+                    Scratch144RouterUtilsDnwkdjow.instance.showDialogwouwojdw(child: Scratch144AaaSetDialogFeikfjoe());
+                  },
+                  child: Scratch144LocalImagesWidgetGohzrl(
+                    scratch144Nametrrwib: "icon_set",
+                    scratch144Widthcpygxw: 36.w,
+                    scratch144Heightvnnnnq: 36.w,
+                  ),
                 ),
               ),
               Visibility(

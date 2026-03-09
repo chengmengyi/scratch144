@@ -8,6 +8,7 @@ import 'package:scratch144_base_dwhidjwo/scratch144_event_ipdmyu/scratch144_even
 import 'package:scratch144_base_dwhidjwo/scratch144_page_yyclzs/scratch144_con_sspacr.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_routers_nxtyun/scratch144_router_utils_dnwkdjow.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_utils_zhnggc.dart';
+import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_voice_utils_djeijfoiejf.dart';
 import '../../scratch144_aaa_dialog_dwijijfie/scratch144_aaa_play_fail_dialog_fjeojfoe/scratch144_aaa_play_fail_dialog_fjeojfoe.dart';
 
 class Scratch144AaaPlayControllerFjkoekoe extends Scratch144ConSspacr implements Scratch144AaaPlayListener{
@@ -37,6 +38,7 @@ class Scratch144AaaPlayControllerFjkoekoe extends Scratch144ConSspacr implements
   @override
   startPlay(Scratch144CardTypeEnumDwidjow type) {
     start=true;
+    Scratch144VoiceUtilsDjeijfoiejf.instance.playVoice(Scratch144VoiceTypefjiwfjo.guaka1);
   }
 
   @override

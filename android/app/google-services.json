@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "834547349274",
+    "project_id": "scratch144-3faf4",
+    "storage_bucket": "scratch144-3faf4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834547349274:android:d2bec426925f3f63ee5ea3",
+        "android_client_info": {
+          "package_name": "com.example.scratch144"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo9dEAaKoR6Ml_WPSco7TYACYa8h7pZdY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

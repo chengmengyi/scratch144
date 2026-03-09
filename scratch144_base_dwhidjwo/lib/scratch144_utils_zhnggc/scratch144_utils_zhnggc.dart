@@ -18,6 +18,7 @@ export 'package:decimal/decimal.dart';
 export 'package:marqueer/marqueer.dart';
 export 'package:lottie/lottie.dart';
 export 'package:shake_animation_widget/shake_animation_widget.dart';
+export 'package:flutter_tba_info/flutter_tba_info.dart';
 
 extension StringBase64 on String {
   String base64() => const Utf8Decoder().convert(base64Decode(this));

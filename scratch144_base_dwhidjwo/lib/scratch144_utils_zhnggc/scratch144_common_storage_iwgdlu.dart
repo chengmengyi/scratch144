@@ -1,11 +1,6 @@
 import 'package:flutter_android_ad_plugins/hep/ad_num_hep.dart';
 
-StorageData<bool> bUploadInstallEvent = StorageData<bool>(
-  key: "bUploadInstallEvent",
-  defaultValue: true,
-);
+StorageData<String> aGameConfigStrfeifjoe = StorageData<String>(key: "aGameConfigStrfeifjoe", defaultValue: "",);
 
-StorageData<String> bAdFirebaseConfig = StorageData<String>(
-  key: "bAdFirebaseConfig",
-  defaultValue: "",
-);
+StorageData<bool> playBgmfejofej = StorageData<bool>(key: "playBgmfejofej", defaultValue: true,);
+StorageData<bool> playVoicefeofjoe = StorageData<bool>(key: "playVoicefeofjoe", defaultValue: true,);

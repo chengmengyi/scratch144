@@ -10,6 +10,7 @@ class Scratch144AaaAchBeanFjeifjoe {
       this.taskText, 
       this.reward,
       this.todayTime,
+      this.received,
   });
 
   Scratch144AaaAchBeanFjeifjoe.fromJson(dynamic json) {
@@ -24,6 +25,7 @@ class Scratch144AaaAchBeanFjeifjoe {
     totalPro = json['totalPro'];
     taskText = json['taskText'];
     reward = json['reward'];
+    received = json['received'];
   }
   Scratch144TaskTypefejifj? taskType;
   String? todayTime;
@@ -31,6 +33,7 @@ class Scratch144AaaAchBeanFjeifjoe {
   int? totalPro;
   String? taskText;
   int? reward;
+  int? received;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -40,6 +43,7 @@ class Scratch144AaaAchBeanFjeifjoe {
     map['taskText'] = taskText;
     map['reward'] = reward;
     map['todayTime'] = todayTime;
+    map['received'] = received;
     return map;
   }
 
