@@ -2,8 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_android_ad_plugins/data/ad_info_data.dart';
 import 'package:flutter_android_ad_plugins/data/config_ad_data.dart';
 import 'package:flutter_android_ad_plugins/hep/ad_type.dart';
+import 'package:flutter_android_ad_plugins/hep/ios_ad_callback.dart';
 import 'package:flutter_android_ad_plugins/hep/ios_load_ad_result_callback.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_utils_zhnggc.dart';
+import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_voice_utils_djeijfoiejf.dart';
 
 class Scratch144AdUtilsFjijfoe {
   static final Scratch144AdUtilsFjijfoe _fjijfoe=Scratch144AdUtilsFjijfoe();
@@ -36,7 +38,30 @@ class Scratch144AdUtilsFjijfoe {
   showAdAAAAAAdjiwjdoiw({
     required Function(bool give) callback,
 }){
-    callback.call(true);
+    var resultData = FlutterAndroidAdPlugins.instance.getCacheResultData(AdType.reward);
+    if(null==resultData){
+      scratch144ShowToastupfsnd(text: "The advertisement failed to load. Please try again later");
+      return;
+    }
+    FlutterAndroidAdPlugins.instance.showAd(
+      adType: AdType.reward,
+      iosAdCallback: IosAdCallback(
+        showSuccess: (ad,info){
+          Scratch144VoiceUtilsDjeijfoiejf.instance.stopBgm();
+        },
+        showFail: (info){
+          Scratch144VoiceUtilsDjeijfoiejf.instance.playBgm();
+          scratch144ShowToastupfsnd(text: "Failed to fetch ads. Please try again later");
+        },
+        closeAd: (ad,info,hasReward){
+          Scratch144VoiceUtilsDjeijfoiejf.instance.playBgm();
+          callback.call(true);
+        },
+        revenuePaid: (ad,info){
+
+        },
+      ),
+    );
   }
 
 

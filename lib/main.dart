@@ -7,6 +7,8 @@ import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch14
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_game_config_utils_fjeofjoe.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_routers_nxtyun/scratch144_router_address_qvjthh.dart';
 import 'package:scratch144_aaa_dmwodkpw/scratch144_aaa_utils_dnwkdowmd/scratch144_aaa_router_list_dniwjow.dart';
+import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_ad_utils_fjijfoe.dart';
+import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_applife_utils_feifjoe.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_firebase_fjeijfoe.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_utils_zhnggc.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_utils_zhnggc/scratch144_voice_utils_djeijfoiejf.dart';
@@ -27,11 +29,13 @@ void main()async {
   await GetStorage.init();
 
   //a
+  Scratch144ApplifeUtilsFeifjoe.instance.init();
   Scratch144VoiceUtilsDjeijfoiejf.instance.initPlayer();
   Scratch144AaaGameConfigUtilsFjeofjoe.instance.initConfig();
   Scratch144AaaCardListUtilsCheijoef.instance.initCardList();
   Scratch144AaaAchUtilsHiwhow.instance.initTodayAch();
   Scratch144FirebaseFjeijfoe.instance.init();
+  Scratch144AdUtilsFjijfoe.instance.initAd();
 
   runApp(const MyApp());
 }
