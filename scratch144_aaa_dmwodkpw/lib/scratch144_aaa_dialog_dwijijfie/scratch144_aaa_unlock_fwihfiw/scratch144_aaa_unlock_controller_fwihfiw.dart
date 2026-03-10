@@ -13,7 +13,7 @@ class Scratch144AaaUnlockControllerFwihfiw extends Scratch144ConSspacr{
   useMoneyUnlock(Scratch144CardTypeEnumDwidjow? type,Function() unlockCallback){
     var unlockMoneyNum = Scratch144AaaGameConfigUtilsFjeofjoe.instance.unlockMoneyNum();
     if(aCoinsNumwdjowkod.getData()<unlockMoneyNum){
-      scratch144ShowToastupfsnd(text: "Not enough gold coins");
+      scratch144ShowToastupfsnd(text: "Sorry, the current gold coin balance is insufficient");
       return;
     }
     _unlock(type, unlockCallback,true);
