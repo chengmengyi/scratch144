@@ -140,40 +140,47 @@ class Scratch144AaaPlayFjkoekoe
       case Scratch144CardTypeEnumDwidjow.tiger:
         return Scratch144TigerPlayViewDjwijow(
           playListener: scratch144Controllerwjbgnj,
-          scratch144_show_guide_hand_upnejl:
-              scratch144Controllerwjbgnj.scratch144_show_scratch_guide_upnejl,
+          scratch144_show_guide_hand_upnejl: scratch144Controllerwjbgnj.scratch144_show_scratch_guide_upnejl,
         );
       case Scratch144CardTypeEnumDwidjow.emoji:
         return Scratch144AaaEmojiPlayViewFjwifjoejf(
           playListener: scratch144Controllerwjbgnj,
+          scratch144_show_guide_hand_upnejl: scratch144Controllerwjbgnj.scratch144_show_scratch_guide_upnejl,
         );
       case Scratch144CardTypeEnumDwidjow.bigGame:
         return Scratch144BigGamePlayViewFjwifjoejf(
           playListener: scratch144Controllerwjbgnj,
+          scratch144_show_guide_hand_upnejl: scratch144Controllerwjbgnj.scratch144_show_scratch_guide_upnejl,
         );
       case Scratch144CardTypeEnumDwidjow.hot77:
         return Scratch144Hot77PlayViewFjwifjoejf(
           playListener: scratch144Controllerwjbgnj,
+          scratch144_show_guide_hand_upnejl: scratch144Controllerwjbgnj.scratch144_show_scratch_guide_upnejl,
         );
       case Scratch144CardTypeEnumDwidjow.luckyRich:
         return Scratch144LuckyPlayViewFjwifjoejf(
           playListener: scratch144Controllerwjbgnj,
+          scratch144_show_guide_hand_upnejl: scratch144Controllerwjbgnj.scratch144_show_scratch_guide_upnejl,
         );
       case Scratch144CardTypeEnumDwidjow.sweet:
         return Scratch144SweetPlayViewFjwifjoejf(
           playListener: scratch144Controllerwjbgnj,
+          scratch144_show_guide_hand_upnejl: scratch144Controllerwjbgnj.scratch144_show_scratch_guide_upnejl,
         );
       case Scratch144CardTypeEnumDwidjow.moneyStorm:
         return Scratch144MoneyPlayViewFjwifjoejf(
           playListener: scratch144Controllerwjbgnj,
+          scratch144_show_guide_hand_upnejl: scratch144Controllerwjbgnj.scratch144_show_scratch_guide_upnejl,
         );
       case Scratch144CardTypeEnumDwidjow.fruit:
         return Scratch144FruitPlayViewFjwifjoejf(
           playListener: scratch144Controllerwjbgnj,
+          scratch144_show_guide_hand_upnejl: scratch144Controllerwjbgnj.scratch144_show_scratch_guide_upnejl,
         );
       case Scratch144CardTypeEnumDwidjow.mega:
         return Scratch144MegaPlayViewFjwifjoejf(
           playListener: scratch144Controllerwjbgnj,
+          scratch144_show_guide_hand_upnejl: scratch144Controllerwjbgnj.scratch144_show_scratch_guide_upnejl,
         );
     }
   }

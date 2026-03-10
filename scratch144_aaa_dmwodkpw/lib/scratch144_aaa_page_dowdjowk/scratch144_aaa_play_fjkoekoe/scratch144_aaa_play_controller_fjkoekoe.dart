@@ -22,7 +22,6 @@ class Scratch144AaaPlayControllerFjkoekoe extends Scratch144ConSspacr
   void onInit() {
     super.onInit();
     type = Scratch144RouterUtilsDnwkdjow.instance.getParamsdwkepkpe()["type"];
-    scratch144_show_scratch_guide_upnejl=aShowGuaKaGuidefejfieo.getData();
   }
 
   String getBgImages() {
@@ -83,10 +82,8 @@ class Scratch144AaaPlayControllerFjkoekoe extends Scratch144ConSspacr
   _resetCard(Scratch144CardTypeEnumDwidjow type) async {
     start = false;
     scratch144_show_scratch_guide_upnejl = false;
-    aShowGuaKaGuidefejfieo.saveData(false);
     Scratch144AaaUserInfoFjeofjoekf.instance.updateGuaKaNum();
-    var currentCardNum = await Scratch144AaaCardListUtilsCheijoef.instance
-        .updateCardCurrentNum(type, -1);
+    var currentCardNum = await Scratch144AaaCardListUtilsCheijoef.instance.updateCardCurrentNum(type, -1);
     if (currentCardNum > 0) {
       update(["page"]);
       Scratch144EventUtilsDzijuo.instance.scratch144_send_msg_olcuzr(
@@ -95,14 +92,14 @@ class Scratch144AaaPlayControllerFjkoekoe extends Scratch144ConSspacr
       );
       return;
     }
-    var nextType = await Scratch144AaaCardListUtilsCheijoef.instance
-        .getNextCardType(type);
+    var nextType = await Scratch144AaaCardListUtilsCheijoef.instance.getNextCardType(type);
     if (null == nextType) {
       scratch144ShowToastupfsnd(text: "Please wait for updates");
       Scratch144RouterUtilsDnwkdjow.instance.closedwkpdkwpd();
       return;
     }
     this.type = nextType;
+    scratch144_show_scratch_guide_upnejl=true;
     update(["page"]);
   }
 

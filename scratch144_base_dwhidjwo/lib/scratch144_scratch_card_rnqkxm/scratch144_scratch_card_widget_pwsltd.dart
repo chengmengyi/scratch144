@@ -111,7 +111,7 @@ class Scratch144ScratchCardWidgetPwsltd extends StatefulWidget {
     this.scratch144_on_scratch_start_zqjpmr,
     this.scratch144_controller_ptjlwm,
     this.scratch144_show_guide_hand_upnejl = false,
-    this.scratch144_guide_duration_ms_upnejl = 12000,
+    this.scratch144_guide_duration_ms_upnejl = 1800,
   });
 
   final Widget scratch144_bottom_widget_fhpgka;

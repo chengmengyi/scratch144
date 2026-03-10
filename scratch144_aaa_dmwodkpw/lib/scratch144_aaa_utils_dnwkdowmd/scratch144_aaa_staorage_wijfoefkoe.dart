@@ -10,5 +10,3 @@ class Scratch144AaaStaorageNameWijfoefkoe{
 StorageData<int> aCoinsNumwdjowkod=StorageData<int>(key: Scratch144AaaStaorageNameWijfoefkoe.aCoinsNumwdjowkod, defaultValue: 0);
 StorageData<int> aGuaKaNumfwofjow=StorageData<int>(key: Scratch144AaaStaorageNameWijfoefkoe.aGuaKaNumfwofjow, defaultValue: 0);
 StorageData<int> aAchLevelfjewifjoe=StorageData<int>(key: Scratch144AaaStaorageNameWijfoefkoe.aAchLevelfjewifjoe, defaultValue: 1);
-
-StorageData<bool> aShowGuaKaGuidefejfieo=StorageData<bool>(key: Scratch144AaaStaorageNameWijfoefkoe.aShowGuaKaGuidefejfieo, defaultValue: true);
