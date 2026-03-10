@@ -33,9 +33,9 @@ class Scratch144AaaWheelControllerDwjodjwo extends Scratch144ConSspacr {
     return "Reward: $scratch144_last_reward_qmvptx";
   }
 
-  Future<int?> clickStart() async {
+  clickStart() async {
     if (scratch144_spinning_hqmvpt) {
-      return null;
+      return;
     }
     scratch144_show_finger_guide_qmvpt = false;
     scratch144_spinning_hqmvpt = true;
@@ -72,7 +72,6 @@ class Scratch144AaaWheelControllerDwjodjwo extends Scratch144ConSspacr {
         },
       ),
     );
-    return scratch144_last_reward_qmvptx;
   }
 
   Future<void> _scratch144_start_spin_anim_qmvptx(

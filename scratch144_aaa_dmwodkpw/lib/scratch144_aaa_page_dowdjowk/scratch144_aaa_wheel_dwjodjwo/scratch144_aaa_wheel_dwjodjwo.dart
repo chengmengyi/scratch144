@@ -82,13 +82,9 @@ class Scratch144AaaWheelDwjodjwo
                         alignment: Alignment.center,
                         children: [
                           Scratch144ClickWidgetMplwfm(
-                            onTap:
-                                scratch144Controllerwjbgnj
-                                    .scratch144_spinning_hqmvpt
-                                ? null
-                                : () {
-                                    scratch144Controllerwjbgnj.clickStart();
-                                  },
+                            onTap: () {
+                              scratch144Controllerwjbgnj.clickStart();
+                            },
                             child: Opacity(
                               opacity:
                                   scratch144Controllerwjbgnj
