@@ -16,25 +16,34 @@ import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_gra
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_local_images_widget_gohzrl.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_text_widget_pcbuin.dart';
 
-class Scratch144MoneyPlayViewFjwifjoejf extends Scratch144StatefulWidgetJmndjv{
+class Scratch144MoneyPlayViewFjwifjoejf extends Scratch144StatefulWidgetJmndjv {
   Scratch144AaaPlayListener playListener;
+  bool scratch144_show_guide_hand_upnejl;
   Scratch144MoneyPlayViewFjwifjoejf({
     required this.playListener,
+    this.scratch144_show_guide_hand_upnejl = false,
   });
   @override
-  State<StatefulWidget> createState() => _Scratch144MoneyPlayViewFjwifjoejfState();
+  State<StatefulWidget> createState() =>
+      _Scratch144MoneyPlayViewFjwifjoejfState();
 }
 
-class _Scratch144MoneyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scratch144MoneyPlayViewFjwifjoejf>{
-  final Scratch144CardTypeEnumDwidjow type=Scratch144CardTypeEnumDwidjow.moneyStorm;
-  final Scratch144ScratchCardControllerPwsltd controller = Scratch144ScratchCardControllerPwsltd();
+class _Scratch144MoneyPlayViewFjwifjoejfState
+    extends Scratch144Statemubfka<Scratch144MoneyPlayViewFjwifjoejf> {
+  final Scratch144CardTypeEnumDwidjow type =
+      Scratch144CardTypeEnumDwidjow.moneyStorm;
+  final Scratch144ScratchCardControllerPwsltd controller =
+      Scratch144ScratchCardControllerPwsltd();
   final Random _scratch144_random_vnhqxt = Random();
-  var showResult=false;
-  List<int> winList=[];
-  List<Scratch144AaaRewardBeanFeifjoe> rewardList=[];
-  final ValueNotifier<Offset> scratch144_aaa_card_offset_hqzpmr = ValueNotifier<Offset>(Offset.zero);
-  final ValueNotifier<Duration> scratch144_aaa_card_anim_duration_mpwzqy = ValueNotifier<Duration>(const Duration(milliseconds: 340));
-  final ValueNotifier<bool> scratch144_aaa_card_switching_uqtxam = ValueNotifier<bool>(false);
+  var showResult = false;
+  List<int> winList = [];
+  List<Scratch144AaaRewardBeanFeifjoe> rewardList = [];
+  final ValueNotifier<Offset> scratch144_aaa_card_offset_hqzpmr =
+      ValueNotifier<Offset>(Offset.zero);
+  final ValueNotifier<Duration> scratch144_aaa_card_anim_duration_mpwzqy =
+      ValueNotifier<Duration>(const Duration(milliseconds: 340));
+  final ValueNotifier<bool> scratch144_aaa_card_switching_uqtxam =
+      ValueNotifier<bool>(false);
 
   @override
   void initState() {
@@ -44,15 +53,20 @@ class _Scratch144MoneyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
 
   @override
   Widget build(BuildContext context) => Container(
-    margin: EdgeInsets.only(left: 16.w,right: 16.w,top: 132.h),
+    margin: EdgeInsets.only(left: 16.w, right: 16.w, top: 132.h),
     child: Stack(
       children: [
-        Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "money2", scratch144Widthcpygxw: null, scratch144Heightvnnnnq: 205.h,boxFit: BoxFit.fitHeight,),
+        Scratch144LocalImagesWidgetGohzrl(
+          scratch144Nametrrwib: "money2",
+          scratch144Widthcpygxw: null,
+          scratch144Heightvnnnnq: 205.h,
+          boxFit: BoxFit.fitHeight,
+        ),
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(height: 114.h,),
-            Scratch144AaaWinUpViewFjweiofjoe(type: type,),
+            SizedBox(height: 114.h),
+            Scratch144AaaWinUpViewFjweiofjoe(type: type),
             _playWidget(),
           ],
         ),
@@ -60,68 +74,86 @@ class _Scratch144MoneyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
     ),
   );
 
-  _playWidget()=>ValueListenableBuilder<Duration>(
+  _playWidget() => ValueListenableBuilder<Duration>(
     valueListenable: scratch144_aaa_card_anim_duration_mpwzqy,
-    builder: (BuildContext scratch144_context_jvqpkh, Duration scratch144_duration_wcbxfn, Widget? scratch144_child_ffnqyr,) {
-      return ValueListenableBuilder<Offset>(
-        valueListenable: scratch144_aaa_card_offset_hqzpmr,
-        builder:
-            (
-            BuildContext scratch144_context_jvqpkh,
-            Offset scratch144_offset_mytpvq,
-            Widget? scratch144_child_ffnqyr,
-            ) {
-          return AnimatedSlide(
-            offset: scratch144_offset_mytpvq,
-            duration: scratch144_duration_wcbxfn,
-            curve: Curves.easeInOutCubic,
-            child: Scratch144ScratchCardWidgetPwsltd(
-              scratch144_width_qwntvi: double.infinity,
-              scratch144_height_eujpfh: 378.h,
-              scratch144_bottom_widget_fhpgka: _bottomWidget(),
-              scratch144_cover_image_vlywop: AssetImage("assets/scratch144bsbzmv/money1.webp",),
-              scratch144_cover_fit_uqvmxp: BoxFit.fill,
-              scratch144_controller_ptjlwm: controller,
-              scratch144_reveal_threshold_jfudce: 0.7,
-              scratch144_on_cover_hidden_mxqvte: (){
-                _onCoverHide();
-              },
-              scratch144_on_scratch_start_zqjpmr: (){
-                widget.playListener.startPlay(type);
-              },
-            ),
+    builder:
+        (
+          BuildContext scratch144_context_jvqpkh,
+          Duration scratch144_duration_wcbxfn,
+          Widget? scratch144_child_ffnqyr,
+        ) {
+          return ValueListenableBuilder<Offset>(
+            valueListenable: scratch144_aaa_card_offset_hqzpmr,
+            builder:
+                (
+                  BuildContext scratch144_context_jvqpkh,
+                  Offset scratch144_offset_mytpvq,
+                  Widget? scratch144_child_ffnqyr,
+                ) {
+                  return AnimatedSlide(
+                    offset: scratch144_offset_mytpvq,
+                    duration: scratch144_duration_wcbxfn,
+                    curve: Curves.easeInOutCubic,
+                    child: Scratch144ScratchCardWidgetPwsltd(
+                      scratch144_width_qwntvi: double.infinity,
+                      scratch144_height_eujpfh: 378.h,
+                      scratch144_bottom_widget_fhpgka: _bottomWidget(),
+                      scratch144_cover_image_vlywop: AssetImage(
+                        "assets/scratch144bsbzmv/money1.webp",
+                      ),
+                      scratch144_cover_fit_uqvmxp: BoxFit.fill,
+                      scratch144_controller_ptjlwm: controller,
+                      scratch144_reveal_threshold_jfudce: 0.7,
+                      scratch144_show_guide_hand_upnejl:
+                          widget.scratch144_show_guide_hand_upnejl,
+                      scratch144_on_cover_hidden_mxqvte: () {
+                        _onCoverHide();
+                      },
+                      scratch144_on_scratch_start_zqjpmr: () {
+                        widget.playListener.startPlay(type);
+                      },
+                    ),
+                  );
+                },
           );
         },
-      );
-    },
   );
 
-  _bottomWidget()=>SizedBox(
+  _bottomWidget() => SizedBox(
     width: double.infinity,
     height: 378.h,
     child: Stack(
       alignment: Alignment.topCenter,
       children: [
-        Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "money3", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+        Scratch144LocalImagesWidgetGohzrl(
+          scratch144Nametrrwib: "money3",
+          scratch144Widthcpygxw: double.infinity,
+          scratch144Heightvnnnnq: double.infinity,
+        ),
         Column(
           children: [
-            SizedBox(height: 9.h,),
+            SizedBox(height: 9.h),
             Scratch144TextWidgetPcbuin(
               scratch144Textannbiq: "Winning Numbers",
               scratch144Sizefbwmhh: 24.sp,
               scratch144FontWeightvzszvv: FontWeight.bold,
               scratch144TextColorrzkydb: Scratch144nwekyj.colorFFFFFF,
               scratch144OutLineColorbzjwzh: Scratch144nwekyj.color12508C,
-              scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+              scratch144fontFamilydwedowkd:
+                  Scratch144FontFamilydwedowkd.patuaone,
             ),
-            SizedBox(height: 4.h,),
+            SizedBox(height: 4.h),
             Container(
               width: double.infinity,
               height: 50.h,
-              margin: EdgeInsets.only(left: 16.w,right: 16.w),
+              margin: EdgeInsets.only(left: 16.w, right: 16.w),
               child: Stack(
                 children: [
-                  Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "money4", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+                  Scratch144LocalImagesWidgetGohzrl(
+                    scratch144Nametrrwib: "money4",
+                    scratch144Widthcpygxw: double.infinity,
+                    scratch144Heightvnnnnq: double.infinity,
+                  ),
                   MasonryGridView.count(
                     padding: const EdgeInsets.all(0),
                     itemCount: winList.length,
@@ -130,7 +162,8 @@ class _Scratch144MoneyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                     mainAxisSpacing: 0,
                     crossAxisSpacing: 0,
                     physics: NeverScrollableScrollPhysics(),
-                    itemBuilder: (context,index)=>_winNumItemWidget(winList[index]),
+                    itemBuilder: (context, index) =>
+                        _winNumItemWidget(winList[index]),
                   ),
                 ],
               ),
@@ -141,15 +174,20 @@ class _Scratch144MoneyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
               scratch144FontWeightvzszvv: FontWeight.bold,
               scratch144TextColorrzkydb: Scratch144nwekyj.colorFFFFFF,
               scratch144OutLineColorbzjwzh: Scratch144nwekyj.color12508C,
-              scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+              scratch144fontFamilydwedowkd:
+                  Scratch144FontFamilydwedowkd.patuaone,
             ),
             Container(
               width: double.infinity,
               height: 201.h,
-              margin: EdgeInsets.only(left: 16.w,right: 16.w),
+              margin: EdgeInsets.only(left: 16.w, right: 16.w),
               child: Stack(
                 children: [
-                  Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "money5", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+                  Scratch144LocalImagesWidgetGohzrl(
+                    scratch144Nametrrwib: "money5",
+                    scratch144Widthcpygxw: double.infinity,
+                    scratch144Heightvnnnnq: double.infinity,
+                  ),
                   MasonryGridView.count(
                     padding: const EdgeInsets.all(0),
                     itemCount: rewardList.length,
@@ -158,7 +196,8 @@ class _Scratch144MoneyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                     mainAxisSpacing: 0,
                     crossAxisSpacing: 0,
                     physics: NeverScrollableScrollPhysics(),
-                    itemBuilder: (context,index)=>_itemItemWidget(rewardList[index]),
+                    itemBuilder: (context, index) =>
+                        _itemItemWidget(rewardList[index]),
                   ),
                 ],
               ),
@@ -179,7 +218,8 @@ class _Scratch144MoneyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                     ],
                   ),
                   outlineColor: Scratch144nwekyj.color000000,
-                  scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+                  scratch144fontFamilydwedowkd:
+                      Scratch144FontFamilydwedowkd.patuaone,
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 16.h),
@@ -196,18 +236,19 @@ class _Scratch144MoneyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                       ],
                     ),
                     outlineColor: Scratch144nwekyj.color000000,
-                    scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+                    scratch144fontFamilydwedowkd:
+                        Scratch144FontFamilydwedowkd.patuaone,
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ],
     ),
   );
 
-  _winNumItemWidget(int data)=>Container(
+  _winNumItemWidget(int data) => Container(
     width: double.infinity,
     height: 50.h,
     alignment: Alignment.center,
@@ -220,8 +261,8 @@ class _Scratch144MoneyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
     ),
   );
 
-  _itemItemWidget(Scratch144AaaRewardBeanFeifjoe bean){
-    if(bean.win){
+  _itemItemWidget(Scratch144AaaRewardBeanFeifjoe bean) {
+    if (bean.win) {
       return SizedBox(
         width: double.infinity,
         height: 67.h,
@@ -234,7 +275,11 @@ class _Scratch144MoneyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                   width: double.infinity,
                   height: double.infinity,
                   color: Scratch144nwekyj.color000000.withOpacity(0.3),
-                  child: Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "play_guang", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+                  child: Scratch144LocalImagesWidgetGohzrl(
+                    scratch144Nametrrwib: "play_guang",
+                    scratch144Widthcpygxw: double.infinity,
+                    scratch144Heightvnnnnq: double.infinity,
+                  ),
                 ),
               ),
             ),
@@ -248,8 +293,10 @@ class _Scratch144MoneyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                       scratch144Textannbiq: bean.icon,
                       scratch144Sizefbwmhh: 32.sp,
                       scratch144TextColorrzkydb: Scratch144nwekyj.colorFFFFFF,
-                      scratch144OutLineColorbzjwzh: Scratch144nwekyj.color000000,
-                      scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+                      scratch144OutLineColorbzjwzh:
+                          Scratch144nwekyj.color000000,
+                      scratch144fontFamilydwedowkd:
+                          Scratch144FontFamilydwedowkd.patuaone,
                     ),
                   ),
                   Align(
@@ -267,7 +314,8 @@ class _Scratch144MoneyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                         ],
                       ),
                       outlineColor: Scratch144nwekyj.color000000,
-                      scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+                      scratch144fontFamilydwedowkd:
+                          Scratch144FontFamilydwedowkd.patuaone,
                     ),
                   ),
                 ],
@@ -290,7 +338,8 @@ class _Scratch144MoneyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
               scratch144Sizefbwmhh: 32.sp,
               scratch144TextColorrzkydb: Scratch144nwekyj.colorFFFFFF,
               scratch144OutLineColorbzjwzh: Scratch144nwekyj.color000000,
-              scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+              scratch144fontFamilydwedowkd:
+                  Scratch144FontFamilydwedowkd.patuaone,
             ),
           ),
           Align(
@@ -308,7 +357,8 @@ class _Scratch144MoneyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                 ],
               ),
               outlineColor: Scratch144nwekyj.color000000,
-              scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+              scratch144fontFamilydwedowkd:
+                  Scratch144FontFamilydwedowkd.patuaone,
             ),
           ),
           Visibility(
@@ -324,7 +374,7 @@ class _Scratch144MoneyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
     );
   }
 
-  _initRewardList(){
+  _initRewardList() {
     final List<int> scratch144_all_numbers_hxpmtq = List<int>.generate(
       99,
       (int index) => index + 1,
@@ -332,54 +382,59 @@ class _Scratch144MoneyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
     winList = scratch144_all_numbers_hxpmtq.take(3).toList();
 
     rewardList.clear();
-    showResult=false;
+    showResult = false;
     final bool scratch144_has_reward_mxvqpz =
         Scratch144AaaGameConfigUtilsFjeofjoe.instance.bigGameHasReward();
-    final int scratch144_win_match_count_pkztqv =
-        scratch144_has_reward_mxvqpz ? _scratch144_random_vnhqxt.nextInt(3) + 1 : 0;
+    final int scratch144_win_match_count_pkztqv = scratch144_has_reward_mxvqpz
+        ? _scratch144_random_vnhqxt.nextInt(3) + 1
+        : 0;
     final Set<int> scratch144_win_indexes_hqjptw = <int>{};
-    while (scratch144_win_indexes_hqjptw.length < scratch144_win_match_count_pkztqv) {
+    while (scratch144_win_indexes_hqjptw.length <
+        scratch144_win_match_count_pkztqv) {
       scratch144_win_indexes_hqjptw.add(_scratch144_random_vnhqxt.nextInt(12));
     }
 
-    final List<int> scratch144_non_win_pool_zhqpmw =
-        List<int>.generate(99, (int index) => index + 1)
-            .where((int value) => !winList.contains(value))
-            .toList();
+    final List<int> scratch144_non_win_pool_zhqpmw = List<int>.generate(
+      99,
+      (int index) => index + 1,
+    ).where((int value) => !winList.contains(value)).toList();
 
-    for (int scratch144_index_snxlrd = 0;
-        scratch144_index_snxlrd < 12;
-        scratch144_index_snxlrd++) {
-      final bool scratch144_is_win_hqnvzt =
-          scratch144_win_indexes_hqjptw.contains(scratch144_index_snxlrd);
+    for (
+      int scratch144_index_snxlrd = 0;
+      scratch144_index_snxlrd < 12;
+      scratch144_index_snxlrd++
+    ) {
+      final bool scratch144_is_win_hqnvzt = scratch144_win_indexes_hqjptw
+          .contains(scratch144_index_snxlrd);
       final int scratch144_number_vxqptw = scratch144_is_win_hqnvzt
           ? winList[_scratch144_random_vnhqxt.nextInt(winList.length)]
-          : scratch144_non_win_pool_zhqpmw[
-              _scratch144_random_vnhqxt.nextInt(scratch144_non_win_pool_zhqpmw.length)
-            ];
+          : scratch144_non_win_pool_zhqpmw[_scratch144_random_vnhqxt.nextInt(
+              scratch144_non_win_pool_zhqpmw.length,
+            )];
       rewardList.add(
         Scratch144AaaRewardBeanFeifjoe(
           icon: "$scratch144_number_vxqptw",
           win: scratch144_is_win_hqnvzt,
-          rewardNum: Scratch144AaaGameConfigUtilsFjeofjoe.instance.getRewardNum(type),
+          rewardNum: Scratch144AaaGameConfigUtilsFjeofjoe.instance.getRewardNum(
+            type,
+          ),
         ),
       );
     }
 
-
     setState(() {});
   }
 
-  _onCoverHide()async{
+  _onCoverHide() async {
     setState(() {
-      showResult=true;
+      showResult = true;
     });
     await Future.delayed(Duration(milliseconds: 1000));
-    var list = rewardList.where((value)=>value.win).toList();
-    if(list.isEmpty){
+    var list = rewardList.where((value) => value.win).toList();
+    if (list.isEmpty) {
       widget.playListener.playResult(type, 0);
-    }else{
-      widget.playListener.playResult(type, list.first.rewardNum*list.length);
+    } else {
+      widget.playListener.playResult(type, list.first.rewardNum * list.length);
     }
   }
 
@@ -387,23 +442,33 @@ class _Scratch144MoneyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
   bool scratch144_init_event_huwxya() => true;
 
   @override
-  void scratch144_handle_event_msg_fhngrw(int eventCode, int? intValue, String? strValue, anyValue) {
-    super.scratch144_handle_event_msg_fhngrw(eventCode, intValue, strValue, anyValue);
-    switch(eventCode){
+  void scratch144_handle_event_msg_fhngrw(
+    int eventCode,
+    int? intValue,
+    String? strValue,
+    anyValue,
+  ) {
+    super.scratch144_handle_event_msg_fhngrw(
+      eventCode,
+      intValue,
+      strValue,
+      anyValue,
+    );
+    switch (eventCode) {
       case Scratch144EventCodeLmdqps.aResetPlayView:
-        if(anyValue==type){
+        if (anyValue == type) {
           _reset();
         }
         break;
       case Scratch144EventCodeLmdqps.aAutoPlay:
-        if(anyValue==type){
+        if (anyValue == type) {
           _autoPlay();
         }
         break;
     }
   }
 
-  _autoPlay(){
+  _autoPlay() {
     if (scratch144_aaa_card_switching_uqtxam.value) {
       return;
     }

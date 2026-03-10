@@ -13,26 +13,34 @@ import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_bre
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_local_images_widget_gohzrl.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_text_widget_pcbuin.dart';
 
-class Scratch144TigerPlayViewDjwijow extends Scratch144StatefulWidgetJmndjv{
+class Scratch144TigerPlayViewDjwijow extends Scratch144StatefulWidgetJmndjv {
   Scratch144AaaPlayListener playListener;
+  bool scratch144_show_guide_hand_upnejl;
   Scratch144TigerPlayViewDjwijow({
     required this.playListener,
-});
-  
+    this.scratch144_show_guide_hand_upnejl = false,
+  });
+
   @override
   State<StatefulWidget> createState() => _Scratch144TigerPlayViewDjwijowState();
 }
 
-class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch144TigerPlayViewDjwijow>{
-  final Scratch144CardTypeEnumDwidjow _type=Scratch144CardTypeEnumDwidjow.tiger;
-  final Scratch144ScratchCardControllerPwsltd controller = Scratch144ScratchCardControllerPwsltd();
-  var tigerNum=0,showResult=false;
-  List<Scratch144AaaRewardBeanFeifjoe> rewardList=[];
-  final List<String> _otherIconList=["tiger5","tiger6","tiger7"];
+class _Scratch144TigerPlayViewDjwijowState
+    extends Scratch144Statemubfka<Scratch144TigerPlayViewDjwijow> {
+  final Scratch144CardTypeEnumDwidjow _type =
+      Scratch144CardTypeEnumDwidjow.tiger;
+  final Scratch144ScratchCardControllerPwsltd controller =
+      Scratch144ScratchCardControllerPwsltd();
+  var tigerNum = 0, showResult = false;
+  List<Scratch144AaaRewardBeanFeifjoe> rewardList = [];
+  final List<String> _otherIconList = ["tiger5", "tiger6", "tiger7"];
 
-  final ValueNotifier<Offset> scratch144_aaa_card_offset_hqzpmr = ValueNotifier<Offset>(Offset.zero);
-  final ValueNotifier<Duration> scratch144_aaa_card_anim_duration_mpwzqy = ValueNotifier<Duration>(const Duration(milliseconds: 340));
-  final ValueNotifier<bool> scratch144_aaa_card_switching_uqtxam = ValueNotifier<bool>(false);
+  final ValueNotifier<Offset> scratch144_aaa_card_offset_hqzpmr =
+      ValueNotifier<Offset>(Offset.zero);
+  final ValueNotifier<Duration> scratch144_aaa_card_anim_duration_mpwzqy =
+      ValueNotifier<Duration>(const Duration(milliseconds: 340));
+  final ValueNotifier<bool> scratch144_aaa_card_switching_uqtxam =
+      ValueNotifier<bool>(false);
 
   @override
   void initState() {
@@ -42,13 +50,17 @@ class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch
 
   @override
   Widget build(BuildContext context) => Container(
-    margin: EdgeInsets.only(left: 16.w,right: 16.w,top: 148.h),
+    margin: EdgeInsets.only(left: 16.w, right: 16.w, top: 148.h),
     child: Stack(
       children: [
         Stack(
           alignment: Alignment.bottomCenter,
           children: [
-            Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "tiger1", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: 196.h,),
+            Scratch144LocalImagesWidgetGohzrl(
+              scratch144Nametrrwib: "tiger1",
+              scratch144Widthcpygxw: double.infinity,
+              scratch144Heightvnnnnq: 196.h,
+            ),
             Container(
               margin: EdgeInsets.only(bottom: 34.h),
               child: Scratch144AaaWinUpViewFjweiofjoe(type: _type),
@@ -60,55 +72,68 @@ class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch
     ),
   );
 
-  _playWidget()=>Container(
+  _playWidget() => Container(
     margin: EdgeInsets.only(top: 170.h),
-    child:  ValueListenableBuilder<Duration>(
+    child: ValueListenableBuilder<Duration>(
       valueListenable: scratch144_aaa_card_anim_duration_mpwzqy,
-      builder: (BuildContext scratch144_context_jvqpkh, Duration scratch144_duration_wcbxfn, Widget? scratch144_child_ffnqyr,) {
-        return ValueListenableBuilder<Offset>(
-          valueListenable: scratch144_aaa_card_offset_hqzpmr,
-          builder:
-              (
-              BuildContext scratch144_context_jvqpkh,
-              Offset scratch144_offset_mytpvq,
-              Widget? scratch144_child_ffnqyr,
-              ) {
-            return AnimatedSlide(
-              offset: scratch144_offset_mytpvq,
-              duration: scratch144_duration_wcbxfn,
-              curve: Curves.easeInOutCubic,
-              child: Scratch144ScratchCardWidgetPwsltd(
-                scratch144_width_qwntvi: double.infinity,
-                scratch144_height_eujpfh: 347.h,
-                scratch144_bottom_widget_fhpgka: _bottomWidget(),
-                scratch144_cover_image_vlywop: AssetImage("assets/scratch144bsbzmv/tiger2.webp",),
-                scratch144_cover_fit_uqvmxp: BoxFit.fill,
-                scratch144_controller_ptjlwm: controller,
-                scratch144_reveal_threshold_jfudce: 0.7,
-                scratch144_on_cover_hidden_mxqvte: (){
-                  _onCoverHide();
-                },
-                scratch144_on_scratch_start_zqjpmr: (){
-                  widget.playListener.startPlay(_type);
-                },
-              ),
+      builder:
+          (
+            BuildContext scratch144_context_jvqpkh,
+            Duration scratch144_duration_wcbxfn,
+            Widget? scratch144_child_ffnqyr,
+          ) {
+            return ValueListenableBuilder<Offset>(
+              valueListenable: scratch144_aaa_card_offset_hqzpmr,
+              builder:
+                  (
+                    BuildContext scratch144_context_jvqpkh,
+                    Offset scratch144_offset_mytpvq,
+                    Widget? scratch144_child_ffnqyr,
+                  ) {
+                    return AnimatedSlide(
+                      offset: scratch144_offset_mytpvq,
+                      duration: scratch144_duration_wcbxfn,
+                      curve: Curves.easeInOutCubic,
+                      child: Scratch144ScratchCardWidgetPwsltd(
+                        scratch144_width_qwntvi: double.infinity,
+                        scratch144_height_eujpfh: 347.h,
+                        scratch144_bottom_widget_fhpgka: _bottomWidget(),
+                        scratch144_cover_image_vlywop: AssetImage(
+                          "assets/scratch144bsbzmv/tiger2.webp",
+                        ),
+                        scratch144_cover_fit_uqvmxp: BoxFit.fill,
+                        scratch144_controller_ptjlwm: controller,
+                        scratch144_reveal_threshold_jfudce: 0.7,
+                        scratch144_show_guide_hand_upnejl: widget.scratch144_show_guide_hand_upnejl,
+                        scratch144_guide_duration_ms_upnejl: 1800,
+                        scratch144_on_cover_hidden_mxqvte: () {
+                          _onCoverHide();
+                        },
+                        scratch144_on_scratch_start_zqjpmr: () {
+                          widget.playListener.startPlay(_type);
+                        },
+                      ),
+                    );
+                  },
             );
           },
-        );
-      },
     ),
   );
 
-  _bottomWidget()=>SizedBox(
+  _bottomWidget() => SizedBox(
     width: double.infinity,
     height: 347.h,
     child: Stack(
       children: [
-        Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "tiger3", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+        Scratch144LocalImagesWidgetGohzrl(
+          scratch144Nametrrwib: "tiger3",
+          scratch144Widthcpygxw: double.infinity,
+          scratch144Heightvnnnnq: double.infinity,
+        ),
         Align(
           alignment: Alignment.topCenter,
           child: Container(
-            margin: EdgeInsets.only(top: 42.h,left: 20.w,right: 20.w),
+            margin: EdgeInsets.only(top: 42.h, left: 20.w, right: 20.w),
             child: Scratch144LocalImagesWidgetGohzrl(
               scratch144Nametrrwib: _getFindImage(),
               scratch144Widthcpygxw: double.infinity,
@@ -124,7 +149,11 @@ class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch
             margin: EdgeInsets.all(16.w),
             child: Stack(
               children: [
-                Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "tiger4", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+                Scratch144LocalImagesWidgetGohzrl(
+                  scratch144Nametrrwib: "tiger4",
+                  scratch144Widthcpygxw: double.infinity,
+                  scratch144Heightvnnnnq: double.infinity,
+                ),
                 MasonryGridView.count(
                   padding: const EdgeInsets.all(0),
                   itemCount: rewardList.length,
@@ -133,7 +162,8 @@ class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch
                   mainAxisSpacing: 0,
                   crossAxisSpacing: 0,
                   physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (context,index)=>_itemItemWidget(rewardList[index]),
+                  itemBuilder: (context, index) =>
+                      _itemItemWidget(rewardList[index]),
                 ),
               ],
             ),
@@ -143,8 +173,8 @@ class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch
     ),
   );
 
-  _itemItemWidget(Scratch144AaaRewardBeanFeifjoe bean){
-    if(bean.win){
+  _itemItemWidget(Scratch144AaaRewardBeanFeifjoe bean) {
+    if (bean.win) {
       return SizedBox(
         width: double.infinity,
         height: 67.h,
@@ -157,7 +187,11 @@ class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch
                   width: double.infinity,
                   height: double.infinity,
                   color: Scratch144nwekyj.color000000.withOpacity(0.3),
-                  child: Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "play_guang", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+                  child: Scratch144LocalImagesWidgetGohzrl(
+                    scratch144Nametrrwib: "play_guang",
+                    scratch144Widthcpygxw: double.infinity,
+                    scratch144Heightvnnnnq: double.infinity,
+                  ),
                 ),
               ),
             ),
@@ -167,7 +201,11 @@ class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch
                 children: [
                   Align(
                     alignment: Alignment.topCenter,
-                    child: Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: bean.icon, scratch144Widthcpygxw: 48.w, scratch144Heightvnnnnq: 48.h,),
+                    child: Scratch144LocalImagesWidgetGohzrl(
+                      scratch144Nametrrwib: bean.icon,
+                      scratch144Widthcpygxw: 48.w,
+                      scratch144Heightvnnnnq: 48.h,
+                    ),
                   ),
                   Align(
                     alignment: Alignment.bottomCenter,
@@ -175,8 +213,10 @@ class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch
                       scratch144Textannbiq: "${bean.rewardNum}",
                       scratch144Sizefbwmhh: 26.sp,
                       scratch144TextColorrzkydb: Scratch144nwekyj.colorFCDE39,
-                      scratch144OutLineColorbzjwzh: Scratch144nwekyj.color000000,
-                      scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+                      scratch144OutLineColorbzjwzh:
+                          Scratch144nwekyj.color000000,
+                      scratch144fontFamilydwedowkd:
+                          Scratch144FontFamilydwedowkd.patuaone,
                     ),
                   ),
                 ],
@@ -210,38 +250,52 @@ class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch
     );
   }
 
-  _initRewardList(){
+  _initRewardList() {
     rewardList.clear();
-    showResult=false;
+    showResult = false;
     tigerNum = Scratch144AaaGameConfigUtilsFjeofjoe.instance.getTigerNum();
-    var rewardNum = Scratch144AaaGameConfigUtilsFjeofjoe.instance.getRewardNum(_type);
-    for(var index=0;index<tigerNum;index++){
-      rewardList.add(Scratch144AaaRewardBeanFeifjoe(icon: "tiger8", win: true, rewardNum: rewardNum));
+    var rewardNum = Scratch144AaaGameConfigUtilsFjeofjoe.instance.getRewardNum(
+      _type,
+    );
+    for (var index = 0; index < tigerNum; index++) {
+      rewardList.add(
+        Scratch144AaaRewardBeanFeifjoe(
+          icon: "tiger8",
+          win: true,
+          rewardNum: rewardNum,
+        ),
+      );
     }
-    while(rewardList.length<12){
-      rewardList.add(Scratch144AaaRewardBeanFeifjoe(icon: _otherIconList.random(), win: false, rewardNum: rewardNum));
+    while (rewardList.length < 12) {
+      rewardList.add(
+        Scratch144AaaRewardBeanFeifjoe(
+          icon: _otherIconList.random(),
+          win: false,
+          rewardNum: rewardNum,
+        ),
+      );
     }
     rewardList.shuffle();
     setState(() {});
   }
 
-  String _getFindImage(){
-    if(tigerNum>=0&&tigerNum<=10){
+  String _getFindImage() {
+    if (tigerNum >= 0 && tigerNum <= 10) {
       return "find$tigerNum";
     }
     return "find0";
   }
 
-  _onCoverHide()async{
+  _onCoverHide() async {
     setState(() {
-      showResult=true;
+      showResult = true;
     });
     await Future.delayed(Duration(milliseconds: 1000));
-    var list = rewardList.where((value)=>value.win).toList();
-    if(list.isEmpty){
+    var list = rewardList.where((value) => value.win).toList();
+    if (list.isEmpty) {
       widget.playListener.playResult(_type, 0);
-    }else{
-      widget.playListener.playResult(_type, list.first.rewardNum*list.length);
+    } else {
+      widget.playListener.playResult(_type, list.first.rewardNum * list.length);
     }
   }
 
@@ -249,23 +303,33 @@ class _Scratch144TigerPlayViewDjwijowState extends Scratch144Statemubfka<Scratch
   bool scratch144_init_event_huwxya() => true;
 
   @override
-  void scratch144_handle_event_msg_fhngrw(int eventCode, int? intValue, String? strValue, anyValue) {
-    super.scratch144_handle_event_msg_fhngrw(eventCode, intValue, strValue, anyValue);
-    switch(eventCode){
+  void scratch144_handle_event_msg_fhngrw(
+    int eventCode,
+    int? intValue,
+    String? strValue,
+    anyValue,
+  ) {
+    super.scratch144_handle_event_msg_fhngrw(
+      eventCode,
+      intValue,
+      strValue,
+      anyValue,
+    );
+    switch (eventCode) {
       case Scratch144EventCodeLmdqps.aResetPlayView:
-        if(anyValue==_type){
+        if (anyValue == _type) {
           _reset();
         }
         break;
       case Scratch144EventCodeLmdqps.aAutoPlay:
-        if(anyValue==_type){
+        if (anyValue == _type) {
           _autoPlay();
         }
         break;
     }
   }
 
-  _autoPlay(){
+  _autoPlay() {
     if (scratch144_aaa_card_switching_uqtxam.value) {
       return;
     }

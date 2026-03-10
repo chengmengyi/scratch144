@@ -16,33 +16,51 @@ import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_gra
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_local_images_widget_gohzrl.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_text_widget_pcbuin.dart';
 
-class Scratch144LuckyPlayViewFjwifjoejf extends Scratch144StatefulWidgetJmndjv{
+class Scratch144LuckyPlayViewFjwifjoejf extends Scratch144StatefulWidgetJmndjv {
   Scratch144AaaPlayListener playListener;
+  bool scratch144_show_guide_hand_upnejl;
   Scratch144LuckyPlayViewFjwifjoejf({
     required this.playListener,
+    this.scratch144_show_guide_hand_upnejl = false,
   });
   @override
-  State<StatefulWidget> createState() => _Scratch144LuckyPlayViewFjwifjoejfState();
+  State<StatefulWidget> createState() =>
+      _Scratch144LuckyPlayViewFjwifjoejfState();
 }
 
-class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scratch144LuckyPlayViewFjwifjoejf>{
-  final Scratch144CardTypeEnumDwidjow type=Scratch144CardTypeEnumDwidjow.luckyRich;
-  final Scratch144ScratchCardControllerPwsltd controller = Scratch144ScratchCardControllerPwsltd();
+class _Scratch144LuckyPlayViewFjwifjoejfState
+    extends Scratch144Statemubfka<Scratch144LuckyPlayViewFjwifjoejf> {
+  final Scratch144CardTypeEnumDwidjow type =
+      Scratch144CardTypeEnumDwidjow.luckyRich;
+  final Scratch144ScratchCardControllerPwsltd controller =
+      Scratch144ScratchCardControllerPwsltd();
   final Random _scratch144_random_qhvpxt = Random();
-  var showResult=false;
-  List<Scratch144AaaRewardBeanFeifjoe> rewardList1=[];
-  List<Scratch144AaaRewardBeanFeifjoe> rewardList2=[];
-  List<Scratch144AaaRewardBeanFeifjoe> rewardList3=[];
-  List<Scratch144AaaRewardBeanFeifjoe> get rewardList => <Scratch144AaaRewardBeanFeifjoe>[
-    ...rewardList1,
-    ...rewardList2,
-    ...rewardList3,
+  var showResult = false;
+  List<Scratch144AaaRewardBeanFeifjoe> rewardList1 = [];
+  List<Scratch144AaaRewardBeanFeifjoe> rewardList2 = [];
+  List<Scratch144AaaRewardBeanFeifjoe> rewardList3 = [];
+  List<Scratch144AaaRewardBeanFeifjoe> get rewardList =>
+      <Scratch144AaaRewardBeanFeifjoe>[
+        ...rewardList1,
+        ...rewardList2,
+        ...rewardList3,
+      ];
+  final String _lucky8 = "lucky12";
+  final List<String> _iconList = [
+    "lucky4",
+    "lucky5",
+    "lucky7",
+    "lucky8",
+    "lucky9",
+    "lucky10",
+    "lucky11",
   ];
-  final String _lucky8="lucky12";
-  final List<String> _iconList=["lucky4","lucky5","lucky7","lucky8","lucky9","lucky10","lucky11",];
-  final ValueNotifier<Offset> scratch144_aaa_card_offset_hqzpmr = ValueNotifier<Offset>(Offset.zero);
-  final ValueNotifier<Duration> scratch144_aaa_card_anim_duration_mpwzqy = ValueNotifier<Duration>(const Duration(milliseconds: 340));
-  final ValueNotifier<bool> scratch144_aaa_card_switching_uqtxam = ValueNotifier<bool>(false);
+  final ValueNotifier<Offset> scratch144_aaa_card_offset_hqzpmr =
+      ValueNotifier<Offset>(Offset.zero);
+  final ValueNotifier<Duration> scratch144_aaa_card_anim_duration_mpwzqy =
+      ValueNotifier<Duration>(const Duration(milliseconds: 340));
+  final ValueNotifier<bool> scratch144_aaa_card_switching_uqtxam =
+      ValueNotifier<bool>(false);
 
   @override
   void initState() {
@@ -52,11 +70,16 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
 
   @override
   Widget build(BuildContext context) => Container(
-    margin: EdgeInsets.only(left: 16.w,right: 16.w,top: 160.h),
+    margin: EdgeInsets.only(left: 16.w, right: 16.w, top: 160.h),
     child: Stack(
       alignment: Alignment.topCenter,
       children: [
-        Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "lucky1", scratch144Widthcpygxw: null, scratch144Heightvnnnnq: 110.h,boxFit: BoxFit.fitHeight,),
+        Scratch144LocalImagesWidgetGohzrl(
+          scratch144Nametrrwib: "lucky1",
+          scratch144Widthcpygxw: null,
+          scratch144Heightvnnnnq: 110.h,
+          boxFit: BoxFit.fitHeight,
+        ),
         _playWidget(context),
         Container(
           margin: EdgeInsets.only(top: 110.h),
@@ -66,56 +89,69 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
     ),
   );
 
-  _playWidget(BuildContext context)=>Container(
+  _playWidget(BuildContext context) => Container(
     margin: EdgeInsets.only(top: 100.h),
     child: ValueListenableBuilder<Duration>(
       valueListenable: scratch144_aaa_card_anim_duration_mpwzqy,
-      builder: (BuildContext scratch144_context_jvqpkh, Duration scratch144_duration_wcbxfn, Widget? scratch144_child_ffnqyr,) {
-        return ValueListenableBuilder<Offset>(
-          valueListenable: scratch144_aaa_card_offset_hqzpmr,
-          builder:
-              (
-              BuildContext scratch144_context_jvqpkh,
-              Offset scratch144_offset_mytpvq,
-              Widget? scratch144_child_ffnqyr,
-              ) {
-            return AnimatedSlide(
-              offset: scratch144_offset_mytpvq,
-              duration: scratch144_duration_wcbxfn,
-              curve: Curves.easeInOutCubic,
-              child: Scratch144ScratchCardWidgetPwsltd(
-                scratch144_width_qwntvi: double.infinity,
-                scratch144_height_eujpfh: 358.h,
-                scratch144_bottom_widget_fhpgka: _bottomWidget(context),
-                scratch144_cover_image_vlywop: AssetImage("assets/scratch144bsbzmv/lucky2.webp",),
-                scratch144_cover_fit_uqvmxp: BoxFit.fill,
-                scratch144_controller_ptjlwm: controller,
-                scratch144_reveal_threshold_jfudce: 0.7,
-                scratch144_on_cover_hidden_mxqvte: (){
-                  _onCoverHide();
-                },
-                scratch144_on_scratch_start_zqjpmr: (){
-                  widget.playListener.startPlay(type);
-                },
-              ),
+      builder:
+          (
+            BuildContext scratch144_context_jvqpkh,
+            Duration scratch144_duration_wcbxfn,
+            Widget? scratch144_child_ffnqyr,
+          ) {
+            return ValueListenableBuilder<Offset>(
+              valueListenable: scratch144_aaa_card_offset_hqzpmr,
+              builder:
+                  (
+                    BuildContext scratch144_context_jvqpkh,
+                    Offset scratch144_offset_mytpvq,
+                    Widget? scratch144_child_ffnqyr,
+                  ) {
+                    return AnimatedSlide(
+                      offset: scratch144_offset_mytpvq,
+                      duration: scratch144_duration_wcbxfn,
+                      curve: Curves.easeInOutCubic,
+                      child: Scratch144ScratchCardWidgetPwsltd(
+                        scratch144_width_qwntvi: double.infinity,
+                        scratch144_height_eujpfh: 358.h,
+                        scratch144_bottom_widget_fhpgka: _bottomWidget(context),
+                        scratch144_cover_image_vlywop: AssetImage(
+                          "assets/scratch144bsbzmv/lucky2.webp",
+                        ),
+                        scratch144_cover_fit_uqvmxp: BoxFit.fill,
+                        scratch144_controller_ptjlwm: controller,
+                        scratch144_reveal_threshold_jfudce: 0.7,
+                        scratch144_show_guide_hand_upnejl:
+                            widget.scratch144_show_guide_hand_upnejl,
+                        scratch144_on_cover_hidden_mxqvte: () {
+                          _onCoverHide();
+                        },
+                        scratch144_on_scratch_start_zqjpmr: () {
+                          widget.playListener.startPlay(type);
+                        },
+                      ),
+                    );
+                  },
             );
           },
-        );
-      },
     ),
   );
 
-  _bottomWidget(BuildContext context)=>SizedBox(
+  _bottomWidget(BuildContext context) => SizedBox(
     width: double.infinity,
     height: 358.h,
     child: Stack(
       alignment: Alignment.bottomCenter,
       children: [
-        Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "lucky3", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+        Scratch144LocalImagesWidgetGohzrl(
+          scratch144Nametrrwib: "lucky3",
+          scratch144Widthcpygxw: double.infinity,
+          scratch144Heightvnnnnq: double.infinity,
+        ),
         Container(
           width: double.infinity,
           height: 215.h,
-          margin: EdgeInsets.only(left: 16.w,right: 16.w,bottom: 50.h),
+          margin: EdgeInsets.only(left: 16.w, right: 16.w, bottom: 50.h),
           child: Row(
             children: [
               SizedBox(
@@ -123,7 +159,11 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                 height: double.infinity,
                 child: Stack(
                   children: [
-                    Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "lucky13", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+                    Scratch144LocalImagesWidgetGohzrl(
+                      scratch144Nametrrwib: "lucky13",
+                      scratch144Widthcpygxw: double.infinity,
+                      scratch144Heightvnnnnq: double.infinity,
+                    ),
                     MediaQuery.removePadding(
                       context: context,
                       removeTop: true,
@@ -132,19 +172,24 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                         shrinkWrap: true,
                         itemCount: rewardList1.length,
                         physics: NeverScrollableScrollPhysics(),
-                        itemBuilder: (context,index)=>_itemItemWidget(rewardList1[index]),
+                        itemBuilder: (context, index) =>
+                            _itemItemWidget(rewardList1[index]),
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(width: 6.w,),
+              SizedBox(width: 6.w),
               SizedBox(
                 width: 60.w,
                 height: double.infinity,
                 child: Stack(
                   children: [
-                    Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "lucky14", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+                    Scratch144LocalImagesWidgetGohzrl(
+                      scratch144Nametrrwib: "lucky14",
+                      scratch144Widthcpygxw: double.infinity,
+                      scratch144Heightvnnnnq: double.infinity,
+                    ),
                     MediaQuery.removePadding(
                       context: context,
                       removeTop: true,
@@ -153,17 +198,22 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                         shrinkWrap: true,
                         itemCount: rewardList2.length,
                         physics: NeverScrollableScrollPhysics(),
-                        itemBuilder: (context,index)=>_itemItemWidget(rewardList2[index]),
+                        itemBuilder: (context, index) =>
+                            _itemItemWidget(rewardList2[index]),
                       ),
                     ),
                   ],
                 ),
               ),
-              SizedBox(width: 14.w,),
+              SizedBox(width: 14.w),
               Expanded(
                 child: Stack(
                   children: [
-                    Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "lucky15", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+                    Scratch144LocalImagesWidgetGohzrl(
+                      scratch144Nametrrwib: "lucky15",
+                      scratch144Widthcpygxw: double.infinity,
+                      scratch144Heightvnnnnq: double.infinity,
+                    ),
                     MasonryGridView.count(
                       padding: const EdgeInsets.all(0),
                       itemCount: rewardList3.length,
@@ -172,7 +222,8 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                       mainAxisSpacing: 0,
                       crossAxisSpacing: 0,
                       physics: NeverScrollableScrollPhysics(),
-                      itemBuilder: (context,index)=>_itemItemWidget(rewardList3[index]),
+                      itemBuilder: (context, index) =>
+                          _itemItemWidget(rewardList3[index]),
                     ),
                   ],
                 ),
@@ -184,8 +235,8 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
     ),
   );
 
-  _itemItemWidget(Scratch144AaaRewardBeanFeifjoe bean){
-    if(bean.win){
+  _itemItemWidget(Scratch144AaaRewardBeanFeifjoe bean) {
+    if (bean.win) {
       return SizedBox(
         width: double.infinity,
         height: 71.h,
@@ -198,7 +249,11 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                   width: double.infinity,
                   height: double.infinity,
                   color: Scratch144nwekyj.color000000.withOpacity(0.3),
-                  child: Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "play_guang", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+                  child: Scratch144LocalImagesWidgetGohzrl(
+                    scratch144Nametrrwib: "play_guang",
+                    scratch144Widthcpygxw: double.infinity,
+                    scratch144Heightvnnnnq: double.infinity,
+                  ),
                 ),
               ),
             ),
@@ -209,7 +264,9 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                   Align(
                     alignment: Alignment.center,
                     child: Scratch144LocalImagesWidgetGohzrl(
-                      scratch144Nametrrwib: bean.winLuckyType==2?_lucky8:bean.icon,
+                      scratch144Nametrrwib: bean.winLuckyType == 2
+                          ? _lucky8
+                          : bean.icon,
                       scratch144Widthcpygxw: null,
                       scratch144Heightvnnnnq: 44.h,
                       boxFit: BoxFit.fitHeight,
@@ -230,7 +287,8 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
                         ],
                       ),
                       outlineColor: Scratch144nwekyj.color000000,
-                      scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+                      scratch144fontFamilydwedowkd:
+                          Scratch144FontFamilydwedowkd.patuaone,
                     ),
                   ),
                 ],
@@ -265,11 +323,11 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
     );
   }
 
-  _initRewardList(){
+  _initRewardList() {
     rewardList1.clear();
     rewardList2.clear();
     rewardList3.clear();
-    showResult=false;
+    showResult = false;
 
     final bool scratch144_has_8_win_hqvptr =
         Scratch144AaaGameConfigUtilsFjeofjoe.instance.luckyHas8Win();
@@ -280,14 +338,18 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
 
     int scratch144_pick_free_slot_gqvptw() {
       final List<int> scratch144_free_indexes_hqvptx = <int>[];
-      for (int scratch144_index_snxlrd = 0;
-          scratch144_index_snxlrd < scratch144_slots_kqvptw.length;
-          scratch144_index_snxlrd++) {
+      for (
+        int scratch144_index_snxlrd = 0;
+        scratch144_index_snxlrd < scratch144_slots_kqvptw.length;
+        scratch144_index_snxlrd++
+      ) {
         if (scratch144_slots_kqvptw[scratch144_index_snxlrd] == null) {
           scratch144_free_indexes_hqvptx.add(scratch144_index_snxlrd);
         }
       }
-      return scratch144_free_indexes_hqvptx[_scratch144_random_qhvpxt.nextInt(scratch144_free_indexes_hqvptx.length)];
+      return scratch144_free_indexes_hqvptx[_scratch144_random_qhvpxt.nextInt(
+        scratch144_free_indexes_hqvptx.length,
+      )];
     }
 
     if (scratch144_has_8_win_hqvptr) {
@@ -296,7 +358,8 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
           Scratch144AaaRewardBeanFeifjoe(
             icon: _lucky8,
             win: true,
-            rewardNum: Scratch144AaaGameConfigUtilsFjeofjoe.instance.getRewardNum(type),
+            rewardNum: Scratch144AaaGameConfigUtilsFjeofjoe.instance
+                .getRewardNum(type),
             winLuckyType: 2,
           );
     }
@@ -304,49 +367,62 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
     String? scratch144_win_icon_hqvptx;
     if (scratch144_has_3_icon_win_vqpkzt) {
       scratch144_win_icon_hqvptx = _iconList.random();
-      for (int scratch144_count_xqvptw = 0;
-          scratch144_count_xqvptw < 3;
-          scratch144_count_xqvptw++) {
+      for (
+        int scratch144_count_xqvptw = 0;
+        scratch144_count_xqvptw < 3;
+        scratch144_count_xqvptw++
+      ) {
         final int scratch144_index_hqvptx = scratch144_pick_free_slot_gqvptw();
         scratch144_slots_kqvptw[scratch144_index_hqvptx] =
             Scratch144AaaRewardBeanFeifjoe(
               icon: scratch144_win_icon_hqvptx!,
               win: true,
-              rewardNum: Scratch144AaaGameConfigUtilsFjeofjoe.instance.getRewardNum(type),
+              rewardNum: Scratch144AaaGameConfigUtilsFjeofjoe.instance
+                  .getRewardNum(type),
               winLuckyType: 1,
             );
       }
     }
 
-    final List<String> scratch144_fill_icons_qhvpxt = scratch144_has_3_icon_win_vqpkzt
+    final List<String> scratch144_fill_icons_qhvpxt =
+        scratch144_has_3_icon_win_vqpkzt
         ? _iconList
-            .where((String scratch144_icon_hqvptx) =>
-                scratch144_icon_hqvptx != scratch144_win_icon_hqvptx)
-            .toList()
+              .where(
+                (String scratch144_icon_hqvptx) =>
+                    scratch144_icon_hqvptx != scratch144_win_icon_hqvptx,
+              )
+              .toList()
         : List<String>.from(_iconList);
-    final Map<String, int> scratch144_fill_count_jqvptx =
-        <String, int>{for (final String icon in scratch144_fill_icons_qhvpxt) icon: 0};
+    final Map<String, int> scratch144_fill_count_jqvptx = <String, int>{
+      for (final String icon in scratch144_fill_icons_qhvpxt) icon: 0,
+    };
 
-    for (int scratch144_index_snxlrd = 0;
-        scratch144_index_snxlrd < scratch144_slots_kqvptw.length;
-        scratch144_index_snxlrd++) {
+    for (
+      int scratch144_index_snxlrd = 0;
+      scratch144_index_snxlrd < scratch144_slots_kqvptw.length;
+      scratch144_index_snxlrd++
+    ) {
       if (scratch144_slots_kqvptw[scratch144_index_snxlrd] != null) {
         continue;
       }
-      final List<String> scratch144_candidates_qhvpxt = scratch144_fill_icons_qhvpxt
-          .where((String icon) => (scratch144_fill_count_jqvptx[icon] ?? 0) < 2)
-          .toList();
+      final List<String> scratch144_candidates_qhvpxt =
+          scratch144_fill_icons_qhvpxt
+              .where(
+                (String icon) => (scratch144_fill_count_jqvptx[icon] ?? 0) < 2,
+              )
+              .toList();
       final String scratch144_icon_hqvptx =
           scratch144_candidates_qhvpxt.isNotEmpty
-              ? scratch144_candidates_qhvpxt.random()
-              : scratch144_fill_icons_qhvpxt.random();
+          ? scratch144_candidates_qhvpxt.random()
+          : scratch144_fill_icons_qhvpxt.random();
       scratch144_fill_count_jqvptx[scratch144_icon_hqvptx] =
           (scratch144_fill_count_jqvptx[scratch144_icon_hqvptx] ?? 0) + 1;
       scratch144_slots_kqvptw[scratch144_index_snxlrd] =
           Scratch144AaaRewardBeanFeifjoe(
             icon: scratch144_icon_hqvptx,
             win: false,
-            rewardNum: Scratch144AaaGameConfigUtilsFjeofjoe.instance.getRewardNum(type),
+            rewardNum: Scratch144AaaGameConfigUtilsFjeofjoe.instance
+                .getRewardNum(type),
             winLuckyType: 0,
           );
     }
@@ -364,23 +440,27 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
     setState(() {});
   }
 
-  _onCoverHide()async{
+  _onCoverHide() async {
     setState(() {
-      showResult=true;
+      showResult = true;
     });
     await Future.delayed(Duration(milliseconds: 1000));
-    var list = rewardList.where((value)=>value.win).toList();
-    if(list.isEmpty){
+    var list = rewardList.where((value) => value.win).toList();
+    if (list.isEmpty) {
       widget.playListener.playResult(type, 0);
-    }else{
-      var reward=0;
-      var win3List = rewardList.where((value)=>value.win&&value.winLuckyType==1).toList();
-      if(win3List.isNotEmpty){
-        reward+=win3List.fold(0, (sum, item) => sum + item.rewardNum);
+    } else {
+      var reward = 0;
+      var win3List = rewardList
+          .where((value) => value.win && value.winLuckyType == 1)
+          .toList();
+      if (win3List.isNotEmpty) {
+        reward += win3List.fold(0, (sum, item) => sum + item.rewardNum);
       }
-      var win8List = rewardList.where((value)=>value.win&&value.winLuckyType==2).toList();
-      if(win8List.isNotEmpty){
-        reward+=(win8List.fold(0, (sum, item) => sum + item.rewardNum))*8;
+      var win8List = rewardList
+          .where((value) => value.win && value.winLuckyType == 2)
+          .toList();
+      if (win8List.isNotEmpty) {
+        reward += (win8List.fold(0, (sum, item) => sum + item.rewardNum)) * 8;
       }
       widget.playListener.playResult(type, reward);
     }
@@ -390,23 +470,33 @@ class _Scratch144LuckyPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scra
   bool scratch144_init_event_huwxya() => true;
 
   @override
-  void scratch144_handle_event_msg_fhngrw(int eventCode, int? intValue, String? strValue, anyValue) {
-    super.scratch144_handle_event_msg_fhngrw(eventCode, intValue, strValue, anyValue);
-    switch(eventCode){
+  void scratch144_handle_event_msg_fhngrw(
+    int eventCode,
+    int? intValue,
+    String? strValue,
+    anyValue,
+  ) {
+    super.scratch144_handle_event_msg_fhngrw(
+      eventCode,
+      intValue,
+      strValue,
+      anyValue,
+    );
+    switch (eventCode) {
       case Scratch144EventCodeLmdqps.aResetPlayView:
-        if(anyValue==type){
+        if (anyValue == type) {
           _reset();
         }
         break;
       case Scratch144EventCodeLmdqps.aAutoPlay:
-        if(anyValue==type){
+        if (anyValue == type) {
           _autoPlay();
         }
         break;
     }
   }
 
-  _autoPlay(){
+  _autoPlay() {
     if (scratch144_aaa_card_switching_uqtxam.value) {
       return;
     }

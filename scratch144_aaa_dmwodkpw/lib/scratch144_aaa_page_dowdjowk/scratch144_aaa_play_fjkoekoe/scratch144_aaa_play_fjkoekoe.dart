@@ -20,53 +20,70 @@ import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_cli
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_local_images_widget_gohzrl.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_text_widget_pcbuin.dart';
 
-class Scratch144AaaPlayFjkoekoe extends Scratch144WidgetInhgkd<Scratch144AaaPlayControllerFjkoekoe>{
+class Scratch144AaaPlayFjkoekoe
+    extends Scratch144WidgetInhgkd<Scratch144AaaPlayControllerFjkoekoe> {
   @override
-  Scratch144AaaPlayControllerFjkoekoe scratch144_init_con_djqgmr() => Scratch144AaaPlayControllerFjkoekoe();
+  Scratch144AaaPlayControllerFjkoekoe scratch144_init_con_djqgmr() =>
+      Scratch144AaaPlayControllerFjkoekoe();
 
   @override
-  Scratch144WidgetTypezeuaqu scratch144_init_type_hqrwcn() => Scratch144WidgetTypezeuaqu.page;
+  Scratch144WidgetTypezeuaqu scratch144_init_type_hqrwcn() =>
+      Scratch144WidgetTypezeuaqu.page;
 
   @override
-  Widget scratch144_init_widget_xnblzi() => GetBuilder<Scratch144AaaPlayControllerFjkoekoe>(
-    id: "page",
-    builder: (_)=>Stack(
-      children: [
-        Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: scratch144Controllerwjbgnj.getBgImages(), scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
-        _getPlayWidget(),
-        Column(
+  Widget scratch144_init_widget_xnblzi() =>
+      GetBuilder<Scratch144AaaPlayControllerFjkoekoe>(
+        id: "page",
+        builder: (_) => Stack(
           children: [
-            Scratch144AaaTopViewFjeijfoe(
-              isPlayPage: true,
-              clickHome: (){
-                scratch144Controllerwjbgnj.clickHome();
-              },
+            Scratch144LocalImagesWidgetGohzrl(
+              scratch144Nametrrwib: scratch144Controllerwjbgnj.getBgImages(),
+              scratch144Widthcpygxw: double.infinity,
+              scratch144Heightvnnnnq: double.infinity,
             ),
-            SizedBox(height: 20.h,),
-            Scratch144UpLevelViewFjeifjeo(),
+            _getPlayWidget(),
+            Column(
+              children: [
+                Scratch144AaaTopViewFjeijfoe(
+                  isPlayPage: true,
+                  clickHome: () {
+                    scratch144Controllerwjbgnj.clickHome();
+                  },
+                ),
+                SizedBox(height: 20.h),
+                Scratch144UpLevelViewFjeifjeo(),
+              ],
+            ),
+            _bottomWidget(),
           ],
         ),
-        _bottomWidget(),
-      ],
-    ),
-  );
+      );
 
-  _bottomWidget()=>Align(
+  _bottomWidget() => Align(
     alignment: Alignment.bottomCenter,
     child: Container(
-      margin: EdgeInsets.only(bottom: 44.h,left: 20.w,right: 20.w),
+      margin: EdgeInsets.only(bottom: 44.h, left: 20.w, right: 20.w),
       child: Row(
         children: [
           Scratch144ClickWidgetMplwfm(
-            onTap: (){
+            onTap: () {
               scratch144Controllerwjbgnj.clickHome();
             },
             child: Stack(
               alignment: Alignment.bottomCenter,
               children: [
-                Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "more_bg", scratch144Widthcpygxw: 98.w, scratch144Heightvnnnnq: 76.h),
+                Scratch144LocalImagesWidgetGohzrl(
+                  scratch144Nametrrwib: "more_bg",
+                  scratch144Widthcpygxw: 98.w,
+                  scratch144Heightvnnnnq: 76.h,
+                ),
                 Container(
-                  padding: EdgeInsets.only(left: 6.w,right: 6.w,top: 2.h,bottom: 2.h),
+                  padding: EdgeInsets.only(
+                    left: 6.w,
+                    right: 6.w,
+                    top: 2.h,
+                    bottom: 2.h,
+                  ),
                   decoration: BoxDecoration(
                     color: Scratch144nwekyj.color1F1F1F.withOpacity(0.8),
                     borderRadius: BorderRadius.circular(16.w),
@@ -78,29 +95,35 @@ class Scratch144AaaPlayFjkoekoe extends Scratch144WidgetInhgkd<Scratch144AaaPlay
                   child: Scratch144TextWidgetPcbuin(
                     scratch144Textannbiq: "More Tickets",
                     scratch144Sizefbwmhh: 17.sp,
-                    scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+                    scratch144fontFamilydwedowkd:
+                        Scratch144FontFamilydwedowkd.patuaone,
                     scratch144TextColorrzkydb: Scratch144nwekyj.colorFFFFFF,
                     scratch144OutLineColorbzjwzh: Scratch144nwekyj.color000000,
                   ),
-                )
+                ),
               ],
             ),
           ),
-          SizedBox(width: 16.w,),
+          SizedBox(width: 16.w),
           Expanded(
             child: Scratch144ClickWidgetMplwfm(
-              onTap: (){
+              onTap: () {
                 scratch144Controllerwjbgnj.clickRevealAll();
               },
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "review_all_btn", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: 52.h),
+                  Scratch144LocalImagesWidgetGohzrl(
+                    scratch144Nametrrwib: "review_all_btn",
+                    scratch144Widthcpygxw: double.infinity,
+                    scratch144Heightvnnnnq: 52.h,
+                  ),
                   Scratch144TextWidgetPcbuin(
                     scratch144Textannbiq: "Reveal All",
                     scratch144Sizefbwmhh: 24.sp,
                     scratch144TextColorrzkydb: Scratch144nwekyj.colorFFFFFF,
-                    scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+                    scratch144fontFamilydwedowkd:
+                        Scratch144FontFamilydwedowkd.patuaone,
                     scratch144OutLineColorbzjwzh: Scratch144nwekyj.color000000,
                   ),
                 ],
@@ -112,35 +135,46 @@ class Scratch144AaaPlayFjkoekoe extends Scratch144WidgetInhgkd<Scratch144AaaPlay
     ),
   );
 
-  _getPlayWidget(){
-    switch(scratch144Controllerwjbgnj.type){
-      case Scratch144CardTypeEnumDwidjow.tiger: return Scratch144TigerPlayViewDjwijow(
-        playListener: scratch144Controllerwjbgnj,
-      );
-      case Scratch144CardTypeEnumDwidjow.emoji: return Scratch144AaaEmojiPlayViewFjwifjoejf(
-        playListener: scratch144Controllerwjbgnj,
-      );
-      case Scratch144CardTypeEnumDwidjow.bigGame: return Scratch144BigGamePlayViewFjwifjoejf(
-        playListener: scratch144Controllerwjbgnj,
-      );
-      case Scratch144CardTypeEnumDwidjow.hot77: return Scratch144Hot77PlayViewFjwifjoejf(
-        playListener: scratch144Controllerwjbgnj,
-      );
-      case Scratch144CardTypeEnumDwidjow.luckyRich: return Scratch144LuckyPlayViewFjwifjoejf(
-        playListener: scratch144Controllerwjbgnj,
-      );
-      case Scratch144CardTypeEnumDwidjow.sweet: return Scratch144SweetPlayViewFjwifjoejf(
-        playListener: scratch144Controllerwjbgnj,
-      );
-      case Scratch144CardTypeEnumDwidjow.moneyStorm: return Scratch144MoneyPlayViewFjwifjoejf(
-        playListener: scratch144Controllerwjbgnj,
-      );
-      case Scratch144CardTypeEnumDwidjow.fruit: return Scratch144FruitPlayViewFjwifjoejf(
-        playListener: scratch144Controllerwjbgnj,
-      );
-      case Scratch144CardTypeEnumDwidjow.mega: return Scratch144MegaPlayViewFjwifjoejf(
-        playListener: scratch144Controllerwjbgnj,
-      );
+  _getPlayWidget() {
+    switch (scratch144Controllerwjbgnj.type) {
+      case Scratch144CardTypeEnumDwidjow.tiger:
+        return Scratch144TigerPlayViewDjwijow(
+          playListener: scratch144Controllerwjbgnj,
+          scratch144_show_guide_hand_upnejl:
+              scratch144Controllerwjbgnj.scratch144_show_scratch_guide_upnejl,
+        );
+      case Scratch144CardTypeEnumDwidjow.emoji:
+        return Scratch144AaaEmojiPlayViewFjwifjoejf(
+          playListener: scratch144Controllerwjbgnj,
+        );
+      case Scratch144CardTypeEnumDwidjow.bigGame:
+        return Scratch144BigGamePlayViewFjwifjoejf(
+          playListener: scratch144Controllerwjbgnj,
+        );
+      case Scratch144CardTypeEnumDwidjow.hot77:
+        return Scratch144Hot77PlayViewFjwifjoejf(
+          playListener: scratch144Controllerwjbgnj,
+        );
+      case Scratch144CardTypeEnumDwidjow.luckyRich:
+        return Scratch144LuckyPlayViewFjwifjoejf(
+          playListener: scratch144Controllerwjbgnj,
+        );
+      case Scratch144CardTypeEnumDwidjow.sweet:
+        return Scratch144SweetPlayViewFjwifjoejf(
+          playListener: scratch144Controllerwjbgnj,
+        );
+      case Scratch144CardTypeEnumDwidjow.moneyStorm:
+        return Scratch144MoneyPlayViewFjwifjoejf(
+          playListener: scratch144Controllerwjbgnj,
+        );
+      case Scratch144CardTypeEnumDwidjow.fruit:
+        return Scratch144FruitPlayViewFjwifjoejf(
+          playListener: scratch144Controllerwjbgnj,
+        );
+      case Scratch144CardTypeEnumDwidjow.mega:
+        return Scratch144MegaPlayViewFjwifjoejf(
+          playListener: scratch144Controllerwjbgnj,
+        );
     }
   }
 }

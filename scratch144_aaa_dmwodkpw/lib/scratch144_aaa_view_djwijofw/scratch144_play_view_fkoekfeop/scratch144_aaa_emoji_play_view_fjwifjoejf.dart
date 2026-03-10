@@ -14,21 +14,28 @@ import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_gra
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_local_images_widget_gohzrl.dart';
 import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_text_widget_pcbuin.dart';
 
-class Scratch144AaaEmojiPlayViewFjwifjoejf extends Scratch144StatefulWidgetJmndjv{
+class Scratch144AaaEmojiPlayViewFjwifjoejf
+    extends Scratch144StatefulWidgetJmndjv {
   Scratch144AaaPlayListener playListener;
+  bool scratch144_show_guide_hand_upnejl;
   Scratch144AaaEmojiPlayViewFjwifjoejf({
     required this.playListener,
+    this.scratch144_show_guide_hand_upnejl = false,
   });
   @override
-  State<StatefulWidget> createState() => _Scratch144AaaEmojiPlayViewFjwifjoejfState();
+  State<StatefulWidget> createState() =>
+      _Scratch144AaaEmojiPlayViewFjwifjoejfState();
 }
 
-class _Scratch144AaaEmojiPlayViewFjwifjoejfState extends Scratch144Statemubfka<Scratch144AaaEmojiPlayViewFjwifjoejf>{
-  final Scratch144CardTypeEnumDwidjow type=Scratch144CardTypeEnumDwidjow.emoji;
-  final Scratch144ScratchCardControllerPwsltd controller = Scratch144ScratchCardControllerPwsltd();
-  var showResult=false;
-  List<Scratch144AaaRewardBeanFeifjoe> rewardList=[];
-  final List<String> _iconList=["emoji5","emoji6","emoji7"];
+class _Scratch144AaaEmojiPlayViewFjwifjoejfState
+    extends Scratch144Statemubfka<Scratch144AaaEmojiPlayViewFjwifjoejf> {
+  final Scratch144CardTypeEnumDwidjow type =
+      Scratch144CardTypeEnumDwidjow.emoji;
+  final Scratch144ScratchCardControllerPwsltd controller =
+      Scratch144ScratchCardControllerPwsltd();
+  var showResult = false;
+  List<Scratch144AaaRewardBeanFeifjoe> rewardList = [];
+  final List<String> _iconList = ["emoji5", "emoji6", "emoji7"];
   final List<List<int>> _scratch144_line_indexes_xkrqpt = const <List<int>>[
     <int>[0, 1, 2],
     <int>[3, 4, 5],
@@ -41,9 +48,12 @@ class _Scratch144AaaEmojiPlayViewFjwifjoejfState extends Scratch144Statemubfka<S
   ];
   String _scratch144_find_icon_cxptqm = "emoji5";
 
-  final ValueNotifier<Offset> scratch144_aaa_card_offset_hqzpmr = ValueNotifier<Offset>(Offset.zero);
-  final ValueNotifier<Duration> scratch144_aaa_card_anim_duration_mpwzqy = ValueNotifier<Duration>(const Duration(milliseconds: 340));
-  final ValueNotifier<bool> scratch144_aaa_card_switching_uqtxam = ValueNotifier<bool>(false);
+  final ValueNotifier<Offset> scratch144_aaa_card_offset_hqzpmr =
+      ValueNotifier<Offset>(Offset.zero);
+  final ValueNotifier<Duration> scratch144_aaa_card_anim_duration_mpwzqy =
+      ValueNotifier<Duration>(const Duration(milliseconds: 340));
+  final ValueNotifier<bool> scratch144_aaa_card_switching_uqtxam =
+      ValueNotifier<bool>(false);
 
   @override
   void initState() {
@@ -53,79 +63,101 @@ class _Scratch144AaaEmojiPlayViewFjwifjoejfState extends Scratch144Statemubfka<S
 
   @override
   Widget build(BuildContext context) => Container(
-    margin: EdgeInsets.only(left: 16.w,right: 16.w,top: 148.h),
+    margin: EdgeInsets.only(left: 16.w, right: 16.w, top: 148.h),
     child: Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "emoji1", scratch144Widthcpygxw: null, scratch144Heightvnnnnq: 150.h,boxFit: BoxFit.fitHeight,),
-        SizedBox(height: 10.h,),
+        Scratch144LocalImagesWidgetGohzrl(
+          scratch144Nametrrwib: "emoji1",
+          scratch144Widthcpygxw: null,
+          scratch144Heightvnnnnq: 150.h,
+          boxFit: BoxFit.fitHeight,
+        ),
+        SizedBox(height: 10.h),
         _playWidget(),
       ],
     ),
   );
 
-  _playWidget()=>ValueListenableBuilder<Duration>(
+  _playWidget() => ValueListenableBuilder<Duration>(
     valueListenable: scratch144_aaa_card_anim_duration_mpwzqy,
-    builder: (BuildContext scratch144_context_jvqpkh, Duration scratch144_duration_wcbxfn, Widget? scratch144_child_ffnqyr,) {
-      return ValueListenableBuilder<Offset>(
-        valueListenable: scratch144_aaa_card_offset_hqzpmr,
-        builder:
-            (
-            BuildContext scratch144_context_jvqpkh,
-            Offset scratch144_offset_mytpvq,
-            Widget? scratch144_child_ffnqyr,
-            ) {
-          return AnimatedSlide(
-            offset: scratch144_offset_mytpvq,
-            duration: scratch144_duration_wcbxfn,
-            curve: Curves.easeInOutCubic,
-            child: Stack(
-              children: [
-                Scratch144ScratchCardWidgetPwsltd(
-                  scratch144_width_qwntvi: double.infinity,
-                  scratch144_height_eujpfh: 338.h,
-                  scratch144_bottom_widget_fhpgka: _bottomWidget(),
-                  scratch144_cover_image_vlywop: AssetImage("assets/scratch144bsbzmv/emoji2.webp",),
-                  scratch144_cover_fit_uqvmxp: BoxFit.fill,
-                  scratch144_controller_ptjlwm: controller,
-                  scratch144_reveal_threshold_jfudce: 0.7,
-                  scratch144_on_cover_hidden_mxqvte: (){
-                    _onCoverHide();
-                  },
-                  scratch144_on_scratch_start_zqjpmr: (){
-                    widget.playListener.startPlay(type);
-                  },
-                ),
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: Container(
-                    margin: EdgeInsets.only(top: 10.h),
-                    child: Scratch144AaaWinUpViewFjweiofjoe(type: type),
-                  ),
-                ),
-              ],
-            ),
+    builder:
+        (
+          BuildContext scratch144_context_jvqpkh,
+          Duration scratch144_duration_wcbxfn,
+          Widget? scratch144_child_ffnqyr,
+        ) {
+          return ValueListenableBuilder<Offset>(
+            valueListenable: scratch144_aaa_card_offset_hqzpmr,
+            builder:
+                (
+                  BuildContext scratch144_context_jvqpkh,
+                  Offset scratch144_offset_mytpvq,
+                  Widget? scratch144_child_ffnqyr,
+                ) {
+                  return AnimatedSlide(
+                    offset: scratch144_offset_mytpvq,
+                    duration: scratch144_duration_wcbxfn,
+                    curve: Curves.easeInOutCubic,
+                    child: Stack(
+                      children: [
+                        Scratch144ScratchCardWidgetPwsltd(
+                          scratch144_width_qwntvi: double.infinity,
+                          scratch144_height_eujpfh: 338.h,
+                          scratch144_bottom_widget_fhpgka: _bottomWidget(),
+                          scratch144_cover_image_vlywop: AssetImage(
+                            "assets/scratch144bsbzmv/emoji2.webp",
+                          ),
+                          scratch144_cover_fit_uqvmxp: BoxFit.fill,
+                          scratch144_controller_ptjlwm: controller,
+                          scratch144_reveal_threshold_jfudce: 0.7,
+                          scratch144_show_guide_hand_upnejl:
+                              widget.scratch144_show_guide_hand_upnejl,
+                          scratch144_on_cover_hidden_mxqvte: () {
+                            _onCoverHide();
+                          },
+                          scratch144_on_scratch_start_zqjpmr: () {
+                            widget.playListener.startPlay(type);
+                          },
+                        ),
+                        Align(
+                          alignment: Alignment.topCenter,
+                          child: Container(
+                            margin: EdgeInsets.only(top: 10.h),
+                            child: Scratch144AaaWinUpViewFjweiofjoe(type: type),
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                },
           );
         },
-      );
-    },
   );
 
-  _bottomWidget()=>SizedBox(
+  _bottomWidget() => SizedBox(
     width: double.infinity,
     height: 338.h,
     child: Stack(
       children: [
-        Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "emoji3", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+        Scratch144LocalImagesWidgetGohzrl(
+          scratch144Nametrrwib: "emoji3",
+          scratch144Widthcpygxw: double.infinity,
+          scratch144Heightvnnnnq: double.infinity,
+        ),
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
             width: double.infinity,
             height: 231.h,
-            margin: EdgeInsets.only(left: 16.w,right: 16.w,bottom: 64.h),
+            margin: EdgeInsets.only(left: 16.w, right: 16.w, bottom: 64.h),
             child: Stack(
               children: [
-                Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "emoji4", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+                Scratch144LocalImagesWidgetGohzrl(
+                  scratch144Nametrrwib: "emoji4",
+                  scratch144Widthcpygxw: double.infinity,
+                  scratch144Heightvnnnnq: double.infinity,
+                ),
                 MasonryGridView.count(
                   padding: const EdgeInsets.all(0),
                   itemCount: rewardList.length,
@@ -134,7 +166,8 @@ class _Scratch144AaaEmojiPlayViewFjwifjoejfState extends Scratch144Statemubfka<S
                   mainAxisSpacing: 0,
                   crossAxisSpacing: 0,
                   physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (context,index)=>_itemItemWidget(rewardList[index]),
+                  itemBuilder: (context, index) =>
+                      _itemItemWidget(rewardList[index]),
                 ),
               ],
             ),
@@ -144,8 +177,8 @@ class _Scratch144AaaEmojiPlayViewFjwifjoejfState extends Scratch144Statemubfka<S
     ),
   );
 
-  _itemItemWidget(Scratch144AaaRewardBeanFeifjoe bean){
-    if(bean.win){
+  _itemItemWidget(Scratch144AaaRewardBeanFeifjoe bean) {
+    if (bean.win) {
       return SizedBox(
         width: double.infinity,
         height: 77.h,
@@ -158,7 +191,11 @@ class _Scratch144AaaEmojiPlayViewFjwifjoejfState extends Scratch144Statemubfka<S
                   width: double.infinity,
                   height: double.infinity,
                   color: Scratch144nwekyj.color000000.withOpacity(0.3),
-                  child: Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: "play_guang", scratch144Widthcpygxw: double.infinity, scratch144Heightvnnnnq: double.infinity),
+                  child: Scratch144LocalImagesWidgetGohzrl(
+                    scratch144Nametrrwib: "play_guang",
+                    scratch144Widthcpygxw: double.infinity,
+                    scratch144Heightvnnnnq: double.infinity,
+                  ),
                 ),
               ),
             ),
@@ -168,7 +205,11 @@ class _Scratch144AaaEmojiPlayViewFjwifjoejfState extends Scratch144Statemubfka<S
                 children: [
                   Align(
                     alignment: Alignment.topCenter,
-                    child: Scratch144LocalImagesWidgetGohzrl(scratch144Nametrrwib: bean.icon, scratch144Widthcpygxw: 67.w, scratch144Heightvnnnnq: 67.h,),
+                    child: Scratch144LocalImagesWidgetGohzrl(
+                      scratch144Nametrrwib: bean.icon,
+                      scratch144Widthcpygxw: 67.w,
+                      scratch144Heightvnnnnq: 67.h,
+                    ),
                   ),
                   Align(
                     alignment: Alignment.bottomCenter,
@@ -185,7 +226,8 @@ class _Scratch144AaaEmojiPlayViewFjwifjoejfState extends Scratch144Statemubfka<S
                         ],
                       ),
                       outlineColor: Scratch144nwekyj.color000000,
-                      scratch144fontFamilydwedowkd: Scratch144FontFamilydwedowkd.patuaone,
+                      scratch144fontFamilydwedowkd:
+                          Scratch144FontFamilydwedowkd.patuaone,
                     ),
                   ),
                 ],
@@ -219,9 +261,9 @@ class _Scratch144AaaEmojiPlayViewFjwifjoejfState extends Scratch144Statemubfka<S
     );
   }
 
-  _initRewardList(){
+  _initRewardList() {
     rewardList.clear();
-    showResult=false;
+    showResult = false;
     final bool scratch144_has_reward_yjpwqx =
         Scratch144AaaGameConfigUtilsFjeofjoe.instance.emojiHasReward();
     final Set<int> scratch144_win_indexes_cxjtrf = <int>{};
@@ -231,8 +273,10 @@ class _Scratch144AaaEmojiPlayViewFjwifjoejfState extends Scratch144Statemubfka<S
       final List<int> scratch144_win_line_pndqmo =
           _scratch144_line_indexes_xkrqpt.random();
       final List<String> scratch144_other_icons_wnpdzu = _iconList
-          .where((String scratch144_icon_lqxzfd) =>
-              scratch144_icon_lqxzfd != scratch144_win_icon_wvprkx)
+          .where(
+            (String scratch144_icon_lqxzfd) =>
+                scratch144_icon_lqxzfd != scratch144_win_icon_wvprkx,
+          )
           .toList();
       scratch144_icons_jtvxpn = _scratch144_build_board_with_line_tpbqxr(
         scratch144_win_icon_wvprkx: scratch144_win_icon_wvprkx,
@@ -245,14 +289,18 @@ class _Scratch144AaaEmojiPlayViewFjwifjoejfState extends Scratch144Statemubfka<S
       scratch144_icons_jtvxpn = _scratch144_build_board_without_line_yprkqw();
       _scratch144_find_icon_cxptqm = _iconList.random();
     }
-    for (int scratch144_index_snxlrd = 0;
-        scratch144_index_snxlrd < scratch144_icons_jtvxpn.length;
-        scratch144_index_snxlrd++) {
+    for (
+      int scratch144_index_snxlrd = 0;
+      scratch144_index_snxlrd < scratch144_icons_jtvxpn.length;
+      scratch144_index_snxlrd++
+    ) {
       rewardList.add(
         Scratch144AaaRewardBeanFeifjoe(
           icon: scratch144_icons_jtvxpn[scratch144_index_snxlrd],
           win: scratch144_win_indexes_cxjtrf.contains(scratch144_index_snxlrd),
-          rewardNum: Scratch144AaaGameConfigUtilsFjeofjoe.instance.getRewardNum(type),
+          rewardNum: Scratch144AaaGameConfigUtilsFjeofjoe.instance.getRewardNum(
+            type,
+          ),
         ),
       );
     }
@@ -264,17 +312,21 @@ class _Scratch144AaaEmojiPlayViewFjwifjoejfState extends Scratch144Statemubfka<S
     required List<int> scratch144_win_line_pndqmo,
     required List<String> scratch144_other_icons_wnpdzu,
   }) {
-    for (int scratch144_try_count_mxpkqv = 0;
-        scratch144_try_count_mxpkqv < 800;
-        scratch144_try_count_mxpkqv++) {
+    for (
+      int scratch144_try_count_mxpkqv = 0;
+      scratch144_try_count_mxpkqv < 800;
+      scratch144_try_count_mxpkqv++
+    ) {
       final List<String> scratch144_board_cwtnqh = List<String>.filled(9, '');
       for (final int scratch144_index_bjwxtm in scratch144_win_line_pndqmo) {
         scratch144_board_cwtnqh[scratch144_index_bjwxtm] =
             scratch144_win_icon_wvprkx;
       }
-      for (int scratch144_index_snxlrd = 0;
-          scratch144_index_snxlrd < scratch144_board_cwtnqh.length;
-          scratch144_index_snxlrd++) {
+      for (
+        int scratch144_index_snxlrd = 0;
+        scratch144_index_snxlrd < scratch144_board_cwtnqh.length;
+        scratch144_index_snxlrd++
+      ) {
         if (scratch144_board_cwtnqh[scratch144_index_snxlrd].isEmpty) {
           scratch144_board_cwtnqh[scratch144_index_snxlrd] =
               scratch144_other_icons_wnpdzu.random();
@@ -289,11 +341,15 @@ class _Scratch144AaaEmojiPlayViewFjwifjoejfState extends Scratch144Statemubfka<S
       }
     }
 
-    final List<String> scratch144_fallback_board_cwtnqh =
-        List<String>.filled(9, scratch144_other_icons_wnpdzu.first);
-    for (int scratch144_index_snxlrd = 0;
-        scratch144_index_snxlrd < scratch144_fallback_board_cwtnqh.length;
-        scratch144_index_snxlrd++) {
+    final List<String> scratch144_fallback_board_cwtnqh = List<String>.filled(
+      9,
+      scratch144_other_icons_wnpdzu.first,
+    );
+    for (
+      int scratch144_index_snxlrd = 0;
+      scratch144_index_snxlrd < scratch144_fallback_board_cwtnqh.length;
+      scratch144_index_snxlrd++
+    ) {
       if (scratch144_win_line_pndqmo.contains(scratch144_index_snxlrd)) {
         scratch144_fallback_board_cwtnqh[scratch144_index_snxlrd] =
             scratch144_win_icon_wvprkx;
@@ -306,9 +362,11 @@ class _Scratch144AaaEmojiPlayViewFjwifjoejfState extends Scratch144Statemubfka<S
   }
 
   List<String> _scratch144_build_board_without_line_yprkqw() {
-    for (int scratch144_try_count_mxpkqv = 0;
-        scratch144_try_count_mxpkqv < 1000;
-        scratch144_try_count_mxpkqv++) {
+    for (
+      int scratch144_try_count_mxpkqv = 0;
+      scratch144_try_count_mxpkqv < 1000;
+      scratch144_try_count_mxpkqv++
+    ) {
       final List<String> scratch144_board_cwtnqh = List<String>.generate(
         9,
         (_) => _iconList.random(),
@@ -330,8 +388,11 @@ class _Scratch144AaaEmojiPlayViewFjwifjoejfState extends Scratch144Statemubfka<S
     ];
   }
 
-  bool _scratch144_has_any_same_line_hqztvp(List<String> scratch144_board_cwtnqh) {
-    for (final List<int> scratch144_line_yqztpk in _scratch144_line_indexes_xkrqpt) {
+  bool _scratch144_has_any_same_line_hqztvp(
+    List<String> scratch144_board_cwtnqh,
+  ) {
+    for (final List<int> scratch144_line_yqztpk
+        in _scratch144_line_indexes_xkrqpt) {
       final String scratch144_first_icon_kxptqo =
           scratch144_board_cwtnqh[scratch144_line_yqztpk[0]];
       if (scratch144_first_icon_kxptqo ==
@@ -349,7 +410,8 @@ class _Scratch144AaaEmojiPlayViewFjwifjoejfState extends Scratch144Statemubfka<S
     required String scratch144_win_icon_wvprkx,
     required List<int> scratch144_win_line_pndqmo,
   }) {
-    for (final List<int> scratch144_line_yqztpk in _scratch144_line_indexes_xkrqpt) {
+    for (final List<int> scratch144_line_yqztpk
+        in _scratch144_line_indexes_xkrqpt) {
       final String scratch144_first_icon_kxptqo =
           scratch144_board_cwtnqh[scratch144_line_yqztpk[0]];
       final bool scratch144_same_line_zwnptq =
@@ -376,16 +438,16 @@ class _Scratch144AaaEmojiPlayViewFjwifjoejfState extends Scratch144Statemubfka<S
     return _scratch144_find_icon_cxptqm;
   }
 
-  _onCoverHide()async{
+  _onCoverHide() async {
     setState(() {
-      showResult=true;
+      showResult = true;
     });
     await Future.delayed(Duration(milliseconds: 1000));
-    var list = rewardList.where((value)=>value.win).toList();
-    if(list.isEmpty){
+    var list = rewardList.where((value) => value.win).toList();
+    if (list.isEmpty) {
       widget.playListener.playResult(type, 0);
-    }else{
-      widget.playListener.playResult(type, list.first.rewardNum*list.length);
+    } else {
+      widget.playListener.playResult(type, list.first.rewardNum * list.length);
     }
   }
 
@@ -393,23 +455,33 @@ class _Scratch144AaaEmojiPlayViewFjwifjoejfState extends Scratch144Statemubfka<S
   bool scratch144_init_event_huwxya() => true;
 
   @override
-  void scratch144_handle_event_msg_fhngrw(int eventCode, int? intValue, String? strValue, anyValue) {
-    super.scratch144_handle_event_msg_fhngrw(eventCode, intValue, strValue, anyValue);
-    switch(eventCode){
+  void scratch144_handle_event_msg_fhngrw(
+    int eventCode,
+    int? intValue,
+    String? strValue,
+    anyValue,
+  ) {
+    super.scratch144_handle_event_msg_fhngrw(
+      eventCode,
+      intValue,
+      strValue,
+      anyValue,
+    );
+    switch (eventCode) {
       case Scratch144EventCodeLmdqps.aResetPlayView:
-        if(anyValue==type){
+        if (anyValue == type) {
           _reset();
         }
         break;
       case Scratch144EventCodeLmdqps.aAutoPlay:
-        if(anyValue==type){
+        if (anyValue == type) {
           _autoPlay();
         }
         break;
     }
   }
 
-  _autoPlay(){
+  _autoPlay() {
     if (scratch144_aaa_card_switching_uqtxam.value) {
       return;
     }

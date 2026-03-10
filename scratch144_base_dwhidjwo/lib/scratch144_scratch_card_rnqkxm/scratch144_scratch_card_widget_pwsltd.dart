@@ -2,6 +2,7 @@ import 'dart:math' as math;
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:scratch144_base_dwhidjwo/scratch144_widget_inhgkd/scratch144_finger_widget_upnejl.dart';
 
 typedef Scratch144StartAutoDelegatePwsltd =
     Future<void> Function({
@@ -109,6 +110,8 @@ class Scratch144ScratchCardWidgetPwsltd extends StatefulWidget {
     this.scratch144_on_cover_hidden_mxqvte,
     this.scratch144_on_scratch_start_zqjpmr,
     this.scratch144_controller_ptjlwm,
+    this.scratch144_show_guide_hand_upnejl = false,
+    this.scratch144_guide_duration_ms_upnejl = 12000,
   });
 
   final Widget scratch144_bottom_widget_fhpgka;
@@ -123,6 +126,8 @@ class Scratch144ScratchCardWidgetPwsltd extends StatefulWidget {
   final VoidCallback? scratch144_on_cover_hidden_mxqvte;
   final VoidCallback? scratch144_on_scratch_start_zqjpmr;
   final Scratch144ScratchCardControllerPwsltd? scratch144_controller_ptjlwm;
+  final bool scratch144_show_guide_hand_upnejl;
+  final int scratch144_guide_duration_ms_upnejl;
 
   @override
   State<Scratch144ScratchCardWidgetPwsltd> createState() =>
@@ -130,11 +135,17 @@ class Scratch144ScratchCardWidgetPwsltd extends StatefulWidget {
 }
 
 class _Scratch144ScratchCardWidgetPwsltdState
-    extends State<Scratch144ScratchCardWidgetPwsltd> {
+    extends State<Scratch144ScratchCardWidgetPwsltd>
+    with SingleTickerProviderStateMixin {
   static const double _scratch144_grid_size_uqctms = 14;
+  static const double _scratch144_guide_finger_width_upnejl = 63;
+  static const double _scratch144_guide_finger_height_upnejl = 63;
+  static const double _scratch144_guide_finger_hotspot_dx_upnejl = 19;
+  static const double _scratch144_guide_finger_hotspot_dy_upnejl = 17;
 
   final List<Offset?> _scratch144_points_qjoklt = <Offset?>[];
   final Set<int> _scratch144_cells_xgmuki = <int>{};
+  late final AnimationController _scratch144_guide_controller_upnejl;
 
   ui.Image? _scratch144_cover_image_htmrpa;
   ImageStream? _scratch144_image_stream_jofmwb;
@@ -149,10 +160,23 @@ class _Scratch144ScratchCardWidgetPwsltdState
   Offset? _scratch144_last_pan_point_jbyxqk;
   bool _scratch144_cover_hidden_reported_xvqlpm = false;
   bool _scratch144_auto_running_bxqvzt = false;
+  bool _scratch144_guide_visible_upnejl = false;
+  bool _scratch144_guide_finished_upnejl = false;
+  bool _scratch144_guide_sync_scheduled_upnejl = false;
+  Size _scratch144_guide_size_upnejl = Size.zero;
+  List<Offset> _scratch144_guide_points_upnejl = <Offset>[];
+  List<double> _scratch144_guide_lengths_upnejl = <double>[];
+  double _scratch144_guide_total_length_upnejl = 0;
 
   @override
   void initState() {
     super.initState();
+    _scratch144_guide_controller_upnejl = AnimationController(
+      vsync: this,
+      duration: Duration(
+        milliseconds: _scratch144_get_guide_duration_ms_bxvqtp(),
+      ),
+    )..addStatusListener(_scratch144_handle_guide_status_upnejl);
     _scratch144_resolve_cover_image_dtimyl();
     widget.scratch144_controller_ptjlwm?.scratch144_bind_delegate_zfryvh(
       scratch144_start_auto_delegate_hmjpof:
@@ -180,12 +204,30 @@ class _Scratch144ScratchCardWidgetPwsltdState
         scratch144_reset_delegate_sgxqwu: _scratch144_reset_card_fqevyh,
       );
     }
+    if (oldWidget.scratch144_show_guide_hand_upnejl !=
+        widget.scratch144_show_guide_hand_upnejl) {
+      if (widget.scratch144_show_guide_hand_upnejl) {
+        _scratch144_guide_finished_upnejl = false;
+      } else {
+        _scratch144_stop_guide_hand_upnejl();
+      }
+      _scratch144_schedule_guide_sync_upnejl();
+    }
+    if (oldWidget.scratch144_guide_duration_ms_upnejl !=
+        widget.scratch144_guide_duration_ms_upnejl) {
+      _scratch144_guide_controller_upnejl.duration = Duration(
+        milliseconds: _scratch144_get_guide_duration_ms_bxvqtp(),
+      );
+    }
   }
 
   @override
   void dispose() {
     widget.scratch144_controller_ptjlwm?.scratch144_unbind_delegate_fswxla();
     _scratch144_remove_image_listener_jwdhns();
+    _scratch144_guide_controller_upnejl
+      ..removeStatusListener(_scratch144_handle_guide_status_upnejl)
+      ..dispose();
     super.dispose();
   }
 
@@ -235,6 +277,8 @@ class _Scratch144ScratchCardWidgetPwsltdState
   void _scratch144_reset_card_fqevyh() {
     _scratch144_auto_token_dvibyk++;
     if (!mounted) {
+      _scratch144_guide_visible_upnejl = false;
+      _scratch144_guide_finished_upnejl = false;
       return;
     }
     setState(() {
@@ -247,7 +291,12 @@ class _Scratch144ScratchCardWidgetPwsltdState
       _scratch144_last_pan_point_jbyxqk = null;
       _scratch144_cover_hidden_reported_xvqlpm = false;
       _scratch144_auto_running_bxqvzt = false;
+      _scratch144_guide_visible_upnejl = false;
+      _scratch144_guide_finished_upnejl = false;
     });
+    _scratch144_guide_controller_upnejl.stop();
+    _scratch144_guide_controller_upnejl.value = 0;
+    _scratch144_schedule_guide_sync_upnejl();
   }
 
   Future<void> _scratch144_start_auto_scratch_vewrnm({
@@ -272,6 +321,7 @@ class _Scratch144ScratchCardWidgetPwsltdState
     _scratch144_runtime_brush_radius_ljuzhx =
         scratch144_auto_brush_radius_krjtxv;
     _scratch144_last_pan_point_jbyxqk = null;
+    _scratch144_stop_guide_hand_upnejl();
     final List<Offset?> scratch144_path_iyqpnd =
         _scratch144_build_pattern_path_lqvwca(
           scratch144_pattern_mode_ystnqe,
@@ -1277,6 +1327,198 @@ class _Scratch144ScratchCardWidgetPwsltdState
     widget.scratch144_on_cover_hidden_mxqvte?.call();
   }
 
+  void _scratch144_handle_guide_status_upnejl(AnimationStatus status) {
+    if (status != AnimationStatus.completed || !mounted) {
+      return;
+    }
+    setState(() {
+      _scratch144_guide_visible_upnejl = false;
+      _scratch144_guide_finished_upnejl = true;
+    });
+  }
+
+  void _scratch144_stop_guide_hand_upnejl() {
+    _scratch144_guide_controller_upnejl.stop();
+    if (!mounted) {
+      _scratch144_guide_visible_upnejl = false;
+      return;
+    }
+    if (!_scratch144_guide_visible_upnejl) {
+      return;
+    }
+    setState(() {
+      _scratch144_guide_visible_upnejl = false;
+    });
+  }
+
+  bool _scratch144_should_show_guide_hand_upnejl() {
+    return widget.scratch144_show_guide_hand_upnejl &&
+        !_scratch144_revealed_uzdykl &&
+        !_scratch144_auto_running_bxqvzt &&
+        _scratch144_points_qjoklt.isEmpty &&
+        _scratch144_view_size_nrcpmx != Size.zero &&
+        !_scratch144_guide_finished_upnejl;
+  }
+
+  void _scratch144_schedule_guide_sync_upnejl() {
+    if (_scratch144_guide_sync_scheduled_upnejl) {
+      return;
+    }
+    _scratch144_guide_sync_scheduled_upnejl = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _scratch144_guide_sync_scheduled_upnejl = false;
+      if (!mounted) {
+        return;
+      }
+      _scratch144_sync_guide_hand_upnejl();
+    });
+  }
+
+  void _scratch144_sync_guide_hand_upnejl() {
+    if (!_scratch144_should_show_guide_hand_upnejl()) {
+      _scratch144_stop_guide_hand_upnejl();
+      return;
+    }
+    if (_scratch144_guide_size_upnejl != _scratch144_view_size_nrcpmx ||
+        _scratch144_guide_points_upnejl.isEmpty) {
+      _scratch144_rebuild_guide_path_upnejl();
+    }
+    if (_scratch144_guide_points_upnejl.length < 2 ||
+        _scratch144_guide_visible_upnejl) {
+      return;
+    }
+    setState(() {
+      _scratch144_guide_visible_upnejl = true;
+    });
+    _scratch144_guide_controller_upnejl.forward(from: 0);
+  }
+
+  void _scratch144_rebuild_guide_path_upnejl() {
+    final double scratch144_step_kjrsuz = math.max(
+      widget.scratch144_brush_radius_wzctmk * 0.54,
+      6,
+    );
+    final List<Offset> scratch144_guide_waypoints_umxqpl =
+        _scratch144_build_auto_four_waypoints_zvpkjm().skip(1).take(6).toList();
+    final List<Offset?> scratch144_path_points_gwqkxt =
+        _scratch144_build_gentle_curve_polyline_zhmlpf(
+          scratch144_guide_waypoints_umxqpl,
+          math.max(scratch144_step_kjrsuz * 0.38, 2.4),
+          (widget.scratch144_brush_radius_wzctmk * 0.5)
+              .clamp(3.5, 13.0)
+              .toDouble(),
+        );
+    final List<Offset> scratch144_guide_path_points_tzmxve = <Offset>[
+      Offset.zero,
+    ];
+    scratch144_guide_path_points_tzmxve.addAll(
+      scratch144_path_points_gwqkxt.whereType<Offset>().map(
+        _scratch144_convert_guide_anchor_offset_sjvkwp,
+      ),
+    );
+    _scratch144_guide_points_upnejl = scratch144_guide_path_points_tzmxve;
+    _scratch144_guide_lengths_upnejl = <double>[];
+    _scratch144_guide_total_length_upnejl = 0;
+    _scratch144_guide_size_upnejl = _scratch144_view_size_nrcpmx;
+    if (_scratch144_guide_points_upnejl.isEmpty) {
+      return;
+    }
+    _scratch144_guide_lengths_upnejl.add(0);
+    for (
+      int scratch144_index_snxlrd = 1;
+      scratch144_index_snxlrd < _scratch144_guide_points_upnejl.length;
+      scratch144_index_snxlrd++
+    ) {
+      _scratch144_guide_total_length_upnejl +=
+          (_scratch144_guide_points_upnejl[scratch144_index_snxlrd] -
+                  _scratch144_guide_points_upnejl[scratch144_index_snxlrd - 1])
+              .distance;
+      _scratch144_guide_lengths_upnejl.add(
+        _scratch144_guide_total_length_upnejl,
+      );
+    }
+  }
+
+  int _scratch144_get_guide_duration_ms_bxvqtp() {
+    return widget.scratch144_guide_duration_ms_upnejl.clamp(1800, 60000);
+  }
+
+  Offset _scratch144_convert_guide_anchor_offset_sjvkwp(
+    Offset scratch144_path_offset_dkmqvz,
+  ) {
+    final double scratch144_max_left_dqjzuw = math.max(
+      0,
+      _scratch144_view_size_nrcpmx.width -
+          _scratch144_guide_finger_width_upnejl,
+    );
+    final double scratch144_max_top_sgptmw = math.max(
+      0,
+      _scratch144_view_size_nrcpmx.height -
+          _scratch144_guide_finger_height_upnejl,
+    );
+    return Offset(
+      (scratch144_path_offset_dkmqvz.dx -
+              _scratch144_guide_finger_hotspot_dx_upnejl)
+          .clamp(0.0, scratch144_max_left_dqjzuw)
+          .toDouble(),
+      (scratch144_path_offset_dkmqvz.dy -
+              _scratch144_guide_finger_hotspot_dy_upnejl)
+          .clamp(0.0, scratch144_max_top_sgptmw)
+          .toDouble(),
+    );
+  }
+
+  Offset _scratch144_get_guide_offset_upnejl() {
+    if (_scratch144_guide_points_upnejl.isEmpty ||
+        _scratch144_guide_total_length_upnejl <= 0) {
+      return Offset.zero;
+    }
+    const double scratch144_trip_count_upnejl = 1;
+    double scratch144_raw_progress_upnejl =
+        _scratch144_guide_controller_upnejl.value *
+        scratch144_trip_count_upnejl;
+    if (scratch144_raw_progress_upnejl >= scratch144_trip_count_upnejl) {
+      scratch144_raw_progress_upnejl = scratch144_trip_count_upnejl - 0.0001;
+    }
+    final int scratch144_trip_index_upnejl = scratch144_raw_progress_upnejl
+        .floor();
+    final double scratch144_local_progress_upnejl =
+        scratch144_raw_progress_upnejl - scratch144_trip_index_upnejl;
+    final double scratch144_path_progress_upnejl =
+        scratch144_trip_index_upnejl.isOdd
+        ? 1 - scratch144_local_progress_upnejl
+        : scratch144_local_progress_upnejl;
+    final double scratch144_target_length_upnejl =
+        _scratch144_guide_total_length_upnejl * scratch144_path_progress_upnejl;
+    for (
+      int scratch144_index_snxlrd = 1;
+      scratch144_index_snxlrd < _scratch144_guide_lengths_upnejl.length;
+      scratch144_index_snxlrd++
+    ) {
+      final double scratch144_current_length_upnejl =
+          _scratch144_guide_lengths_upnejl[scratch144_index_snxlrd];
+      if (scratch144_target_length_upnejl > scratch144_current_length_upnejl) {
+        continue;
+      }
+      final double scratch144_prev_length_upnejl =
+          _scratch144_guide_lengths_upnejl[scratch144_index_snxlrd - 1];
+      final double scratch144_segment_length_upnejl =
+          scratch144_current_length_upnejl - scratch144_prev_length_upnejl;
+      final double scratch144_segment_progress_upnejl =
+          scratch144_segment_length_upnejl <= 0.001
+          ? 0
+          : (scratch144_target_length_upnejl - scratch144_prev_length_upnejl) /
+                scratch144_segment_length_upnejl;
+      return Offset.lerp(
+            _scratch144_guide_points_upnejl[scratch144_index_snxlrd - 1],
+            _scratch144_guide_points_upnejl[scratch144_index_snxlrd],
+            scratch144_segment_progress_upnejl,
+          ) ??
+          _scratch144_guide_points_upnejl[scratch144_index_snxlrd];
+    }
+    return _scratch144_guide_points_upnejl.last;
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -1312,6 +1554,7 @@ class _Scratch144ScratchCardWidgetPwsltdState
               scratch144_width_iurbkz,
               scratch144_height_hvotac,
             );
+            _scratch144_schedule_guide_sync_upnejl();
 
             final Widget scratch144_stack_xvkpql = SizedBox(
               width: scratch144_width_iurbkz,
@@ -1325,17 +1568,19 @@ class _Scratch144ScratchCardWidgetPwsltdState
                       ignoring: _scratch144_auto_running_bxqvzt,
                       child: GestureDetector(
                         behavior: HitTestBehavior.opaque,
-                        onPanStart: (DragStartDetails scratch144_details_xtqzew) {
-                          if (_scratch144_auto_running_bxqvzt) {
-                            return;
-                          }
-                          _scratch144_runtime_brush_radius_ljuzhx = null;
-                          _scratch144_last_pan_point_jbyxqk = null;
-                          widget.scratch144_on_scratch_start_zqjpmr?.call();
-                          _scratch144_handle_pan_update_yhprwu(
-                            scratch144_details_xtqzew.localPosition,
-                          );
-                        },
+                        onPanStart:
+                            (DragStartDetails scratch144_details_xtqzew) {
+                              if (_scratch144_auto_running_bxqvzt) {
+                                return;
+                              }
+                              _scratch144_stop_guide_hand_upnejl();
+                              _scratch144_runtime_brush_radius_ljuzhx = null;
+                              _scratch144_last_pan_point_jbyxqk = null;
+                              widget.scratch144_on_scratch_start_zqjpmr?.call();
+                              _scratch144_handle_pan_update_yhprwu(
+                                scratch144_details_xtqzew.localPosition,
+                              );
+                            },
                         onPanUpdate:
                             (DragUpdateDetails scratch144_details_xcpuzh) {
                               _scratch144_handle_pan_update_yhprwu(
@@ -1377,6 +1622,35 @@ class _Scratch144ScratchCardWidgetPwsltdState
                               _scratch144_paint_version_kmztqr,
                           scratch144_cover_fit_uqvmxp:
                               widget.scratch144_cover_fit_uqvmxp,
+                        ),
+                      ),
+                    ),
+                  if (_scratch144_guide_visible_upnejl &&
+                      _scratch144_guide_points_upnejl.length > 1)
+                    IgnorePointer(
+                      child: AnimatedBuilder(
+                        animation: _scratch144_guide_controller_upnejl,
+                        builder:
+                            (
+                              BuildContext scratch144_context_guide_upnejl,
+                              Widget? scratch144_child_guide_upnejl,
+                            ) {
+                              final Offset scratch144_guide_offset_upnejl =
+                                  _scratch144_get_guide_offset_upnejl();
+                              return Transform.translate(
+                                offset: scratch144_guide_offset_upnejl,
+                                child: scratch144_child_guide_upnejl,
+                              );
+                            },
+                        child: Opacity(
+                          opacity: 0.95,
+                          child: Scratch144FingerWidgetUpnejl(
+                            scratch144Widthcpygxw:
+                                _scratch144_guide_finger_width_upnejl,
+                            scratch144Heightvnnnnq:
+                                _scratch144_guide_finger_height_upnejl,
+                            scratch144_alignment_qmxvpt: Alignment.topLeft,
+                          ),
                         ),
                       ),
                     ),
@@ -1495,7 +1769,10 @@ class _Scratch144ScratchCoverPainterPwsltd extends CustomPainter {
         scratch144_last_point_gzqwux.dx,
         scratch144_last_point_gzqwux.dy,
       );
-      canvas.drawPath(scratch144_path_pxkloj, scratch144_clear_line_paint_vjrxot);
+      canvas.drawPath(
+        scratch144_path_pxkloj,
+        scratch144_clear_line_paint_vjrxot,
+      );
       scratch144_stroke_points_eblrzj.clear();
     }
 
